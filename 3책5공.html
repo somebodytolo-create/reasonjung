@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3책5공 완벽 정리 (26년도)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root {
+  --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe;
+  --red: #dc2626; --red-light: #fef2f2; --red-mid: #fecaca;
+  --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
+  --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
+  --책-c: #dc2626; --책-bg: #fef2f2; --책-b: #fecaca;
+  --공-c: #1d4ed8; --공-bg: #eff6ff; --공-b: #bfdbfe;
+  --제외-c: #166534; --제외-bg: #f0fdf4; --제외-b: #bbf7d0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
+  color: var(--text); background: var(--bg); font-size: 13px;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.page-nav {
+  display: flex; align-items: center; gap: 16px;
+  padding: 11px 24px; border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+  position: sticky; top: 0; z-index: 200;
+}
+.back-link { font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.back-link:hover { text-decoration: underline; }
+.nav-sep { color: var(--border2); }
+.nav-title { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+.page-hero { padding: 28px 24px 20px; background: var(--white); border-bottom: 1px solid var(--border); }
+.page-title { font-size: 22px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 4px; }
+.page-sub { font-size: 13px; color: var(--muted); }
+
+.toolbar {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  position: sticky; top: 48px; z-index: 100;
+}
+.key-rule {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--red-light); border: 1.5px solid var(--red-mid);
+  border-radius: 10px; padding: 6px 16px; font-size: 13px; font-weight: 600;
+}
+.num-책 { color: var(--책-c); font-size: 24px; font-weight: 900; line-height: 1; }
+.num-공 { color: var(--공-c); font-size: 24px; font-weight: 900; line-height: 1; }
+.key-sep { color: var(--muted2); }
+.toc-links { display: flex; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+.toc-btn {
+  padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 500;
+  background: var(--bg); border: 1.5px solid var(--border2);
+  color: var(--text2); cursor: pointer; text-decoration: none; font-family: inherit;
+  transition: all .15s;
+}
+.toc-btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+
+.container { max-width: 1050px; margin: 0 auto; padding: 20px 24px 60px; }
+
+.section { margin-bottom: 24px; }
+.sec-head {
+  font-size: 14px; font-weight: 700; color: var(--text);
+  padding: 10px 14px; background: var(--blue-light);
+  border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0;
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+}
+.section-body { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+
+/* Concept */
+.concept-box { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+@media (max-width: 600px) { .concept-box { grid-template-columns: 1fr; } }
+.concept-card { border-radius: 12px; padding: 20px; text-align: center; }
+.cc-책 { background: var(--책-bg); border: 2px solid var(--책-b); }
+.cc-공 { background: var(--공-bg); border: 2px solid var(--공-b); }
+.concept-num { font-size: 56px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.cc-책 .concept-num { color: var(--책-c); }
+.cc-공 .concept-num { color: var(--공-c); }
+.concept-label { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.concept-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.concept-rule { background: var(--white); border-radius: 6px; padding: 5px 10px; margin-top: 10px; font-size: 12px; border: 1px solid var(--border); }
+
+.info-box {
+  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+  border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px;
+  font-size: 13px; line-height: 1.8;
+}
+.warn-box {
+  background: var(--red-light); border: 1px solid var(--red-mid); border-left: 4px solid var(--red);
+  border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px;
+  font-size: 13px; line-height: 1.8;
+}
+.box-title { font-weight: 700; margin-bottom: 6px; font-size: 13.5px; }
+.info-box .box-title { color: #92400e; }
+.warn-box .box-title { color: var(--red); }
+
+.flow-box {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  padding: 14px 16px; background: var(--bg); border-radius: 10px;
+  border: 1px solid var(--border); font-size: 13px;
+}
+.flow-step { background: var(--blue); color: white; border-radius: 8px; padding: 5px 14px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.flow-arr { color: var(--muted2); font-size: 18px; }
+.highlight { background: #fef3c7; border-radius: 3px; padding: 0 3px; font-weight: 600; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+thead th {
+  background: #eef3fb; color: #1c1c1e; padding: 10px 12px;
+  text-align: center; font-size: 12px; font-weight: 700;
+  border-bottom: 2px solid #bfdbfe; letter-spacing: .02em;
+}
+thead th:first-child { text-align: left; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--bg); }
+.cat-cell { background: #f0f6ff; font-weight: 700; font-size: 12px; color: var(--blue-dark); text-align: center; white-space: nowrap; }
+
+/* Tag badges */
+.tag {
+  display: inline-block; border-radius: 100px; padding: 2px 10px;
+  font-size: 11.5px; font-weight: 700; border: 1.5px solid;
+}
+.tag-책 { color: var(--책-c); background: var(--책-bg); border-color: var(--책-b); }
+.tag-공 { color: var(--공-c); background: var(--공-bg); border-color: var(--공-b); }
+.tag-제외 { color: var(--제외-c); background: var(--제외-bg); border-color: var(--제외-b); }
+
+/* Q&A */
+.qa-list { display: flex; flex-direction: column; gap: 8px; }
+.qa-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.qa-q {
+  background: var(--bg); padding: 12px 16px; font-weight: 600; font-size: 13px;
+  cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  transition: background .15s;
+}
+.qa-q:hover { background: var(--blue-light); }
+.qa-a { padding: 14px 16px; font-size: 13px; line-height: 1.8; border-top: 1px solid var(--border); display: none; background: var(--white); }
+.qa-item.open .qa-a { display: block; }
+.qa-item.open .qa-q { background: var(--blue-light); color: var(--blue-dark); }
+.qa-arrow { flex-shrink: 0; transition: transform .2s; font-size: 12px; color: var(--muted); }
+.qa-item.open .qa-arrow { transform: rotate(180deg); }
+
+.note { font-size: 11.5px; color: var(--muted); margin-top: 4px; display: block; line-height: 1.6; }
+footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+
+@media (max-width: 600px) {
+  .page-hero { padding: 20px 16px; }
+  .container { padding: 16px 12px 40px; }
+  .toolbar { padding: 10px 12px; top: 46px; }
+  .key-rule { font-size: 12px; padding: 5px 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="page-nav">
+  <a class="back-link" href="매뉴얼검색_독립실행.html">← 검색으로 돌아가기</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-title">3책5공 완벽 정리</span>
+</nav>
+
+<div class="page-hero">
+  <h1 class="page-title">🔢 3책5공 완벽 정리</h1>
+  <p class="page-sub">국가연구개발사업 동시수행 연구개발과제 수 제한 기준 · 혁신법 시행령 제64조 · 26년도 기준</p>
+</div>
+
+<div class="toolbar">
+  <div class="key-rule">
+    <span>연구책임자</span>
+    <span class="num-책">3</span>개 이내
+    <span class="key-sep">|</span>
+    <span>참여연구자</span>
+    <span class="num-공">5</span>개 이내
+    <span style="font-size:11px;color:var(--muted);">(이 중 책임자로 3개)</span>
+  </div>
+  <div class="toc-links">
+    <a class="toc-btn" href="#concept">기본개념</a>
+    <a class="toc-btn" href="#table216">기관유형</a>
+    <a class="toc-btn" href="#exception">적용제외</a>
+    <a class="toc-btn" href="#qa">Q&amp;A</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 기본 개념 -->
+  <div id="concept" class="section">
+    <div class="sec-head">🎯 핵심 개념 — "3책5공"이란?</div>
+    <div class="section-body">
+      <div class="concept-box">
+        <div class="concept-card cc-책">
+          <div class="concept-num">3</div>
+          <div class="concept-label" style="color:var(--책-c)">책임자 제한</div>
+          <div class="concept-desc">
+            <strong>연구책임자</strong>로서<br>최대 <strong>3개</strong> 과제 동시 수행 가능
+            <div class="concept-rule">주관기관 연구책임자 기준</div>
+          </div>
+        </div>
+        <div class="concept-card cc-공">
+          <div class="concept-num">5</div>
+          <div class="concept-label" style="color:var(--공-c)">참여 제한</div>
+          <div class="concept-desc">
+            <strong>참여연구자</strong>로서<br>최대 <strong>5개</strong> 과제 동시 수행 가능<br>
+            <span style="font-size:12px;">(이 중 연구책임자로 3개 이내 포함)</span>
+            <div class="concept-rule">공동기관 참여연구자 포함</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="box-title">🌐 국제공동연구 특례 (+1개 추가)</div>
+        외국법인과 공동수행하는 <strong>국제공동연구과제</strong> 수행 시:<br>
+        참여연구자로 <strong>6개</strong> 이내 (일반 5개 +1), 연구책임자로 <strong>4개</strong> 이내 (일반 3개 +1) 동시 수행 가능<br>
+        <span class="note">※ 공동기관형 국제공동연구과제 수행 시 1개 과제 추가 수행 가능</span>
+      </div>
+
+      <div class="flow-box">
+        <div class="flow-step">1단계</div>
+        <div class="flow-arr">→</div>
+        <div>사업 추진계획 예고 및 과제 공모 시 <span class="highlight">3책5공 적용/적용제외 여부 고지</span></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step">2단계</div>
+        <div class="flow-arr">→</div>
+        <div>과제 선정 과정에서 <span class="highlight">참여연구자의 3책5공 해당여부 확인</span></div>
+        <div class="flow-arr">→</div>
+        <div class="flow-step">3단계</div>
+        <div class="flow-arr">→</div>
+        <div>해당 시 <span class="highlight">부처·전문기관과 협의하여 참여과제 조정</span></div>
+      </div>
+      <span class="note" style="margin-top:8px;">※ 과제 수 제한 결정 주체: 소관 부처 (부처가 3책5공 적용/적용제외 여부 결정)</span>
+    </div>
+  </div>
+
+  <!-- 기관유형별 구분 -->
+  <div id="table216" class="section">
+    <div class="sec-head">📋 〈표 2-16〉 기관유형별 연구책임자/참여연구자 구분 기준</div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr><th style="width:180px">기관 구분</th><th>책임자 (3책 산정)</th><th>책임자 외 연구자 (5공 산정)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cat-cell">주관연구개발기관</td>
+            <td><span class="tag tag-책">연구책임자</span> — 3책 산정 대상</td>
+            <td><span class="tag tag-공">참여연구자</span> — 5공 산정 대상</td>
+          </tr>
+          <tr>
+            <td class="cat-cell">공동연구개발기관</td>
+            <td colspan="2" style="text-align:center;"><span class="tag tag-공">참여연구자</span> — 5공 산정 대상<br><span class="note">※ 공동기관의 책임자도 참여연구자로 산정 (3책 미산정)</span></td>
+          </tr>
+          <tr>
+            <td class="cat-cell">위탁연구개발기관</td>
+            <td colspan="2" style="text-align:center;"><span class="tag tag-제외">산정 제외</span> — 3책5공 산정에서 제외</td>
+          </tr>
+          <tr>
+            <td class="cat-cell">연구근접지원인력<br>연구지원인력</td>
+            <td colspan="2" style="text-align:center;"><span class="tag tag-제외">산정 제외</span> — 3책5공 산정에서 제외</td>
+          </tr>
+        </tbody>
+      </table>
+      <span class="note" style="margin-top:8px;">※ "연구개발과제" 단위 = 중앙행정기관의 장(전문기관의 장)과 맺는 협약체결의 단위 (구 "세부과제" 포함)</span>
+      <span class="note">※ 총괄주관기관-세부주관기관 구조에서 총괄주관기관 연구책임자만 3책 산정, 세부주관기관 연구책임자는 공동기관 참여연구자로 산정</span>
+    </div>
+  </div>
+
+  <!-- 적용제외 -->
+  <div id="exception" class="section">
+    <div class="sec-head">✅ 〈표 2-17〉 3책5공 적용제외 가능 요건 (혁신법 시행령 §64②·③)</div>
+    <div class="section-body">
+      <div class="warn-box" style="margin-bottom:16px;">
+        <div class="box-title">⚠️ 중요</div>
+        적용제외 <strong>가능</strong> 과제라도, 소관 <strong>부처가 3책5공을 적용제외하지 않으면 여전히 적용됨</strong>.<br>
+        적용 여부 최종 결정은 항상 <strong>소관 부처</strong>.
+      </div>
+      <table>
+        <thead>
+          <tr><th style="width:40px">번호</th><th>적용제외 가능 과제 요건</th><th style="width:80px">근거</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:center;font-weight:700;">①</td>
+            <td><strong>6개월 이내 종료 예정</strong>인 과제<br>
+                <span class="note">신규 과제: 연구개발계획서 제출 마감일 기준 / 계속과제 참여연구자 추가: 해당 연구자 과제 참여일 기준</span></td>
+            <td>영 §64③1호</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:700;">②</td>
+            <td><strong>연평균 연구비 6천만원 이하 소규모 과제</strong><br>
+                <span class="note">부처에서 3책5공 적용제외가 필요하다고 인정하는 경우 (26년 신규 기준) · 과제 종료 시까지 적용제외</span></td>
+            <td>영 §64③1호</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:700;">③</td>
+            <td><strong>하나의 연구개발기관이 동일 과제를 다수의 부처(전문기관)와 외형상 각각 협약</strong>하는 경우<br>
+                <span class="note">3책5공 제도의 취지와 무관하다고 인정하는 과제</span></td>
+            <td>영 §64③</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:700;">④</td>
+            <td><strong>기술사업화 과제</strong> (기술이전촉진법·혁신법 상의 기술사업화 정의)<br>
+                <span class="note">① 사업목적에 기술사업화·창업·제품화 등 명시 ② 성과지표에 기술이전·매출·창업율 등 포함 ③ TRL 제고·실용화·상용화·시제품 제작 등 포함<br>
+                ⚠️ 부처별 기술사업화 3책5공 면제 과제 수가 해당 부처 26년 신규과제의 <strong>15% 미만</strong>으로 제한</span></td>
+            <td>영 §64③</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:700;">⑤</td>
+            <td><strong>정책적 필요성이 높은 과제</strong>로 부처가 인정하는 경우<br>
+                <span class="note">예: 일부 부처는 2책3공 적용(더 강한 제한도 가능)</span></td>
+            <td>영 §64③</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q&A -->
+  <div id="qa" class="section">
+    <div class="sec-head">❓ 자주 나오는 Q&amp;A</div>
+    <div class="section-body">
+      <div class="qa-list">
+        <div class="qa-item" onclick="toggleQA(this)">
+          <div class="qa-q">Q1. 공동연구개발기관의 연구책임자도 3책에 산정되나요?<span class="qa-arrow">▼</span></div>
+          <div class="qa-a"><strong>공동연구개발기관의 책임자는 3책이 아닌 5공에 산정됩니다.</strong><br>주관연구개발기관의 연구책임자만 "연구책임자"로서 3개 이내 제한 대상입니다.<br>공동기관 책임자는 참여연구자 5개 이내 제한만 적용됩니다. (표 2-16)</div>
+        </div>
+        <div class="qa-item" onclick="toggleQA(this)">
+          <div class="qa-q">Q2. 위탁연구개발기관 소속 연구자는 3책5공 적용을 받나요?<span class="qa-arrow">▼</span></div>
+          <div class="qa-a"><strong>위탁연구개발기관 소속 연구자는 3책5공 산정에서 제외됩니다.</strong><br>연구근접지원인력, 연구지원인력도 동일하게 산정 제외입니다.</div>
+        </div>
+        <div class="qa-item" onclick="toggleQA(this)">
+          <div class="qa-q">Q3. 3책5공 적용/적용제외는 누가 결정하나요?<span class="qa-arrow">▼</span></div>
+          <div class="qa-a"><strong>소관 부처</strong>가 결정합니다.<br>혁신법 시행령 제64조 제1항의 기준(3책5공) 내에서, 제3항에 따른 적용제외 가능 과제에 해당하면 부처가 적용제외 여부를 결정합니다.<br>적용제외 가능 과제라도 부처가 적용제외 하지 않으면 3책5공이 그대로 적용됩니다.</div>
+        </div>
+        <div class="qa-item" onclick="toggleQA(this)">
+          <div class="qa-q">Q4. 참여 5개, 책임 3개 모두 채운 연구자가 새 과제에 참여하려면?<span class="qa-arrow">▼</span></div>
+          <div class="qa-a"><strong>원칙적으로 추가 참여 불가</strong>하나, 예외가 있습니다:<br>① 신규과제가 3책5공 적용제외 과제인 경우 → 추가 참여 가능<br>② 수행 중인 기존 과제가 6개월 내 종료 예정인 경우 → 해당 과제는 5공에서 제외 가능<br>③ 국제공동연구 특례 대상인 경우 → 참여 6개·책임 4개까지 가능</div>
+        </div>
+        <div class="qa-item" onclick="toggleQA(this)">
+          <div class="qa-q">Q5. 공모 시 3책5공 적용제외 여부를 고지하지 않으면 어떻게 되나요?<span class="qa-arrow">▼</span></div>
+          <div class="qa-a">고지 의무는 <strong>훈시 규정</strong>으로, 불이행해도 바로 위법은 아닙니다.<br>단, 공모 시 고지하지 않은 경우 <strong>과제 심의위원회의 의결, 협약</strong> 등을 통해 3책5공 적용 및 적용제외를 알려야 합니다.</div>
+        </div>
+        <div class="qa-item" onclick="toggleQA(this)">
+          <div class="qa-q">Q6. 3책5공 위반 시 제재처분이 가능한가요?<span class="qa-arrow">▼</span></div>
+          <div class="qa-a">3책5공은 법령상 연구자의 <strong>의무로 직접 규정된 것은 아닙니다</strong>.<br>단, <strong>협약으로 정한 경우</strong>에는 혁신법 제32조에 따라 협약상 의무를 고의로 이행하지 않아 특별평가에 따라 과제가 변경·중단되면 <strong>제재처분 대상</strong>이 될 수 있습니다.</div>
+        </div>
+        <div class="qa-item" onclick="toggleQA(this)">
+          <div class="qa-q">Q7. 과제 진행 중 연구자를 추가하는 경우 6개월 이내 종료 기준은?<span class="qa-arrow">▼</span></div>
+          <div class="qa-a"><strong>계속과제</strong>에서 진행 중 참여연구자를 추가하는 경우:<br>해당 연구자의 <strong>과제 참여일</strong>을 기준으로 6개월 이내 종료되는 과제에 대해 3책5공 적용제외 가능합니다.<br>(신규 과제의 연구개발계획서 제출 마감일 기준과 다름)</div>
+        </div>
+        <div class="qa-item" onclick="toggleQA(this)">
+          <div class="qa-q">Q8. 기관 단위로도 동시수행 과제 수를 제한할 수 있나요?<span class="qa-arrow">▼</span></div>
+          <div class="qa-a"><strong>가능합니다.</strong> 혁신법 시행령에는 연구자 대상 제한이 규정되어 있으나, 연구개발기관에 대해서도 동시수행 과제 수 제한이 가능합니다.<br>일부 부처는 기관 단위로 과제 수를 제한하는 규정을 운영하고 있습니다.<br><span class="note">예: 산업기술혁신사업 공통 운영요령 제20조</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:8px;">
+    출처: 26년도 국가연구개발혁신법 매뉴얼 본권 제9절 (131~140p) · 혁신법 시행령 §64 · 국가연구개발사업 동시수행 연구개발과제 수 제한 기준
+  </p>
+</div>
+
+<footer>26년도 국가연구개발혁신법 매뉴얼 · 과학기술정보통신부 · 참고용 자료 (실제 처리 시 소관 부처·전문기관 확인 필수)</footer>
+
+<script>
+function toggleQA(el) { el.classList.toggle('open'); }
+</script>
+</body>
+</html>

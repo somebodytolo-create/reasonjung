@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>연구시설·장비비 통합관리제 정리 (26년도)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root {
+  --orange: #c2410c; --orange-dark: #9a3412; --orange-light: #fff7ed; --orange-mid: #fed7aa; --orange-bd: #fb923c;
+  --blue: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe; --blue-bd: #93c5fd;
+  --red: #dc2626; --red-light: #fef2f2; --red-mid: #fecaca;
+  --amber: #92400e; --amber-light: #fffbeb; --amber-mid: #fde68a;
+  --green: #166534; --green-light: #f0fdf4; --green-mid: #bbf7d0;
+  --gray: #374151; --gray-light: #f3f4f6;
+  --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
+  --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif; color: var(--text); background: var(--bg); font-size: 13px; line-height: 1.65; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+.page-nav { display: flex; align-items: center; gap: 16px; padding: 11px 24px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.95); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 200; }
+.back-link { font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.nav-sep { color: var(--border2); }
+.nav-title { font-size: 13px; color: var(--muted); font-weight: 500; }
+.page-hero { padding: 28px 24px 20px; background: var(--white); border-bottom: 1px solid var(--border); }
+.page-title { font-size: 22px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 4px; }
+.page-sub { font-size: 13px; color: var(--muted); }
+.toolbar { background: var(--white); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; position: sticky; top: 48px; z-index: 100; }
+.nav-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .05em; }
+.toc-btn { padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 500; background: var(--bg); border: 1.5px solid var(--border2); color: var(--text2); cursor: pointer; text-decoration: none; font-family: inherit; transition: all .15s; }
+.toc-btn:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-light); }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 60px; }
+.section { margin-bottom: 24px; }
+.sec-head { font-size: 14px; font-weight: 700; color: var(--text); padding: 10px 14px; background: var(--orange-light); border-left: 4px solid var(--orange-bd); border-radius: 0 8px 8px 0; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.section-body { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+thead th { background: #eef3fb; color: #1c1c1e; padding: 10px 12px; font-size: 12px; font-weight: 700; border-bottom: 2px solid var(--blue-bd); letter-spacing: .02em; text-align: center; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--bg); }
+.cat { background: var(--orange-light); font-weight: 700; color: var(--orange-dark); white-space: nowrap; text-align: center; }
+.ok { text-align:center; font-weight:700; color:var(--green); }
+.no { text-align:center; color:var(--muted); }
+.b { display: inline-flex; align-items: center; border-radius: 100px; padding: 2px 10px; font-size: 11.5px; font-weight: 600; border: 1.5px solid; white-space: nowrap; }
+.b-ok { color: var(--green); background: var(--green-light); border-color: var(--green-mid); }
+.b-no { color: var(--red); background: var(--red-light); border-color: var(--red-mid); }
+.b-warn { color: var(--orange); background: var(--orange-light); border-color: var(--orange-mid); }
+.b-blue { color: var(--blue); background: var(--blue-light); border-color: var(--blue-mid); }
+.info-box { background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.ok-box { background: var(--green-light); border: 1px solid var(--green-mid); border-left: 4px solid #16a34a; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.box-title { font-weight: 700; margin-bottom: 5px; font-size: 13.5px; }
+.info-box .box-title { color: var(--amber); }
+.ok-box .box-title { color: var(--green); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 650px) { .grid-2 { grid-template-columns: 1fr; } }
+.info-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.ic-title { font-weight: 700; font-size: 13px; color: var(--orange-dark); margin-bottom: 6px; }
+.ic-body { font-size: 12.5px; line-height: 1.75; }
+.ic-big { font-size: 20px; font-weight: 900; color: var(--orange); margin-right: 2px; }
+.note { font-size: 11.5px; color: var(--muted); margin-top: 4px; display: block; line-height: 1.6; }
+footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+@media (max-width: 600px) { .page-hero { padding: 20px 16px; } .container { padding: 16px 12px 40px; } .toolbar { padding: 10px 12px; } }
+</style>
+</head>
+<body>
+<nav class="page-nav">
+  <a class="back-link" href="매뉴얼검색_독립실행.html">← 검색으로 돌아가기</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-title">연구시설·장비비 통합관리제</span>
+</nav>
+<div class="page-hero">
+  <h1 class="page-title">🖥️ 연구시설·장비비 통합관리제 정리</h1>
+  <p class="page-sub">통합관리 적용 범위 · 적립 한도 · 장비심의위원회 · 사용 기준 · 26년도 국가연구개발혁신법 매뉴얼 기준</p>
+</div>
+<div class="toolbar">
+  <span class="nav-label">바로가기</span>
+  <a class="toc-btn" href="#overview">제도 개요</a>
+  <a class="toc-btn" href="#scope">적용 범위</a>
+  <a class="toc-btn" href="#limit">적립 한도</a>
+  <a class="toc-btn" href="#committee">장비심의위원회</a>
+  <a class="toc-btn" href="#usage">사용 기준</a>
+  <a class="toc-btn" href="#settlement">정산</a>
+</div>
+<div class="container">
+
+  <!-- 1. 제도 개요 -->
+  <div id="overview" class="section">
+    <div class="sec-head">📖 연구시설·장비비 통합관리제 개요</div>
+    <div class="section-body">
+      <div class="info-box">
+        <div class="box-title">📌 제도 목적</div>
+        국가연구개발과제 재원으로 도입·활용된 연구장비를 <strong>연구개발기간 종료 후에도</strong> 유지·보수하며 안정적으로 운영하기 위한 제도.<br>
+        연구시설·장비비(유지·보수비)를 별도 <strong>통합관리계정</strong>에 적립하고, 기간 종료 후에도 활용 가능.
+      </div>
+      <div class="grid-2">
+        <div class="info-card">
+          <div class="ic-title">지정 조건 (사용기준 제7장)</div>
+          <div class="ic-body">
+            ① 자체 <strong>장비심의위원회</strong> 구성·운영<br>
+            ② 통합관리 가능한 자체 <strong>연구비관리시스템</strong> 운영<br>
+            ③ 비영리연구개발기관 중 아래 요건 중 하나 충족:<br>
+            &nbsp;· 정부출연연구기관·특정연구기관<br>
+            &nbsp;· 연구개발 목적 공공기관
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-title">적립 기준</div>
+          <div class="ic-body">
+            협약이 완료된 연구개발계획서 기준으로 적립<br><br>
+            <span class="ic-big">10%</span> 이내<br>
+            <strong>수정직접비 총액</strong>의 10% 이내로 적립<br>
+            <span class="note">※ 계정별 적립 한도 준수 필수</span>
+          </div>
+        </div>
+      </div>
+      <span class="note" style="margin-top:8px;">※ 적립 기한: 연구개발비 지급일 또는 변경일로부터 <strong>90일 이내</strong> (위탁기관은 위탁연구개발비 지급일로부터 90일)</span>
+    </div>
+  </div>
+
+  <!-- 2. 통합관리 적용 범위 -->
+  <div id="scope" class="section">
+    <div class="sec-head">🔍 통합관리 적용 범위 (표 1 · 사용기준 §100~§106)</div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:100px;">사업 유형</th>
+            <th style="width:80px;">비목</th>
+            <th>세목 및 사용 용도</th>
+            <th style="width:100px;">통합관리 적용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cat" rowspan="4">정부<br>수탁사업</td>
+            <td style="text-align:center;font-weight:600;">연구시설<br>·장비비</td>
+            <td>구입·설치비, 성능 향상비 (과제에 활용)</td>
+            <td class="no"><span class="b b-no">불가</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:600;">연구시설<br>·장비비</td>
+            <td><strong>임차비, 유지·보수비, 이전·설치비</strong> (과제에 활용)</td>
+            <td class="ok"><span class="b b-ok">가능</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:600;">연구시설<br>·장비비</td>
+            <td>연구장비 개발 경비 (개발 목적)</td>
+            <td class="no"><span class="b b-no">불가</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:600;">연구시설<br>·장비비</td>
+            <td>연구 인프라 구축사업비 (부지·시설·장비 구축)</td>
+            <td class="no"><span class="b b-no">불가</span></td>
+          </tr>
+          <tr>
+            <td class="cat" rowspan="2">기관<br>기본사업</td>
+            <td style="text-align:center;font-weight:600;">연구개발<br>출연금</td>
+            <td>연구개발 장비·시스템 구축비 (360-04)</td>
+            <td class="no"><span class="b b-no">불가</span></td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:600;">연구개발<br>출연금</td>
+            <td><strong>연구개발활동비 (360-05)</strong></td>
+            <td class="ok"><span class="b b-ok">가능</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <span class="note" style="margin-top:8px;">※ 공공요금, 시험분석료 등 연구활동비 일부 항목은 통합관리 불가</span>
+    </div>
+  </div>
+
+  <!-- 3. 통합관리 단위별 적립 한도 -->
+  <div id="limit" class="section">
+    <div class="sec-head">💰 통합관리 단위별 적립 한도 (표 3)</div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:140px;">통합관리 단위</th>
+            <th>운영 사례</th>
+            <th style="width:120px;">계정당 적립 한도</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cat">연구책임자</td>
+            <td>연구 몰입 등을 위해 연구자별 단독 활용이 존중되어야 하는 경우</td>
+            <td style="text-align:center;font-size:16px;font-weight:900;color:var(--orange);">3억 원</td>
+          </tr>
+          <tr>
+            <td class="cat">공동활용시설</td>
+            <td>대학의 학과, 연구개발기관의 부서/센터, 특성화된 공동활용 연구지원시설 등</td>
+            <td style="text-align:center;font-weight:700;">과기정통부 장관 승인 시 증액 가능</td>
+          </tr>
+          <tr>
+            <td class="cat">연구개발기관</td>
+            <td>기관 전체 단위 통합관리</td>
+            <td style="text-align:center;font-weight:700;">과기정통부 장관 승인 시 증액 가능</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="info-box" style="margin-top:14px;">
+        <div class="box-title">📌 한도 증액 시</div>
+        적립한도 증액 신청서 + 해당 계정의 통합 연구시설·장비비 적립·사용 내역 제출 → <strong>과학기술정보통신부 장관 승인</strong> 필요<br>
+        <span class="note" style="color:var(--amber);">※ 연구책임자 계정의 한도 증액은 특별한 사유가 없는 한 제한적 허용 예정</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 장비심의위원회 -->
+  <div id="committee" class="section">
+    <div class="sec-head">⚖️ 장비심의위원회 (사전승인 요건)</div>
+    <div class="section-body">
+      <div class="info-box">
+        <div class="box-title">📌 장비심의위원회 구성·운영 = 통합관리기관 지정 필수 요건</div>
+        통합관리기관으로 지정받으려는 기관은 반드시 <strong>자체 장비심의위원회</strong>를 구성·운영하여야 합니다.
+      </div>
+      <table>
+        <thead>
+          <tr><th>심의 대상</th><th style="width:130px;">관련 규정</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3천만원 이상 연구시설·장비 <strong>신규 구입·임차</strong> (원래계획 없던 것)</td>
+            <td style="text-align:center;color:#4338ca;font-weight:600;">사용기준 §73</td>
+          </tr>
+          <tr>
+            <td>3천만원 이상 연구시설·장비 <strong>변경 구입·임차</strong></td>
+            <td style="text-align:center;color:#4338ca;font-weight:600;">사용기준 §73</td>
+          </tr>
+          <tr>
+            <td>3천만원 이상 장비를 <strong>구입·임차 안 하려는</strong> 경우</td>
+            <td style="text-align:center;color:#4338ca;font-weight:600;">사용기준 §73</td>
+          </tr>
+          <tr>
+            <td>3천만원 이상 장비를 <strong>원래계획 외 장소에 설치·운영</strong></td>
+            <td style="text-align:center;color:#4338ca;font-weight:600;">사용기준 §73</td>
+          </tr>
+        </tbody>
+      </table>
+      <span class="note" style="margin-top:8px;">※ 환율·물가 등 불가피한 사유로 원래 금액의 20% 이내 증감은 사전승인 제외<br>※ 3천만원 = 부가가치세 및 구입·설치 등 부대비용 포함 금액 기준</span>
+    </div>
+  </div>
+
+  <!-- 5. 사용 기준 -->
+  <div id="usage" class="section">
+    <div class="sec-head">✅ 통합 연구시설·장비비 사용 기준 (표 6)</div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:left;">장비 재원</th>
+            <th style="width:120px;">ZEUS 등록</th>
+            <th style="width:120px;">ZEUS 미등록</th>
+            <th style="text-align:left;">비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>국가연구개발사업 재원 장비</td>
+            <td class="ok">✅ 사용 가능</td>
+            <td class="no">✗ 불가</td>
+            <td>제도 시행 전 구축된 시설·장비도 사용 가능</td>
+          </tr>
+          <tr>
+            <td>기관 기본사업 재원 장비</td>
+            <td class="ok">✅ 사용 가능</td>
+            <td class="no">✗ 불가</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>정부지원 非R&D 구축 장비</td>
+            <td class="ok">✅ 사용 가능</td>
+            <td class="no">✗ 불가</td>
+            <td>과제에 활용되었음이 확인되는 경우에만</td>
+          </tr>
+          <tr>
+            <td>기관 자체 구축 장비 (교비 등)</td>
+            <td class="ok">✅ 사용 가능</td>
+            <td class="no">✗ 불가</td>
+            <td>과제에 활용되었음이 확인되는 경우에만</td>
+          </tr>
+        </tbody>
+      </table>
+      <span class="note" style="margin-top:8px;">※ ZEUS(국가연구시설·장비 정보시스템)에 등록된 장비만 사용 가능 · ZEUS 미등록 장비 사용 불가</span>
+    </div>
+  </div>
+
+  <!-- 6. 정산 -->
+  <div id="settlement" class="section">
+    <div class="sec-head">📋 통합 연구시설·장비비 정산 (사용기준 §104②)</div>
+    <div class="section-body">
+      <div class="ok-box">
+        <div class="box-title">✅ 정산 방식 (간소화)</div>
+        연구개발기간 종료 후 개별 과제의 연구개발비 사용실적 제출 시 → 해당 과제의 통합 연구시설·장비비를 <strong>전액 사용한 것으로 보고</strong>.<br><br>
+        중앙행정기관·전문기관은 <strong>사용 적정성을 정산하지 않음</strong>.<br>
+        다만, 통합관리계정으로 <strong>적립기한 내 이체 여부</strong> 확인 증빙 요구 가능.
+      </div>
+      <table>
+        <thead>
+          <tr><th style="text-align:left;">위반 사항</th><th style="width:150px;">조치</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>적립기한(90일) 내 미이체</td>
+            <td style="text-align:center;color:var(--red);font-weight:700;">연구개발비 반납 요구 가능</td>
+          </tr>
+          <tr>
+            <td>승인 없이 통합 연구시설·장비비 변경</td>
+            <td style="text-align:center;color:var(--red);font-weight:700;">연구개발비 반납 요구 가능</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:8px;">
+    출처: 26년도 연구시설·장비비 통합관리제 운영·관리 매뉴얼 · 국가연구개발사업 연구개발비 사용 기준 §100~§106
+  </p>
+</div>
+<footer>26년도 국가연구개발혁신법 매뉴얼 · 과학기술정보통신부 · 참고용 자료 (실제 처리 시 소관 부처·전문기관 확인 필수)</footer>
+<script>
+(function(){
+  const U = {
+    혁신법:  'https://www.law.go.kr/법령/국가연구개발혁신법/',
+    사용기준: 'https://www.law.go.kr/행정규칙/국가연구개발사업연구개발비사용기준',
+    영:      'https://www.law.go.kr/법령/국가연구개발혁신법시행령',
+  };
+  function lnk(url, t) {
+    return `<a href="${url}" target="_blank" rel="noopener" style="color:#1d4ed8;font-weight:600;text-decoration:none;">${t}</a>`;
+  }
+  function linkify(html) {
+    return html
+      .replace(/(혁신법\s*§[^\s<&,)]+)/g, m => lnk(U.혁신법, m))
+      .replace(/(사용기준\s*§[^\s<&,)]+)/g, m => lnk(U.사용기준, m))
+      .replace(/(>|\s|\()(영\s+§[^\s<&,)]+)/g, (_, p, t) => p + lnk(U.영, t));
+  }
+  document.querySelectorAll('.sec-head, td').forEach(el => {
+    if (el.innerHTML.includes('§') && !el.querySelector('a[href*="law.go.kr"]'))
+      el.innerHTML = linkify(el.innerHTML);
+  });
+})();
+</script>
+</body>
+</html>

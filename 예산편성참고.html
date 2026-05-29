@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>연구개발비 예산편성 참고표 (26년도)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root {
+  --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe;
+  --green: #166534; --green-light: #f0fdf4; --green-mid: #bbf7d0;
+  --red: #dc2626; --red-light: #fef2f2; --red-mid: #fecaca;
+  --amber: #92400e; --amber-light: #fffbeb; --amber-mid: #fde68a;
+  --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
+  --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
+  color: var(--text); background: var(--bg); font-size: 13px;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.page-nav {
+  display: flex; align-items: center; gap: 16px;
+  padding: 11px 24px; border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+  position: sticky; top: 0; z-index: 200;
+}
+.back-link { font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.back-link:hover { text-decoration: underline; }
+.nav-sep { color: var(--border2); }
+.nav-title { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+.page-hero { padding: 28px 24px 20px; background: var(--white); border-bottom: 1px solid var(--border); }
+.page-title { font-size: 22px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 4px; }
+.page-sub { font-size: 13px; color: var(--muted); }
+
+.toolbar {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  position: sticky; top: 48px; z-index: 100;
+}
+.nav-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .05em; }
+.toc-btn {
+  padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 500;
+  background: var(--bg); border: 1.5px solid var(--border2);
+  color: var(--text2); cursor: pointer; text-decoration: none; font-family: inherit;
+  transition: all .15s;
+}
+.toc-btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 60px; }
+.section { margin-bottom: 24px; }
+.sec-head {
+  font-size: 14px; font-weight: 700; color: var(--text);
+  padding: 10px 14px; background: var(--blue-light);
+  border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0;
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+}
+.section-body { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+thead th {
+  background: #eef3fb; color: #1c1c1e; padding: 10px 12px;
+  font-size: 12px; font-weight: 700; border-bottom: 2px solid #bfdbfe;
+  letter-spacing: .02em; text-align: center;
+}
+tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--bg); }
+.cat { background: #f0f6ff; font-weight: 700; color: var(--blue-dark); text-align: center; white-space: nowrap; width: 90px; }
+.subcat { font-size: 12px; color: var(--text2); width: 130px; background: var(--bg); }
+
+/* Badges */
+.b { display: inline-flex; align-items: center; border-radius: 100px; padding: 2px 10px; font-size: 11.5px; font-weight: 600; border: 1.5px solid; white-space: nowrap; }
+.b-직접 { color: var(--blue-dark); background: var(--blue-light); border-color: var(--blue-mid); }
+.b-간접비 { color: #6d28d9; background: #f5f3ff; border-color: #ddd6fe; }
+.b-별도 { color: var(--green); background: var(--green-light); border-color: var(--green-mid); }
+.b-현금 { color: var(--green); background: var(--green-light); border-color: var(--green-mid); }
+.b-현물 { color: var(--amber); background: var(--amber-light); border-color: var(--amber-mid); }
+.b-승인 { color: var(--blue-dark); background: var(--blue-light); border-color: var(--blue-mid); }
+.b-한도 { color: #c2410c; background: #fff7ed; border-color: #fed7aa; }
+.b-불가 { color: var(--red); background: var(--red-light); border-color: var(--red-mid); }
+
+/* Info boxes */
+.info-box {
+  background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #f59e0b;
+  border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px;
+  font-size: 13px; line-height: 1.8;
+}
+.warn-box {
+  background: var(--red-light); border: 1px solid var(--red-mid); border-left: 4px solid var(--red);
+  border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px;
+  font-size: 13px; line-height: 1.8;
+}
+.box-title { font-weight: 700; margin-bottom: 5px; font-size: 13.5px; }
+.info-box .box-title { color: var(--amber); }
+.warn-box .box-title { color: var(--red); }
+
+/* Grid cards */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 650px) { .grid-2 { grid-template-columns: 1fr; } }
+.info-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.ic-title { font-weight: 700; font-size: 13px; color: var(--blue-dark); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.ic-body { font-size: 12.5px; line-height: 1.7; }
+.ic-rate { font-size: 22px; font-weight: 900; color: var(--blue); margin-right: 4px; }
+
+.note { font-size: 11.5px; color: var(--muted); margin-top: 4px; display: block; line-height: 1.6; }
+footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+
+@media (max-width: 600px) {
+  .page-hero { padding: 20px 16px; }
+  .container { padding: 16px 12px 40px; }
+  .toolbar { padding: 10px 12px; top: 46px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="page-nav">
+  <a class="back-link" href="매뉴얼검색_독립실행.html">← 검색으로 돌아가기</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-title">연구개발비 예산편성 참고표</span>
+</nav>
+
+<div class="page-hero">
+  <h1 class="page-title">💰 연구개발비 예산편성 참고표</h1>
+  <p class="page-sub">비목 구성 · 기관유형별 부담기준 · 계상한도 · 사전승인 대상 · 26년도 국가연구개발혁신법 매뉴얼 기준</p>
+</div>
+
+<div class="toolbar">
+  <span class="nav-label">바로가기</span>
+  <a class="toc-btn" href="#bimok">비목 구성</a>
+  <a class="toc-btn" href="#burden">기관유형별 부담</a>
+  <a class="toc-btn" href="#limit">항목별 제한기준</a>
+  <a class="toc-btn" href="#presanction">사전승인 대상</a>
+  <a class="toc-btn" href="#caution">주요 유의사항</a>
+</div>
+
+<div class="container">
+
+  <!-- 1. 비목 구성 -->
+  <div id="bimok" class="section">
+    <div class="sec-head">📊 연구개발비 비목 구성 (직접비/간접비)</div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:80px">구분</th>
+            <th style="width:130px">비목</th>
+            <th>세목 및 포함 내용</th>
+            <th style="width:70px">현금</th>
+            <th style="width:70px">현물</th>
+            <th style="width:120px">비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cat" rowspan="8"><span class="b b-직접">직접비</span></td>
+            <td class="subcat">인건비</td>
+            <td>내부인건비, 외부인건비 (영리기관 현금계상 별도 기준 적용)</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;"><span class="b b-현물">○</span></td>
+            <td>영리기관 현금인건비 → 사전승인 대상</td>
+          </tr>
+          <tr>
+            <td class="subcat">학생인건비</td>
+            <td>대학원생·학부생 참여연구원 인건비 (통합관리 여부에 따라 일반/특례 구분)</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td>학생인건비통합관리기관 별도 규정 적용</td>
+          </tr>
+          <tr>
+            <td class="subcat">연구시설·장비비</td>
+            <td>연구용 장비·시설 구입·임차·유지보수비 (일반/특례 구분)</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td>3천만원↑ 신규·변경 구입 → 사전승인</td>
+          </tr>
+          <tr>
+            <td class="subcat">연구재료비</td>
+            <td>시약·소모품·동식물 구입비, 기술도입비, SW활용비</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;"><span class="b b-현물">○</span></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="subcat">연구활동비</td>
+            <td>연구자 해외출장비, 국내출장비, 회의비, 전문가활용비, 연구실운영비 등</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td>영리기관 연구실운영비 변경 → 사전승인</td>
+          </tr>
+          <tr>
+            <td class="subcat">연구수당</td>
+            <td>연구개발과제 수행 연구자 보상 수당<br><span class="note">한도: <strong>수정인건비의 20% 이내</strong> (§26)<br>수정인건비 = 인건비+학생인건비+미지급인건비+이관인건비</span></td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td>증액 → 사전승인 / 감액 → 통보<br><span class="note">2인↑ 시 1인 70% 초과 지급 불가</span></td>
+          </tr>
+          <tr>
+            <td class="subcat">보안수당</td>
+            <td>보안과제 수행 연구자 수당</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="subcat">연구개발부담비</td>
+            <td>연구개발기관 자체 부담 연구비</td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td style="text-align:center;"><span class="b b-현물">○</span></td>
+            <td>직접비 산정 제외</td>
+          </tr>
+          <tr>
+            <td class="cat"><span class="b b-간접비">간접비</span></td>
+            <td class="subcat">간접비</td>
+            <td>기관 간접경비 (고시 비율 기준 계상) · 기관별 간접비 비율은 고시로 고시</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td>증액 → 사전승인 / 감액 → 통보</td>
+          </tr>
+          <tr>
+            <td class="cat" rowspan="3"><span class="b b-별도">별도</span></td>
+            <td class="subcat">위탁연구개발비</td>
+            <td>위탁연구개발기관에 지급하는 연구비 (직접비 산정 제외)</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td>20%이상 증액 → 사전승인</td>
+          </tr>
+          <tr>
+            <td class="subcat">국제공동연구개발비</td>
+            <td>해외 기관과의 공동연구에 지급하는 연구비 (직접비 산정 제외)</td>
+            <td style="text-align:center;"><span class="b b-현금">○</span></td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td>계획 대비 변경 → 사전승인</td>
+          </tr>
+          <tr>
+            <td class="subcat">미지급인건비</td>
+            <td>지급하지 않은 인건비 (정부출연기관 기본사업 등)</td>
+            <td style="text-align:center;color:var(--muted2);">×</td>
+            <td style="text-align:center;"><span class="b b-현물">○</span></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <span class="note" style="margin-top:8px;">※ 직접비 내 현물 포함 여부 및 산정 기준은 연구개발비 사용 기준 제21조 제4항(표 3-5) 참조</span>
+    </div>
+  </div>
+
+  <!-- 2. 기관유형별 정부지원 비율 -->
+  <div id="burden" class="section">
+    <div class="sec-head">🏛️ 기관유형별 정부지원 연구개발비 상한 (표 3-2)</div>
+    <div class="section-body">
+      <div class="grid-2">
+        <div>
+          <table>
+            <thead><tr><th>기관 유형</th><th>정부지원 상한</th></tr></thead>
+            <tbody>
+              <tr><td>비영리기관 (대학, 출연연 등)</td><td style="text-align:center;font-weight:700;color:var(--blue-dark);">100% 이내</td></tr>
+              <tr><td>중소기업</td><td style="text-align:center;font-weight:700;color:var(--blue-dark);">100% 이내</td></tr>
+              <tr><td>중견기업</td><td style="text-align:center;font-weight:700;"><span class="b b-한도">70% 이내</span> <span style="font-size:11.5px;color:var(--muted);">(25년 이전 60%)</span></td></tr>
+              <tr><td>대기업</td><td style="text-align:center;font-weight:700;color:var(--red);">50% 이내</td></tr>
+              <tr><td>공기업</td><td style="text-align:center;font-weight:700;color:var(--red);">50% 이내</td></tr>
+            </tbody>
+          </table>
+          <span class="note" style="margin-top:6px;">※ 정부지원 상한은 "최대 지원 가능" 비율이며, 실제 지원 비율은 사업별로 다름</span>
+        </div>
+        <div class="info-card">
+          <div class="ic-title">💡 기관부담 연구개발비</div>
+          <div class="ic-body">
+            연구개발기관이 직접 부담하는 금액으로, 현금 또는 현물로 계상 가능합니다.<br><br>
+            <strong>현물 계상 가능 항목 (비영리·영리기관 공통):</strong>
+            <ul style="padding-left:16px;margin-top:4px;line-height:1.8;">
+              <li>기관부담연구개발비가 아닌 비용으로 고용한 연구자 인건비</li>
+              <li>연구시설·장비비</li>
+              <li>기술도입비·연구재료비</li>
+              <li>소프트웨어 활용비</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 항목별 주요 제한기준 -->
+  <div id="limit" class="section">
+    <div class="sec-head">📏 비목별 주요 계상 제한 기준</div>
+    <div class="section-body">
+      <div class="info-box" style="margin-bottom:14px;">
+        <div class="box-title">📌 공통 원칙</div>
+        연구개발비는 <strong>연구비카드 또는 계좌이체</strong>로 사용이 원칙. 관세 납부, 연구비카드 미발급 등 불가피한 경우에만 현금(지폐·주화) 사용 가능.
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:110px">비목</th>
+            <th>주요 계상 제한 및 기준</th>
+            <th style="width:110px">사전승인</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cat">인건비<br>(영리기관)</td>
+            <td>
+              영리기관이 현금으로 인건비를 계상하려면 원칙적으로 사전승인 필요.<br>
+              <strong>현금 계상 가능 경우 (예외):</strong><br>
+              ① 지식서비스 분야 중소기업 연구자<br>
+              ② 연구개발서비스업자로 신고한 기업 소속 연구자<br>
+              ③ 중소기업의 신규채용 참여연구자<br>
+              ④ 중소·중견기업의 신규채용 참여연구자 (공통)<br>
+              ⑤ 연구산업진흥법 상 산업 영위 기업 소속 연구자<br>
+              <span class="note">※ 인건비 총액 변경, 신규인력 현금 계상 인건비 감액 → 사전승인 필요</span>
+            </td>
+            <td style="text-align:center;"><span class="b b-승인">승인 필요</span></td>
+          </tr>
+          <tr>
+            <td class="cat">연구시설<br>·장비비</td>
+            <td>
+              다음 경우 <strong>사전 승인</strong> 필요:<br>
+              ① 원래계획에 없던 <span class="b b-불가">3천만원 이상</span> 장비·시설 <strong>신규 구입·임차</strong><br>
+              ② 원래계획에 있던 3천만원 이상 장비 <strong>변경</strong> 구입·임차<br>
+              &nbsp;&nbsp;&nbsp;단, 환율·물가 등 불가피한 사유로 원래 금액의 <strong>20% 이내</strong> 증감은 제외<br>
+              ③ 원래계획에 있던 3천만원 이상 장비를 <strong>구입·임차 안 하려는</strong> 경우<br>
+              &nbsp;&nbsp;&nbsp;단, ZEUS를 통해 다른 기관으로부터 무상 이전받은 경우 제외<br>
+              ④ 연구시설·장비 구축 목적 과제의 장비를 <strong>원래계획 외 장소에 설치·운영</strong><br>
+              <span class="note">※ 3천만원 = 부가가치세 및 구입·설치 등 부대비용 포함</span>
+            </td>
+            <td style="text-align:center;"><span class="b b-승인">승인 필요</span></td>
+          </tr>
+          <tr>
+            <td class="cat">연구활동비<br>(연구실운영비)</td>
+            <td>
+              <strong>영리기관</strong>이 연구실운영비를 원래계획과 다르게 변경하려는 경우 사전승인:<br>
+              ① 총 금액 증액 / ② 품목 변경 / ③ 특정 품목 수량 증가<br>
+              <span class="note">※ 전문가활용비: 비영리기관의 경우 관련 규정 기준 준수</span>
+            </td>
+            <td style="text-align:center;"><span class="b b-승인">영리기관 승인</span></td>
+          </tr>
+          <tr>
+            <td class="cat">연구수당</td>
+            <td>
+              • <strong>감액</strong>: 통보 (영 §14②3호, 사용기준 §26②)<br>
+              • <strong>증액</strong>: <span class="b b-승인">사전 승인</span> 필요<br>
+              <span class="note">※ 과제(단계) 시작 시점에 계상 금액보다 증액 불가 (원칙)</span>
+            </td>
+            <td style="text-align:center;">감액 → 통보<br>증액 → 승인</td>
+          </tr>
+          <tr>
+            <td class="cat">간접비</td>
+            <td>
+              • <strong>감액</strong>: 통보 가능 (영 §14②3호)<br>
+              • <strong>증액</strong>: <span class="b b-승인">사전 승인</span> 필요<br>
+              <span class="note">※ 간접비 고시 비율 내에서만 가능 (수행 중 고시 비율 상향 조정 시도 포함)</span>
+            </td>
+            <td style="text-align:center;">감액 → 통보<br>증액 → 승인</td>
+          </tr>
+          <tr>
+            <td class="cat">위탁<br>연구개발비</td>
+            <td>
+              원래계획의 <span class="b b-한도">20% 이상 증액</span> 사용 → 사전 승인 필요<br>
+              <span class="note">※ 감액은 통보 가능</span>
+            </td>
+            <td style="text-align:center;"><span class="b b-승인">20%↑ 승인</span></td>
+          </tr>
+          <tr>
+            <td class="cat">국제<br>공동연구비</td>
+            <td>
+              원래계획과 다르게 변경 시 사전 승인 필요<br>
+              <span class="note">※ 환율 변동만으로 금액이 달라지는 경우는 승인 불필요</span>
+            </td>
+            <td style="text-align:center;"><span class="b b-승인">승인 필요</span></td>
+          </tr>
+          <tr>
+            <td class="cat">단계간<br>이월 집행</td>
+            <td>
+              해당 단계 직접비(현물·연구수당 제외)를 <strong>다음 단계</strong>에 포함하여 사용 → 사전 승인<br>
+              <span class="note">※ 연구개발비 사용기준 §73⑨</span>
+            </td>
+            <td style="text-align:center;"><span class="b b-승인">승인 필요</span></td>
+          </tr>
+          <tr>
+            <td class="cat">해외연구자<br>유치 지원비</td>
+            <td>
+              전체 연구개발기간 동안의 총액을 <strong>증액</strong>하려는 경우 → 사전 승인<br>
+              <span class="note">※ 환율 변동만으로 금액이 달라지는 경우 제외</span>
+            </td>
+            <td style="text-align:center;"><span class="b b-승인">증액 승인</span></td>
+          </tr>
+          <tr>
+            <td class="cat">통합관리<br>계정 적립</td>
+            <td>연구시설·장비비 통합관리계정에 적립할 금액 변경 → 사전 승인</td>
+            <td style="text-align:center;"><span class="b b-승인">승인 필요</span></td>
+          </tr>
+          <tr>
+            <td class="cat">정부지원비<br>이자 사용</td>
+            <td>
+              국고납입 하지 않고 연구비 산입 또는 R&D 재투자 등으로 사용 시 → 사전 승인<br>
+              <span class="note">※ 영 §20③</span>
+            </td>
+            <td style="text-align:center;"><span class="b b-승인">승인 필요</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4. 사전승인 핵심 정리 -->
+  <div id="presanction" class="section">
+    <div class="sec-head" style="background:var(--red-light);border-left-color:var(--red);">🔴 사전승인 대상 핵심 정리 (연구개발비 사용기준 §73)</div>
+    <div class="section-body">
+      <div class="warn-box">
+        <div class="box-title">⚠️ 사전 승인 = 사용 전에 반드시 승인 받아야 함</div>
+        아래 항목은 변경 전 중앙행정기관의 장(또는 전문기관)으로부터 <strong>사전 서면 승인</strong>을 받아야 합니다.<br>
+        사후 승인은 인정되지 않으며, 승인 없이 집행 시 부적정 집행으로 처리될 수 있습니다.
+      </div>
+      <table>
+        <thead>
+          <tr><th style="width:40px">번호</th><th>사전 승인 필요 항목</th><th style="width:130px">관련 규정</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="text-align:center;font-weight:700;">①</td><td>전체 연구개발기간(또는 단계) 동안의 <strong>연구개발비 총액</strong> 변경</td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">②</td><td><strong>연도별 정부지원 연구개발비 또는 기관부담 연구개발비</strong> 변경 (현금↔현물 변경 포함)</td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">③</td><td>전체 기간(또는 단계) <strong>간접비 총액 증액</strong></td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">④</td><td>영리기관이 현금으로 계상하려는 <strong>인건비 총액 변경 또는 신규인력 현금 인건비 감액</strong></td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">⑤</td><td><strong>3천만원 이상</strong> 연구시설·장비 신규구입·임차, 변경구입·임차, 구입안함, 설치장소 변경</td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">⑥</td><td>영리기관 <strong>연구실운영비</strong> 총액 증액·품목 변경·특정 품목 수량 증가</td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">⑦</td><td>위탁연구개발비 <strong>원래계획의 20% 이상 증액</strong></td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">⑧</td><td>국제공동연구개발비 원래계획 대비 변경 (환율 변동 제외)</td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">⑨</td><td>해당 단계 직접비(현물·연구수당 제외)를 <strong>다음 단계</strong>에 포함하여 사용</td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">⑩</td><td>전체 기간(또는 단계) <strong>연구수당 총액 증액</strong></td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">⑪</td><td>연구시설·장비비 <strong>통합관리계정 적립 금액</strong> 변경</td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+          <tr><td style="text-align:center;font-weight:700;">⑫</td><td>전체 기간(또는 단계) <strong>해외연구자 유치 지원비 총액 증액</strong> (환율 변동 제외)</td><td style="text-align:center;color:#4338ca;font-weight:600;font-size:12px;">사용기준 §73①</td></tr>
+        </tbody>
+      </table>
+      <div class="info-box" style="margin-top:14px;">
+        <div class="box-title">💡 사전 승인 예외 (§73②)</div>
+        ① <strong>정부출연기관의 기본사업</strong>인 경우<br>
+        ② <strong>국가안보 또는 사회·경제적 긴급한 상황</strong> 등으로 중앙행정기관장이 인정하는 경우
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 예산편성 주요 유의사항 -->
+  <div id="caution" class="section">
+    <div class="sec-head">⚡ 예산편성 시 주요 유의사항</div>
+    <div class="section-body">
+      <div class="grid-2">
+        <div class="info-card">
+          <div class="ic-title">📌 비목별 자율 변경 가능 범위</div>
+          <div class="ic-body">협약서에 명시되지 않은 <strong>항목별 세부내역의 변경</strong>은 통보 없이 <strong>자율 변경</strong> 가능.<br>단, 사전승인 대상(①~⑫)은 반드시 승인 후 변경.</div>
+        </div>
+        <div class="info-card">
+          <div class="ic-title">📌 현금 vs 현물 계상</div>
+          <div class="ic-body"><strong>비영리기관</strong>: 원칙적으로 현금 계상 (연구시설·장비 구축, 인력양성 등 특례 제외)<br><strong>영리기관</strong>: 직접비를 현금 또는 현물로 계상 가능 (항목별 기준 적용)</div>
+        </div>
+        <div class="info-card" style="grid-column: 1 / -1;">
+          <div class="ic-title">📌 기관 유형별 간접비 고시비율 (매뉴얼 표 3-28, 사용기준 별표 6)</div>
+          <div class="ic-body">
+            <table style="margin-top:6px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left;">기관 유형</th>
+                  <th style="width:110px;">간접비 고시비율</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>간접비고시비율 <strong>산출 완료</strong> 비영리기관</td><td style="text-align:center;font-weight:700;color:var(--blue-dark);">산출된 비율 적용</td></tr>
+                <tr><td>간접비고시비율 <strong>미산출 대학</strong> / 의무산출기관 중 미산출 기관</td><td style="text-align:center;font-weight:700;color:var(--red);">5%</td></tr>
+                <tr><td>비영리기관(대학 제외) 중 의무산출기관이 아닌 기관으로 <strong>미산출</strong></td><td style="text-align:center;font-weight:700;color:var(--amber);">17%</td></tr>
+                <tr><td>비영리기관 중 연구지원체계평가 실시일 이후 설립되어 <strong>평가 미이수</strong></td><td style="text-align:center;font-weight:700;color:var(--amber);">17%</td></tr>
+                <tr><td><strong>영리기관</strong> (공기업 포함)</td><td style="text-align:center;font-weight:700;color:var(--muted);">10%</td></tr>
+              </tbody>
+            </table>
+            <span class="note" style="margin-top:8px;display:block;">※ 수행 중 고시비율 상향 조정되더라도 과제 시작 시점 비율 적용 원칙 · 증액 시 사전 승인, 감액 시 통보</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-title">📌 연구개발비 지급 방법</div>
+          <div class="ic-body"><strong>일괄지급</strong>: 중앙행정기관장이 연도별 연구개발비를 한꺼번에 지급<br><strong>분할지급</strong>: 연차별·분기별 등 나누어 지급<br>지급 시기 변경은 통보 사항 (상호협의 후 부처→기관 통보)</div>
+        </div>
+        <div class="info-card">
+          <div class="ic-title">📌 위탁연구개발비 주의</div>
+          <div class="ic-body">위탁연구개발비는 직접비 산정에서 <strong>제외</strong> (간접비 계산 기준 직접비에 포함 안 됨).<br>원래계획의 20% 이상 증액 시 사전 승인 필수.<span class="note">※ 위탁연구개발기관은 3책5공 산정에서도 제외</span></div>
+        </div>
+        <div class="info-card">
+          <div class="ic-title">📌 이자 사용 처리</div>
+          <div class="ic-body">정부지원 연구개발비에서 발생한 이자는 <strong>국고납입</strong>이 원칙.<br>연구비 산입 또는 R&D 재투자 등 다른 용도 사용 시 <strong>사전 승인</strong> 필요.<br>학생인건비 통합관리계정 이자는 별도 규정 적용.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:8px;">
+    출처: 26년도 국가연구개발혁신법 매뉴얼 본권 제3장 (169~270p) · 국가연구개발사업 연구개발비 사용기준 §21·§73·§74
+  </p>
+</div>
+
+<footer>26년도 국가연구개발혁신법 매뉴얼 · 과학기술정보통신부 · 참고용 자료 (실제 처리 시 소관 부처·전문기관 확인 필수)</footer>
+</body>
+</html>

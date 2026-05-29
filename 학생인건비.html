@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학생인건비 통합관리 정리 (26년도)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root {
+  --green: #166534; --green-dark: #14532d; --green-light: #f0fdf4; --green-mid: #bbf7d0; --green-bd: #86efac;
+  --blue: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe; --blue-bd: #93c5fd;
+  --red: #dc2626; --red-light: #fef2f2; --red-mid: #fecaca;
+  --amber: #92400e; --amber-light: #fffbeb; --amber-mid: #fde68a;
+  --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
+  --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif; color: var(--text); background: var(--bg); font-size: 13px; line-height: 1.65; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+.page-nav { display: flex; align-items: center; gap: 16px; padding: 11px 24px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,.95); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 200; }
+.back-link { font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.back-link:hover { text-decoration: underline; }
+.nav-sep { color: var(--border2); }
+.nav-title { font-size: 13px; color: var(--muted); font-weight: 500; }
+.page-hero { padding: 28px 24px 20px; background: var(--white); border-bottom: 1px solid var(--border); }
+.page-title { font-size: 22px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 4px; }
+.page-sub { font-size: 13px; color: var(--muted); }
+.toolbar { background: var(--white); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; position: sticky; top: 48px; z-index: 100; }
+.nav-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .05em; }
+.toc-btn { padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 500; background: var(--bg); border: 1.5px solid var(--border2); color: var(--text2); cursor: pointer; text-decoration: none; font-family: inherit; transition: all .15s; }
+.toc-btn:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 60px; }
+.section { margin-bottom: 24px; }
+.sec-head { font-size: 14px; font-weight: 700; color: var(--text); padding: 10px 14px; background: var(--green-light); border-left: 4px solid #16a34a; border-radius: 0 8px 8px 0; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.section-body { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+thead th { background: #eef3fb; color: #1c1c1e; padding: 10px 12px; font-size: 12px; font-weight: 700; border-bottom: 2px solid var(--blue-bd); letter-spacing: .02em; text-align: center; }
+tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--bg); }
+.cat { background: var(--green-light); font-weight: 700; color: var(--green-dark); text-align: center; white-space: nowrap; width: 90px; }
+.amt { font-size: 15px; font-weight: 900; color: #166534; }
+.b { display: inline-flex; align-items: center; border-radius: 100px; padding: 2px 10px; font-size: 11.5px; font-weight: 600; border: 1.5px solid; white-space: nowrap; }
+.b-ok { color: var(--green); background: var(--green-light); border-color: var(--green-mid); }
+.b-no { color: var(--red); background: var(--red-light); border-color: var(--red-mid); }
+.b-warn { color: var(--amber); background: var(--amber-light); border-color: var(--amber-mid); }
+.b-blue { color: var(--blue); background: var(--blue-light); border-color: var(--blue-mid); }
+.info-box { background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.warn-box { background: var(--red-light); border: 1px solid var(--red-mid); border-left: 4px solid var(--red); border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.ok-box { background: var(--green-light); border: 1px solid var(--green-mid); border-left: 4px solid #16a34a; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.box-title { font-weight: 700; margin-bottom: 5px; font-size: 13.5px; }
+.info-box .box-title { color: var(--amber); }
+.warn-box .box-title { color: var(--red); }
+.ok-box .box-title { color: var(--green); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 650px) { .grid-2 { grid-template-columns: 1fr; } }
+.info-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.ic-title { font-weight: 700; font-size: 13px; color: #166534; margin-bottom: 6px; }
+.ic-body { font-size: 12.5px; line-height: 1.75; }
+.note { font-size: 11.5px; color: var(--muted); margin-top: 4px; display: block; line-height: 1.6; }
+footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+@media (max-width: 600px) { .page-hero { padding: 20px 16px; } .container { padding: 16px 12px 40px; } .toolbar { padding: 10px 12px; top: 46px; } }
+</style>
+</head>
+<body>
+<nav class="page-nav">
+  <a class="back-link" href="매뉴얼검색_독립실행.html">← 검색으로 돌아가기</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-title">학생인건비 통합관리</span>
+</nav>
+<div class="page-hero">
+  <h1 class="page-title">👨‍🎓 학생인건비 통합관리 정리</h1>
+  <p class="page-sub">학위과정별 계상기준 · 통합관리제 운영 · 부당회수 금지 · 26년도 국가연구개발혁신법 매뉴얼 기준</p>
+</div>
+<div class="toolbar">
+  <span class="nav-label">바로가기</span>
+  <a class="toc-btn" href="#standard">계상기준</a>
+  <a class="toc-btn" href="#mgmt">통합관리제</a>
+  <a class="toc-btn" href="#flow">지급 절차</a>
+  <a class="toc-btn" href="#prohibition">부당회수 금지</a>
+  <a class="toc-btn" href="#faq">주요 FAQ</a>
+</div>
+<div class="container">
+
+  <!-- 1. 학위과정별 계상기준 -->
+  <div id="standard" class="section">
+    <div class="sec-head">📐 학위과정별 학생인건비 계상기준 (사용기준 §40④)</div>
+    <div class="section-body">
+      <div class="info-box" style="margin-bottom:16px;">
+        <div class="box-title">📌 핵심 원칙</div>
+        아래 금액은 <strong>최소 기준</strong>이며, 통합관리기관이 <strong>이상으로 자율 설정</strong>합니다.<br>
+        동일 학위과정 학생연구자에게는 <strong>동일 기준</strong> 적용 (학과·연구책임자별 차등 불가).
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:140px;">학위과정</th>
+            <th>최저 계상기준</th>
+            <th style="width:220px;">비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cat">학사과정<br><small style="font-weight:400;">(전문학사 포함)</small></td>
+            <td><span class="amt">월 130만 원</span> 이상</td>
+            <td>4대보험 기관부담금·퇴직급여충당금 제외 금액 기준</td>
+          </tr>
+          <tr>
+            <td class="cat">석사과정</td>
+            <td><span class="amt">월 220만 원</span> 이상</td>
+            <td>동일</td>
+          </tr>
+          <tr>
+            <td class="cat">박사과정</td>
+            <td><span class="amt">월 300만 원</span> 이상</td>
+            <td>동일</td>
+          </tr>
+          <tr>
+            <td class="cat">통합과정<br><small style="font-weight:400;">(학석사·석박사)</small></td>
+            <td>기관의 장이 책정<br><span class="note">(학사·석사·박사 기준 고려)</span></td>
+            <td>해당 과정 학생연구자 비율 등 반영</td>
+          </tr>
+        </tbody>
+      </table>
+      <span class="note" style="margin-top:8px;">※ 근로계약 체결 시: 4대보험 개인·기관부담금 및 퇴직급여충당금 추가 지급 가능 (월별 지급률 계산 시 제외)</span>
+    </div>
+  </div>
+
+  <!-- 2. 통합관리제 -->
+  <div id="mgmt" class="section">
+    <div class="sec-head">🏛️ 학생인건비 통합관리제 개요</div>
+    <div class="section-body">
+      <div class="grid-2" style="margin-bottom:14px;">
+        <div class="info-card">
+          <div class="ic-title">일반관리 (미지정 기관)</div>
+          <div class="ic-body">
+            과제별로 학생인건비를 계상·지급.<br>
+            통합관리계정 없이 연구개발비 계좌에서 직접 집행.<br>
+            <span class="note">※ 별권1 학생인건비 매뉴얼 적용 대상 아님</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-title">통합관리 (지정 기관)</div>
+          <div class="ic-body">
+            별도 <strong>학생인건비통합관리계정</strong> 운영.<br>
+            여러 과제의 학생인건비를 통합하여 안정적 지급.<br>
+            <strong>책임자단위</strong> 또는 <strong>기관단위</strong>로 운영.
+          </div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>구분</th><th>책임자단위 통합관리기관</th><th>기관단위 통합관리기관</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;">계정 구성</td>
+            <td>연구책임자계정만 설정</td>
+            <td>연구책임자계정 + 연구개발기관계정</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">이체 기한</td>
+            <td colspan="2" style="text-align:center;">연구개발비 지급일 또는 변경일로부터 <strong>90일 이내</strong> (해당 연차 종료일 중 먼저 도래하는 날까지)</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">전용 계좌</td>
+            <td colspan="2" style="text-align:center;">통합관리 학생인건비는 <strong>전용 계좌</strong>에 이체하여 타 연구개발비와 분리 관리 (2024.9~)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 3. 지급 절차 -->
+  <div id="flow" class="section">
+    <div class="sec-head">🔄 학생인건비 지급 절차 및 기준</div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr><th style="width:130px;">항목</th><th>기준</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;">지급 대상</td>
+            <td>전문학사·학사·석사·박사·통합과정 재학생 연구자 (수료생 연구생 포함, 근로계약 체결 휴학생 포함 가능)</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">지급 방법</td>
+            <td>학생연구자 <strong>본인 명의 개인 계좌</strong>로 이체 필수 (제3자 계좌 이체 불가)</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">월별 지급률</td>
+            <td>계상기준 금액 내에서 연구참여확약서에 따라 산정 (총인건비계상률 100% 초과 불가)</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">졸업·수료 시</td>
+            <td>졸업일이 포함된 월 말일까지 지급 가능 (일할계산 없이 월별 지급률 100% 내에서 지급)</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">연구참여확약서</td>
+            <td>법정 사유 외 변경 후 지급 시 부당지급 해당 — 변경 전 사유 확인 필수</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">제외 소득</td>
+            <td>BK21 등 고등교육재정지원사업·인문사회 학술지원사업 인건비·장학금, 근로소득·사업소득 제외하여 계산</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 4. 부당회수 금지 -->
+  <div id="prohibition" class="section">
+    <div class="sec-head" style="background:var(--red-light);border-left-color:var(--red);">🚫 학생인건비 부당회수 금지 (혁신법 §31, 사용기준 §91·§92)</div>
+    <div class="section-body">
+      <div class="warn-box">
+        <div class="box-title">⚠️ 부당회수 = 제재처분 대상</div>
+        연구개발기관·연구책임자·연구자·연구지원인력 누구든 <strong>동참 시 처벌</strong> 대상입니다.
+      </div>
+      <table>
+        <thead>
+          <tr><th style="width:160px;">유형</th><th>구체적 금지 행위</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;color:var(--red);">미지급</td>
+            <td>학생연구자에게 학생인건비를 지급하지 않는 행위</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--red);">회수 관리</td>
+            <td>지급된 학생인건비를 회수하여 공동 관리·사용하는 행위</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--amber);">부당지급</td>
+            <td>연구참여확약서 금액과 다르게 지급 / 계상기준 초과 지급률 설정 / 지급대상 아닌 자에게 지급</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--amber);">비계좌 지급</td>
+            <td>학생연구자 본인 명의 개인계좌가 아닌 경로로 지급</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ok-box" style="margin-top:14px;">
+        <div class="box-title">✅ 부당회수 방지 관리 사항 (기관 의무)</div>
+        학생연구자 본인 명의 1계좌 등록 관리 · 학생인건비 수령액 상시 조회 전산시스템 구축 ·
+        연구책임자 연구윤리준수 서약서 징구 · 신고시스템 운영 · 자체감사 실시
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. FAQ -->
+  <div id="faq" class="section">
+    <div class="sec-head">💬 주요 FAQ</div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr><th style="width:40px;">번호</th><th>질문 및 답변</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:center;font-weight:700;">Q1</td>
+            <td><strong>타교 재학생도 지급 가능한가?</strong><br>가능. 단, 전산시스템에 해당 학생연구자 정보를 정확히 등록하여야 함.</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:700;">Q2</td>
+            <td><strong>BK21 장학금과 중복 수령 가능한가?</strong><br>BK21 등 고등교육재정지원사업 인건비·장학금은 총인건비계상률 산정 시 제외하므로 중복 수령 가능. 다만 계상률 100% 초과 지급 불가.</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:700;">Q3</td>
+            <td><strong>연구책임자계정을 2개 이상 설정할 수 있나?</strong><br>불가. 동일 연구책임자에게는 1개 계정만 설정 가능.</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:700;">Q4</td>
+            <td><strong>졸업 후 상위 학위과정 진학 확정 시 지급 가능한가?</strong><br>현행 학위과정 졸업 후 상위 학위과정 진학이 확정된 경우에도 학생연구자로 인정. 졸업일이 포함된 월 말일까지 지급 가능.</td>
+          </tr>
+          <tr>
+            <td style="text-align:center;font-weight:700;">Q5</td>
+            <td><strong>통합관리 학생인건비를 기한 내 이체하지 않으면?</strong><br>적립기한(90일) 내 이체하지 않은 경우 해당 학생인건비를 <strong>반납</strong>하여야 할 수 있음 (사용기준 §80②).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:8px;">
+    출처: 26년도 국가연구개발사업 학생인건비통합관리 제도 매뉴얼 · 국가연구개발사업 연구개발비 사용 기준(과기정통부고시 제2026-5호)
+  </p>
+</div>
+<footer>26년도 국가연구개발혁신법 매뉴얼 · 과학기술정보통신부 · 참고용 자료 (실제 처리 시 소관 부처·전문기관 확인 필수)</footer>
+<script>
+(function(){
+  const U = {
+    혁신법:  'https://www.law.go.kr/법령/국가연구개발혁신법/',
+    사용기준: 'https://www.law.go.kr/행정규칙/국가연구개발사업연구개발비사용기준',
+    영:      'https://www.law.go.kr/법령/국가연구개발혁신법시행령',
+  };
+  function lnk(url, t) {
+    return `<a href="${url}" target="_blank" rel="noopener" style="color:#1d4ed8;font-weight:600;text-decoration:none;">${t}</a>`;
+  }
+  function linkify(html) {
+    return html
+      .replace(/(혁신법\s*§[^\s<&,)]+)/g, m => lnk(U.혁신법, m))
+      .replace(/(사용기준\s*§[^\s<&,)]+)/g, m => lnk(U.사용기준, m))
+      .replace(/(>|\s|\()(영\s+§[^\s<&,)]+)/g, (_, p, t) => p + lnk(U.영, t));
+  }
+  document.querySelectorAll('.sec-head, td').forEach(el => {
+    if (el.innerHTML.includes('§') && !el.querySelector('a[href*="law.go.kr"]'))
+      el.innerHTML = linkify(el.innerHTML);
+  });
+})();
+</script>
+</body>
+</html>

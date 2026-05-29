@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>협약변경 승인·통보 구분표 (26년도)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root {
+  --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe;
+  --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
+  --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
+  --승인-c: #1d4ed8; --승인-bg: #eff6ff; --승인-b: #bfdbfe;
+  --상호-c: #92400e; --상호-bg: #fffbeb; --상호-b: #fde68a;
+  --통보-c: #166534; --통보-bg: #f0fdf4; --통보-b: #bbf7d0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
+  color: var(--text); background: var(--bg); font-size: 13px;
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+
+/* ── 내비 ── */
+.page-nav {
+  display: flex; align-items: center; gap: 16px;
+  padding: 11px 24px; border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+  position: sticky; top: 0; z-index: 200;
+}
+.back-link {
+  font-size: 13px; font-weight: 600; color: var(--blue);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
+  white-space: nowrap;
+}
+.back-link:hover { text-decoration: underline; }
+.nav-sep { color: var(--border2); }
+.nav-title { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+/* ── 헤더 히어로 ── */
+.page-hero {
+  padding: 28px 24px 24px; background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.page-title { font-size: 22px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 4px; }
+.page-sub { font-size: 13px; color: var(--muted); }
+
+/* ── 도구바 ── */
+.toolbar {
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 10px 24px; display: flex; flex-wrap: wrap;
+  gap: 16px; align-items: center;
+  position: sticky; top: 48px; z-index: 100;
+}
+.legend-wrap { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.legend-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .05em; }
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  border-radius: 100px; padding: 4px 12px; font-size: 12px;
+  font-weight: 600; white-space: nowrap; border: 1.5px solid;
+}
+.badge.상호 { color: var(--상호-c); background: var(--상호-bg); border-color: var(--상호-b); }
+.badge.승인 { color: var(--승인-c); background: var(--승인-bg); border-color: var(--승인-b); }
+.badge.통보 { color: var(--통보-c); background: var(--통보-bg); border-color: var(--통보-b); }
+
+.filter-wrap { margin-left: auto; }
+#filterInput {
+  padding: 7px 14px; border: 1.5px solid var(--border2);
+  border-radius: 100px; font-family: inherit; font-size: 13px;
+  outline: none; width: 240px; background: var(--bg);
+  transition: border-color .2s, box-shadow .2s;
+}
+#filterInput:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); background: var(--white); }
+
+/* ── 컨테이너 ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 60px; }
+
+/* ── 알림박스 ── */
+.notice-box {
+  background: var(--white); border: 1px solid var(--border);
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 8px 8px 0; padding: 14px 16px;
+  margin-bottom: 20px; font-size: 13px; line-height: 1.8;
+}
+.notice-box strong { color: #92400e; }
+
+/* ── 섹션 블록 ── */
+.section-block { margin-bottom: 24px; }
+.sec-head {
+  font-size: 14px; font-weight: 700; color: var(--text);
+  padding: 10px 14px; background: var(--blue-light);
+  border-left: 4px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  display: flex; align-items: center; gap: 8px; margin-bottom: 0;
+}
+.sec-head .icon { font-size: 16px; }
+
+/* ── 테이블 ── */
+.table-wrap { background: var(--white); border: 1px solid var(--border); border-top: none; border-radius: 0 0 10px 10px; overflow: hidden; }
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+thead th {
+  background: #eef3fb; color: #1c1c1e; padding: 10px 12px;
+  text-align: center; font-size: 12px; font-weight: 700;
+  border-bottom: 2px solid #bfdbfe; letter-spacing: .02em;
+}
+thead th:first-child { border-radius: 0; }
+thead th:last-child  { border-radius: 0; }
+tbody td {
+  padding: 9px 12px; border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--bg); }
+tbody tr.row-hidden { display: none; }
+
+.col-cat1 {
+  background: #f0f6ff; font-weight: 700; font-size: 11.5px;
+  color: var(--blue-dark); text-align: center; width: 80px;
+  white-space: nowrap;
+}
+.col-cat2 { font-size: 12px; color: var(--text2); width: 140px; background: var(--bg); }
+.col-item { color: var(--text); }
+.col-badge { text-align: center; width: 120px; }
+.col-law { font-size: 11.5px; color: var(--muted); width: 200px; text-align: center; }
+
+.note { font-size: 11.5px; color: var(--muted); margin-top: 4px; line-height: 1.5; display: block; }
+
+footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+
+@media print {
+  .page-nav, .toolbar { display: none; }
+  body { background: white; }
+  .container { padding: 0; }
+}
+@media (max-width: 700px) {
+  .col-law { display: none; }
+  .col-cat1 { width: 56px; font-size: 11px; }
+  .col-cat2 { width: 90px; font-size: 11px; }
+  .page-hero { padding: 20px 16px; }
+  .container { padding: 16px 12px 40px; }
+  .toolbar { padding: 10px 16px; top: 46px; }
+  #filterInput { width: 180px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="page-nav">
+  <a class="back-link" href="매뉴얼검색_독립실행.html">← 검색으로 돌아가기</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-title">협약변경 승인·통보 구분표</span>
+</nav>
+
+<div class="page-hero">
+  <h1 class="page-title">📋 협약변경 승인·통보 구분표</h1>
+  <p class="page-sub">〈표 2-5〉 통합정보시스템상 협약변경의 상호협의/승인/통보사항 세부기준 · 26년도 국가연구개발혁신법 매뉴얼 본권 73~74p</p>
+</div>
+
+<div class="toolbar">
+  <div class="legend-wrap">
+    <span class="legend-label">구분</span>
+    <span class="badge 상호">상호협의(승인) — 당사자 간 사전 문서 협의 (법 §11②)</span>
+    <span class="badge 승인">승인 — 부처·전문기관 사전 승인 필요</span>
+    <span class="badge 통보">통보 — 통보만으로 협약 변경 효력 발생</span>
+  </div>
+  <div class="filter-wrap">
+    <input type="text" id="filterInput" placeholder="🔍 항목 필터…" oninput="filterRows()">
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="notice-box">
+    <strong>✅ 실무 요점</strong><br>
+    • <strong>상호협의(승인)</strong>: 혁신법상 표현은 "상호협의"지만 실무에서는 IRIS 시스템에서 '승인' 방식으로 처리.<br>
+    • <strong>승인(연구개발비)</strong>: 연구개발비 사용기준 제73조에 따라 중앙행정기관장의 <em>사전</em> 승인 필요. 사후 승인 불가.<br>
+    • <strong>통보</strong>: IRIS(통합정보시스템)에 변경사항 등록하는 것으로 통보 갈음 가능 — 별도 공문 발송 생략 가능(영 §14③).
+  </div>
+
+  <!-- ① 기관 변경 -->
+  <div class="section-block">
+    <div class="sec-head"><span class="icon">🏢</span> 기관 변경</div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-cat1" rowspan="3">연구개발<br>기관 변경</td>
+          <td class="col-cat2" rowspan="3">주관·공동·위탁</td>
+          <td class="col-item">① 주관연구개발기관</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 공동연구개발기관</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+        <tr>
+          <td class="col-item">③ 위탁연구개발기관</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">연구개발기관<br>외 변경</td>
+          <td class="col-cat2">관계기관</td>
+          <td class="col-item">④ 연구개발기관이 아닌 관계기관 변경</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②4호</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">기관정보<br>변경</td>
+          <td class="col-cat2">기관명·기관장</td>
+          <td class="col-item">⑤ 연구개발기관 정보변경 (기관명칭, 기관장 등)</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②4호</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ② 인력 변경 -->
+  <div class="section-block">
+    <div class="sec-head"><span class="icon">👥</span> 인력 변경</div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-cat1" rowspan="3">연구<br>책임자</td>
+          <td class="col-cat2" rowspan="3">주관·공동·위탁 책임자</td>
+          <td class="col-item">① 주관연구개발기관 책임자</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 공동연구개발기관 책임자</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+        <tr>
+          <td class="col-item">③ 위탁연구개발기관 책임자</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">연구자<br>(책임자 제외)</td>
+          <td class="col-cat2">일반 연구자</td>
+          <td class="col-item">④ 연구자 변경 (연구책임자 제외)</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②2호</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">연구자<br>외 변경</td>
+          <td class="col-cat2">연구지원인력</td>
+          <td class="col-item">⑤ 연구지원인력 등</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②4호</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">기관 외<br>인력</td>
+          <td class="col-cat2">관계기관 인력</td>
+          <td class="col-item">⑥ 연구개발기관이 아닌 관계기관 인력변경</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②4호</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ③ 연구개발기간 -->
+  <div class="section-block">
+    <div class="sec-head"><span class="icon">📅</span> 연구개발기간 변경</div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-cat1">기간 변경</td>
+          <td class="col-cat2">연구개발기간</td>
+          <td class="col-item">① 연구개발과제 연구개발기간의 변경 (전체 해당)</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ④ 목표·내용 -->
+  <div class="section-block">
+    <div class="sec-head"><span class="icon">🎯</span> 연구개발 목표·내용 변경</div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-cat1" rowspan="2">연구개발<br>목표</td>
+          <td class="col-cat2" rowspan="2">목표 변경</td>
+          <td class="col-item">① 최종/단계 목표변경</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 성과 및 성능 목표</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">법 §11②</td>
+        </tr>
+        <tr>
+          <td class="col-cat1" rowspan="2">연구개발<br>내용</td>
+          <td class="col-cat2" rowspan="2">추진방법·기여도</td>
+          <td class="col-item">① 추진전략, 방법 등</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②1호</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 기술기여도</td>
+          <td class="col-badge"><span class="badge 상호">상호협의(승인)</span></td>
+          <td class="col-law">영 §39②</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ⑤ 연구개발비 -->
+  <div class="section-block">
+    <div class="sec-head"><span class="icon">💰</span> 연구개발비 변경</div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-cat1" rowspan="2">연구개발비<br>총액</td>
+          <td class="col-cat2" rowspan="2">총액·부담금</td>
+          <td class="col-item">① 연구개발비 총액 변경</td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 연구개발기관 부담금 변경 (현금/현물 간 변경 포함)</td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">인건비</td>
+          <td class="col-cat2">영리기관 인건비</td>
+          <td class="col-item">① 영리기관이 현금으로 계상하려는 인건비 변경<span class="note">※ 인건비 총액 변경, 신규인력 현금 계상 인건비 감액</span></td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-cat1" rowspan="2">연구<br>활동비</td>
+          <td class="col-cat2" rowspan="2">운영비·해외연구자</td>
+          <td class="col-item">① 영리기관 연구실운영비 활용·관리계획 변경<span class="note">※ 총액 증액, 품목 변경, 특정 품목 수량 증가</span></td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 해외연구자 유치 지원비 총액 증액</td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">위탁<br>연구개발비</td>
+          <td class="col-cat2">위탁비 증액</td>
+          <td class="col-item">① 위탁연구개발비 원래계획의 <strong>20% 이상</strong> 증액</td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">국제<br>공동연구비</td>
+          <td class="col-cat2">국제공동연구</td>
+          <td class="col-item">① 계획 대비 변경<span class="note">※ 환율 변동만으로 금액이 달라지는 경우 제외</span></td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-cat1" rowspan="4">연구시설<br>·장비비</td>
+          <td class="col-cat2" rowspan="4">장비비</td>
+          <td class="col-item">① 연구시설·장비비 변경<span class="note">※ 3천만원 이상 장비 신규구입/변경구입/구입안함, 설치장소 변경</span></td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 보유현황 변경</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">(현물과 연계)</td>
+        </tr>
+        <tr>
+          <td class="col-item">③ 설치·운영 장소 변경 <em>(연구시설·장비 구축 목적 과제)</em></td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-item">④ 연구시설·장비비 통합관리계정 적립 금액 변경</td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-cat1" rowspan="2">연구수당</td>
+          <td class="col-cat2" rowspan="2">감액·증액</td>
+          <td class="col-item">① 연구수당 감액</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②3호<br>사용기준 §26②</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 연구수당 증액<span class="note">※ 과제(단계) 시작 시점의 계상 금액보다 증액 불가</span></td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §26③</td>
+        </tr>
+        <tr>
+          <td class="col-cat1" rowspan="2">간접비</td>
+          <td class="col-cat2" rowspan="2">감액·증액</td>
+          <td class="col-item">① 간접비 감액</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②3호<br>사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-item">② 간접비 증액<span class="note">※ 고시 비율 내에서만 가능</span></td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">사용기준 §73</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">연구개발비<br>사용계획</td>
+          <td class="col-cat2">비목별 변경</td>
+          <td class="col-item">① 연구개발비 사용계획의 변경<span class="note">※ 협약서에 명시되지 않은 항목별 세부내역 변경은 통보 없이 자율 변경 가능 (단, 승인사항 제외)</span></td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②3호</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">연구개발비<br>외 지원금</td>
+          <td class="col-cat2">지원금 예산</td>
+          <td class="col-item">① 연구개발비 외 지원금 예산의 변경</td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">(평가 시 활용)</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">연구개발비<br>계좌</td>
+          <td class="col-cat2">지급계좌</td>
+          <td class="col-item">① 연구개발비 지급계좌 변경</td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②4호</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">지급 시기</td>
+          <td class="col-cat2">지급일</td>
+          <td class="col-item">① 연구개발비 지급 시기의 변경<span class="note">※ 상호협의 후 부처·전문기관 → 연구개발기관 통보 방식으로 협약 변경</span></td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②5호</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">기관부담금<br>납부 기한</td>
+          <td class="col-cat2">현금 납부시기</td>
+          <td class="col-item">① 기관부담금 중 현금 납부시기의 변경<span class="note">※ 부처·전문기관과 연구개발기관이 상호 협의 후 변경</span></td>
+          <td class="col-badge"><span class="badge 통보">통보</span></td>
+          <td class="col-law">영 §14②5호</td>
+        </tr>
+        <tr>
+          <td class="col-cat1">이자 사용</td>
+          <td class="col-cat2">정부지원비 이자</td>
+          <td class="col-item">① 정부지원비 이자의 사용<span class="note">※ 국고납입 하지 않고 연구비 산입 또는 R&D 재투자 등 사용 시</span></td>
+          <td class="col-badge"><span class="badge 승인">승인</span></td>
+          <td class="col-law">영 §20③</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="notice-box" style="border-left-color:#6b7280;">
+    <strong>📌 출처</strong>: 26년도 국가연구개발혁신법 매뉴얼 (본권) 〈표 2-5〉 73~74p · 26년도 국가연구개발사업 연구개발비 사용기준 §73~74<br>
+    <strong>📌 유의사항</strong>: 이 표는 참고용이며, 실제 처리 시 소관 전문기관 및 부처와 확인 바랍니다.
+  </div>
+</div>
+
+<footer>26년도 국가연구개발혁신법 매뉴얼 · 과학기술정보통신부 · 참고용 자료</footer>
+
+<script>
+function filterRows() {
+  const q = document.getElementById('filterInput').value.trim().toLowerCase();
+  document.querySelectorAll('tbody tr').forEach(tr => {
+    tr.classList.toggle('row-hidden', q && !tr.textContent.toLowerCase().includes(q));
+  });
+}
+
+const LAW_BASE = {
+  '법':     'https://www.law.go.kr/법령/국가연구개발혁신법/',
+  '영':     'https://www.law.go.kr/법령/국가연구개발혁신법시행령',
+  '사용기준': 'https://www.law.go.kr/행정규칙/국가연구개발사업연구개발비사용기준',
+};
+
+function linkifyLaw(html) {
+  return html.split(/<br\s*\/?>/i).map(part => {
+    const t = part.trim();
+    for (const [prefix, url] of Object.entries(LAW_BASE)) {
+      if (t.startsWith(prefix + ' §')) {
+        return `<a href="${url}" target="_blank" rel="noopener" style="color:var(--blue-dark);font-weight:700;text-decoration:none;">${t}</a>`;
+      }
+    }
+    return part;
+  }).join('<br>');
+}
+
+document.querySelectorAll('.col-law').forEach(td => {
+  td.innerHTML = linkifyLaw(td.innerHTML);
+});
+</script>
+</body>
+</html>
