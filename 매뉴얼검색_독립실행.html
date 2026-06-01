@@ -2403,11 +2403,9 @@ function wireInput(inp, clr) {
     clr.style.display = this.value ? 'block' : 'none';
     document.getElementById('searchInput').value = this.value;
     document.getElementById('searchInput2').value = this.value;
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => doSearch(this.value), 400);
   });
   inp.addEventListener('keydown', e => {
-    if (e.key === 'Enter') { clearTimeout(debounceTimer); doSearch(inp.value); }
+    if (e.key === 'Enter') { doSearch(inp.value); }
     if (e.key === 'Escape') showHero();
   });
   clr.addEventListener('click', showHero);

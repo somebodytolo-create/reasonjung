@@ -589,8 +589,7 @@ const panel=document.getElementById('srPanel');
 const back=document.getElementById('sBack');
 const clrBtn=document.getElementById('sClear');
 
-inp.addEventListener('input',()=>runSearch(inp.value));
-inp.addEventListener('focus',()=>runSearch(inp.value));
+inp.addEventListener('keydown',e=>{ if(e.key==='Enter') runSearch(inp.value); });
 clrBtn.addEventListener('click',clearSearch);
 back.addEventListener('click',closeSearch);
 

@@ -169,7 +169,7 @@ footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--m
     <span class="badge 통보">통보 — 통보만으로 협약 변경 효력 발생</span>
   </div>
   <div class="filter-wrap">
-    <input type="text" id="filterInput" placeholder="🔍 항목 필터…" oninput="filterRows()">
+    <input type="text" id="filterInput" placeholder="🔍 항목 필터…" onkeydown="if(event.key==='Enter') filterRows()">
   </div>
 </div>
 
