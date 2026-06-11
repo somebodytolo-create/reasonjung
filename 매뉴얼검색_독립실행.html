@@ -37,18 +37,17 @@ button { font-family:inherit; cursor:pointer; }
 }
 #hero.hidden { display:none; }
 
-.hero-logo {
-  width:52px; height:52px; border-radius:15px; background:var(--grad);
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 8px 22px rgba(91,95,232,.32); margin-bottom:22px;
-}
-.hero-logo svg { width:26px; height:26px; stroke:#fff; stroke-width:2.4; fill:none; stroke-linecap:round; }
 .hero-kicker {
-  font-size:12px; font-weight:700; letter-spacing:.1em;
-  color:var(--accent); margin-bottom:14px;
-  background:var(--accent-bg); border:1px solid var(--accent-bd);
-  padding:5px 14px; border-radius:100px;
+  display:flex; align-items:center; gap:16px;
+  font-size:12px; font-weight:600; letter-spacing:.18em;
+  color:var(--muted); margin-bottom:20px; white-space:nowrap;
 }
+.hero-kicker::before, .hero-kicker::after {
+  content:''; width:42px; height:1px;
+  background:linear-gradient(90deg, transparent, #b9c2ee);
+}
+.hero-kicker::after { background:linear-gradient(90deg, #b9c2ee, transparent); }
+.hero-kicker em { font-style:normal; font-weight:800; color:var(--accent); letter-spacing:.12em; }
 .hero-title {
   font-size:clamp(30px,5vw,46px); font-weight:800; letter-spacing:-0.045em;
   line-height:1.16; text-align:center; margin-bottom:12px;
@@ -73,7 +72,8 @@ button { font-family:inherit; cursor:pointer; }
   border-color:#7c8cf0;
   box-shadow:0 0 0 4px rgba(91,95,232,.12), 0 4px 20px rgba(25,31,40,.07);
 }
-.sbar .si { font-size:18px; color:var(--muted); flex-shrink:0; }
+.sbar .si { display:flex; color:var(--muted); flex-shrink:0; }
+.sbar .si svg { width:18px; height:18px; stroke:currentColor; stroke-width:2.1; fill:none; stroke-linecap:round; }
 .sbar input {
   flex:1; border:none; outline:none; font-family:inherit; font-size:16.5px;
   letter-spacing:-0.01em; color:var(--ink); background:transparent;
@@ -111,7 +111,14 @@ button { font-family:inherit; cursor:pointer; }
   box-shadow:0 1px 4px rgba(25,31,40,.04);
 }
 .qcard:hover { transform:translateY(-2px); border-color:#cfd6f5; box-shadow:0 8px 22px rgba(67,86,224,.13); }
-.qcard .qi { font-size:21px; line-height:1.3; margin-bottom:3px; }
+.qcard .qi {
+  width:34px; height:34px; border-radius:10px;
+  background:var(--accent-bg); color:var(--accent);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:8px; transition:background .16s, color .16s;
+}
+.qcard .qi svg { width:17px; height:17px; stroke:currentColor; stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.qcard:hover .qi { background:var(--grad); color:#fff; }
 .qcard .qn { font-size:13.5px; font-weight:700; color:var(--ink); letter-spacing:-0.02em; }
 .qcard .qd { font-size:11.5px; color:var(--muted); line-height:1.45; }
 .quick-foot { display:flex; justify-content:center; margin-top:12px; }
@@ -143,8 +150,9 @@ button { font-family:inherit; cursor:pointer; }
 }
 .tb-logo .mark {
   width:26px; height:26px; border-radius:8px; background:var(--grad);
-  display:flex; align-items:center; justify-content:center; font-size:13px;
+  display:flex; align-items:center; justify-content:center;
 }
+.tb-logo .mark svg { width:13px; height:13px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; }
 .tb-logo:hover { color:var(--accent); }
 .tb-inner .sbar { flex:1; max-width:520px; height:40px; padding:0 14px; border-radius:11px; box-shadow:none; }
 .tb-inner .sbar input { font-size:14px; }
@@ -240,7 +248,8 @@ button { font-family:inherit; cursor:pointer; }
 mark { background:#fef3c7; color:#92400e; padding:0 2px; border-radius:3px; font-weight:700; }
 
 .no-results { padding:70px 0 40px; text-align:center; }
-.no-results .nr-icon { font-size:42px; margin-bottom:14px; }
+.no-results .nr-icon { display:flex; justify-content:center; margin-bottom:16px; color:var(--pale); }
+.no-results .nr-icon svg { width:42px; height:42px; stroke:currentColor; stroke-width:1.5; fill:none; stroke-linecap:round; }
 .no-results h3 { font-size:18px; font-weight:700; letter-spacing:-0.03em; margin-bottom:8px; }
 .no-results p { color:var(--muted); font-size:14px; margin-bottom:20px; }
 .no-results .nr-quick { display:flex; gap:7px; justify-content:center; flex-wrap:wrap; }
@@ -273,15 +282,14 @@ mark { background:#fef3c7; color:#92400e; padding:0 2px; border-radius:3px; font
 
 <!-- HERO -->
 <div id="hero">
-  <div class="hero-logo"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>
-  <div class="hero-kicker">2026 국가연구개발혁신법 기준</div>
+  <div class="hero-kicker"><em>2026</em> 국가연구개발혁신법 기준</div>
   <h1 class="hero-title">국가R&D 매뉴얼<br><span class="grad">통합 검색</span></h1>
-  <p class="hero-sub">매뉴얼 <b>9권 · 453개 조항</b>을 한 번에 검색하세요<br>본권 · 학생인건비 · 기술료 · 제재처분 · 연구장비 · 신구대비표</p>
+  <p class="hero-sub">본권 · 학생인건비 · 기술료 · 제재처분 · 연구장비 · 신구대비표</p>
 
   <div class="search-wrap">
     <div class="sbar">
-      <span class="si">🔍</span>
-      <input id="searchInput" type="text" placeholder="검색어 입력 — 입력하는 즉시 검색됩니다" autocomplete="off">
+      <span class="si"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
+      <input id="searchInput" type="text" placeholder="검색어 입력 후 Enter" autocomplete="off">
       <button class="sc" id="clearBtn">✕</button>
     </div>
     <div class="search-hint">예: 승인, 예산 변경, 연구수당, 이월, 참여율 제한</div>
@@ -299,17 +307,17 @@ mark { background:#fef3c7; color:#92400e; padding:0 2px; border-radius:3px; font
   <div class="quick-sec">
     <div class="quick-label">서식 · 양식 · 참고자료 <span class="cnt">— 클릭하면 바로 열립니다</span></div>
     <div class="quick-grid">
-      <a class="qcard" href="승인통보표.html"><span class="qi">📋</span><span class="qn">승인·통보 구분표</span><span class="qd">협약변경 절차 한눈에</span></a>
-      <a class="qcard" href="예산편성참고.html"><span class="qi">💰</span><span class="qn">예산편성 참고표</span><span class="qd">비목별 계상 기준</span></a>
-      <a class="qcard" href="신구대조표.html"><span class="qi">📝</span><span class="qn">신구대조표</span><span class="qd">25→26년 개정사항</span></a>
-      <a class="qcard" href="3책5공.html"><span class="qi">🔢</span><span class="qn">3책 5공 정리</span><span class="qd">동시수행 과제수 제한</span></a>
-      <a class="qcard" href="학생인건비.html"><span class="qi">🎓</span><span class="qn">학생인건비</span><span class="qd">통합관리 제도 정리</span></a>
-      <a class="qcard" href="기술료.html"><span class="qi">💡</span><span class="qn">기술료</span><span class="qd">징수·납부·사용 정리</span></a>
-      <a class="qcard" href="연구장비.html"><span class="qi">🖥️</span><span class="qn">연구장비</span><span class="qd">시설·장비비 통합관리</span></a>
-      <a class="qcard" href="대시보드.html"><span class="qi">📊</span><span class="qn">실무 대시보드</span><span class="qd">실무참고 통합 보드</span></a>
+      <a class="qcard" href="승인통보표.html"><span class="qi"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 13.5 2 2 4-4.5"/></svg></span><span class="qn">승인·통보 구분표</span><span class="qd">협약변경 절차 한눈에</span></a>
+      <a class="qcard" href="예산편성참고.html"><span class="qi"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg></span><span class="qn">예산편성 참고표</span><span class="qd">비목별 계상 기준</span></a>
+      <a class="qcard" href="신구대조표.html"><span class="qi"><svg viewBox="0 0 24 24"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg></span><span class="qn">신구대조표</span><span class="qd">25→26년 개정사항</span></a>
+      <a class="qcard" href="3책5공.html"><span class="qi"><svg viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></span><span class="qn">3책 5공 정리</span><span class="qd">동시수행 과제수 제한</span></a>
+      <a class="qcard" href="학생인건비.html"><span class="qi"><svg viewBox="0 0 24 24"><path d="M22 9.5 12 4.5 2 9.5l10 5 10-5Z"/><path d="M6 11.8V17c0 1.66 2.69 3 6 3s6-1.34 6-3v-5.2"/></svg></span><span class="qn">학생인건비</span><span class="qd">통합관리 제도 정리</span></a>
+      <a class="qcard" href="기술료.html"><span class="qi"><svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 21.5h4"/><path d="M15.1 14c.9-1 1.9-2.2 1.9-4a5 5 0 0 0-10 0c0 1.8 1 3 1.9 4 .7.8 1.1 1.4 1.1 2h4c0-.6.4-1.2 1.1-2Z"/></svg></span><span class="qn">기술료</span><span class="qd">징수·납부·사용 정리</span></a>
+      <a class="qcard" href="연구장비.html"><span class="qi"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><span class="qn">연구장비</span><span class="qd">시설·장비비 통합관리</span></a>
+      <a class="qcard" href="대시보드.html"><span class="qi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span><span class="qn">실무 대시보드</span><span class="qd">실무참고 통합 보드</span></a>
     </div>
     <div class="quick-foot">
-      <a class="drive-link" href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank">📁 원문 매뉴얼 PDF 전체 보기 (Google Drive)</a>
+      <a class="drive-link" href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank">원문 매뉴얼 PDF 전체 보기 (Google Drive) ↗</a>
     </div>
   </div>
 
@@ -319,9 +327,9 @@ mark { background:#fef3c7; color:#92400e; padding:0 2px; border-radius:3px; font
 <!-- TOP BAR -->
 <div id="topbar">
   <div class="tb-inner">
-    <span class="tb-logo" id="homeBtn"><span class="mark">🔍</span><span class="txt">국가R&D 매뉴얼</span></span>
+    <span class="tb-logo" id="homeBtn"><span class="mark"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span><span class="txt">국가R&D 매뉴얼</span></span>
     <div class="sbar">
-      <span class="si">🔍</span>
+      <span class="si"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
       <input id="searchInput2" type="text" autocomplete="off">
       <button class="sc" id="clearBtn2">✕</button>
     </div>
@@ -337,15 +345,15 @@ mark { background:#fef3c7; color:#92400e; padding:0 2px; border-radius:3px; font
   </div>
   <div class="qstrip">
     <span class="qs-label">바로가기</span>
-    <a class="qchip" href="승인통보표.html">📋 승인·통보</a>
-    <a class="qchip" href="예산편성참고.html">💰 예산편성</a>
-    <a class="qchip" href="신구대조표.html">📝 신구대조표</a>
-    <a class="qchip" href="3책5공.html">🔢 3책5공</a>
-    <a class="qchip" href="학생인건비.html">🎓 학생인건비</a>
-    <a class="qchip" href="기술료.html">💡 기술료</a>
-    <a class="qchip" href="연구장비.html">🖥️ 연구장비</a>
-    <a class="qchip" href="대시보드.html">📊 대시보드</a>
-    <a class="qchip" href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank">📁 원문 PDF</a>
+    <a class="qchip" href="승인통보표.html">승인·통보</a>
+    <a class="qchip" href="예산편성참고.html">예산편성</a>
+    <a class="qchip" href="신구대조표.html">신구대조표</a>
+    <a class="qchip" href="3책5공.html">3책5공</a>
+    <a class="qchip" href="학생인건비.html">학생인건비</a>
+    <a class="qchip" href="기술료.html">기술료</a>
+    <a class="qchip" href="연구장비.html">연구장비</a>
+    <a class="qchip" href="대시보드.html">대시보드</a>
+    <a class="qchip" href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank">원문 PDF ↗</a>
   </div>
 </div>
 
@@ -2273,14 +2281,14 @@ const TAG_BG = {
   '별권4-연구장비': '#c2410c',
 };
 const TAG_LINKS = {
-  '신구대비표-본권':        { url: '신구대조표.html',   label: '📝 신구대조표 (본권) 바로 보기 →' },
-  '신구대비표-학생인건비':  { url: '신구대조표.html',   label: '📝 신구대조표 (학생인건비) 바로 보기 →' },
-  '신구대비표-제재처분':    { url: '신구대조표.html',   label: '📝 신구대조표 (제재처분) 바로 보기 →' },
-  '신구대비표-연구장비':    { url: '신구대조표.html',   label: '📝 신구대조표 (연구장비) 바로 보기 →' },
-  '별권1-학생인건비':       { url: '학생인건비.html',   label: '🎓 학생인건비 참고 페이지 바로 보기 →' },
-  '별권2-기술료':           { url: '기술료.html',       label: '💡 기술료 참고 페이지 바로 보기 →' },
-  '별권3-제재처분':         { url: '승인통보표.html',   label: '📋 승인·통보 구분표 바로 보기 →' },
-  '별권4-연구장비':         { url: '연구장비.html',     label: '🖥️ 연구장비 참고 페이지 바로 보기 →' },
+  '신구대비표-본권':        { url: '신구대조표.html',   label: '신구대조표 (본권) 바로 보기 →' },
+  '신구대비표-학생인건비':  { url: '신구대조표.html',   label: '신구대조표 (학생인건비) 바로 보기 →' },
+  '신구대비표-제재처분':    { url: '신구대조표.html',   label: '신구대조표 (제재처분) 바로 보기 →' },
+  '신구대비표-연구장비':    { url: '신구대조표.html',   label: '신구대조표 (연구장비) 바로 보기 →' },
+  '별권1-학생인건비':       { url: '학생인건비.html',   label: '학생인건비 참고 페이지 바로 보기 →' },
+  '별권2-기술료':           { url: '기술료.html',       label: '기술료 참고 페이지 바로 보기 →' },
+  '별권3-제재처분':         { url: '승인통보표.html',   label: '승인·통보 구분표 바로 보기 →' },
+  '별권4-연구장비':         { url: '연구장비.html',     label: '연구장비 참고 페이지 바로 보기 →' },
 };
 
 function doSearch(query) {
@@ -2308,7 +2316,8 @@ function doSearch(query) {
   const MAX = 100, shown = hits.slice(0, MAX);
   const main = document.getElementById('main');
   if (!hits.length) {
-    main.innerHTML = `<div class="no-results"><div class="nr-icon">🔎</div>
+    main.innerHTML = `<div class="no-results">
+      <div class="nr-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8.5" y1="11" x2="13.5" y2="11"/></svg></div>
       <h3>"${escH(query)}" 결과가 없습니다</h3>
       <p>다른 키워드를 쓰거나 위 필터 탭을 '전체'로 바꿔보세요.</p>
       <div class="nr-quick">
@@ -2362,21 +2371,15 @@ function showResults() {
   document.getElementById('main').classList.remove('hidden');
 }
 
-/* 실시간 검색: 입력 후 180ms 디바운스 (Enter는 즉시) */
+/* 검색은 Enter로만 실행 (입력 중에는 반응하지 않음 — 사용자 선호) */
 function wireInput(inp, clr) {
   inp.addEventListener('input', function() {
     clr.style.display = this.value ? 'block' : 'none';
     document.getElementById('searchInput').value = this.value;
     document.getElementById('searchInput2').value = this.value;
-    clearTimeout(debounceTimer);
-    const v = this.value;
-    debounceTimer = setTimeout(() => {
-      if (v.trim()) doSearch(v);
-      else if (currentQuery) showHero();
-    }, 180);
   });
   inp.addEventListener('keydown', e => {
-    if (e.key === 'Enter') { clearTimeout(debounceTimer); doSearch(inp.value); }
+    if (e.key === 'Enter') doSearch(inp.value);
     if (e.key === 'Escape') showHero();
   });
   clr.addEventListener('click', showHero);
