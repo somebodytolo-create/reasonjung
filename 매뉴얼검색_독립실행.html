@@ -3,345 +3,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>국가R&D 매뉴얼 검색</title>
+<title>국가R&D 매뉴얼 검색 · 2026 혁신법</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233182f6'/%3E%3Cstop offset='1' stop-color='%237c5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
 :root {
-  --ink:        #1c1c1e;
-  --ink2:       #3a3a3c;
-  --mid:        #636366;
-  --muted:      #8e8e93;
-  --pale:       #aeaeb2;
-  --line:       #e5e5ea;
-  --line2:      #f2f2f7;
-  --bg:         #f5f5f7;
-  --white:      #ffffff;
-  --accent:     #0066cc;
-  --accent-bg:  #f0f5ff;
-  --accent-bd:  #ccdcf8;
-  --tag-본:      #1d4ed8;
-  --tag-별1:    #15803d;
-  --tag-별2:    #7c3aed;
-  --tag-별3:    #b91c1c;
-  --tag-별4:    #c2410c;
-  --tag-신구:   #374151;
+  --ink:#191f28; --ink2:#333d4b; --mid:#4e5968; --muted:#8b95a1; --pale:#b0b8c1;
+  --line:#e5e8eb; --line2:#f2f4f6; --bg:#f6f7fb; --white:#fff;
+  --accent:#4356e0; --accent-bg:#eef1fe; --accent-bd:#d5dbfa;
+  --grad:linear-gradient(135deg,#3182f6,#7c5cf6);
+  --tag-본:#1d4ed8; --tag-별1:#15803d; --tag-별2:#7c3aed; --tag-별3:#b91c1c; --tag-별4:#c2410c; --tag-신구:#475569;
+  --radius:16px;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
 body {
-  font-family: 'Pretendard Variable', 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  font-size: 16px;
-  line-height: 1.8;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  background: var(--bg);
-  word-break: keep-all;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family:'Pretendard Variable','Pretendard',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  font-size:16px; line-height:1.8; letter-spacing:-0.01em;
+  color:var(--ink); background:var(--bg);
+  word-break:keep-all; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
+body::before { content:''; display:block; height:4px; background:var(--grad); }
+button { font-family:inherit; cursor:pointer; }
 
-/* ════════════════════
-   HERO
-════════════════════ */
+/* ════════════════════ HERO ════════════════════ */
 #hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100dvh;
-  padding: 0 20px 100px;
+  display:flex; flex-direction:column; align-items:center;
+  padding:9vh 20px 70px; min-height:100dvh;
+  background:
+    radial-gradient(620px 300px at 18% 4%, rgba(49,130,246,.08), transparent 70%),
+    radial-gradient(620px 300px at 84% 10%, rgba(124,92,246,.09), transparent 70%);
 }
-#hero.hidden { display: none; }
+#hero.hidden { display:none; }
 
+.hero-logo {
+  width:52px; height:52px; border-radius:15px; background:var(--grad);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 22px rgba(91,95,232,.32); margin-bottom:22px;
+}
+.hero-logo svg { width:26px; height:26px; stroke:#fff; stroke-width:2.4; fill:none; stroke-linecap:round; }
 .hero-kicker {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 18px;
+  font-size:12px; font-weight:700; letter-spacing:.1em;
+  color:var(--accent); margin-bottom:14px;
+  background:var(--accent-bg); border:1px solid var(--accent-bd);
+  padding:5px 14px; border-radius:100px;
 }
-
 .hero-title {
-  font-size: clamp(30px, 5vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.15;
-  color: var(--ink);
-  text-align: center;
-  margin-bottom: 10px;
+  font-size:clamp(30px,5vw,46px); font-weight:800; letter-spacing:-0.045em;
+  line-height:1.16; text-align:center; margin-bottom:12px;
 }
 .hero-title .grad {
-  background: linear-gradient(135deg, #0066cc 0%, #5b21b6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background:var(--grad);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
 }
-
-.hero-sub {
-  font-size: 15px;
-  color: var(--mid);
-  letter-spacing: -0.01em;
-  margin-bottom: 36px;
-  text-align: center;
-  line-height: 1.7;
-}
+.hero-sub { font-size:15px; color:var(--mid); margin-bottom:34px; text-align:center; line-height:1.7; }
+.hero-sub b { color:var(--ink2); font-weight:700; }
 
 /* 검색창 */
-.search-wrap { width: 100%; max-width: 560px; }
-
+.search-wrap { width:100%; max-width:620px; }
 .sbar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--white);
-  border: 1.5px solid var(--line);
-  border-radius: 14px;
-  padding: 0 18px;
-  height: 52px;
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
-  transition: border-color .2s, box-shadow .2s;
+  display:flex; align-items:center; gap:10px;
+  background:var(--white); border:1.5px solid var(--line);
+  border-radius:16px; padding:0 20px; height:58px;
+  box-shadow:0 4px 20px rgba(25,31,40,.07);
+  transition:border-color .2s, box-shadow .2s;
 }
 .sbar:focus-within {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(0,102,204,.08), 0 2px 12px rgba(0,0,0,.06);
+  border-color:#7c8cf0;
+  box-shadow:0 0 0 4px rgba(91,95,232,.12), 0 4px 20px rgba(25,31,40,.07);
 }
-.sbar .si { font-size: 17px; color: var(--muted); flex-shrink: 0; }
+.sbar .si { font-size:18px; color:var(--muted); flex-shrink:0; }
 .sbar input {
-  flex: 1; border: none; outline: none;
-  font-family: inherit; font-size: 16px;
-  letter-spacing: -0.01em;
-  color: var(--ink); background: transparent;
+  flex:1; border:none; outline:none; font-family:inherit; font-size:16.5px;
+  letter-spacing:-0.01em; color:var(--ink); background:transparent;
 }
-.sbar input::placeholder { color: var(--pale); }
+.sbar input::placeholder { color:var(--pale); }
 .sbar .sc {
-  background: none; border: none; cursor: pointer;
-  color: var(--pale); font-size: 16px; padding: 4px;
-  display: none; line-height: 1; border-radius: 50%;
-  transition: color .15s, background .15s;
+  background:none; border:none; color:var(--pale); font-size:16px; padding:4px;
+  display:none; line-height:1; border-radius:50%; transition:color .15s, background .15s;
 }
-.sbar .sc:hover { color: var(--mid); background: var(--line2); }
+.sbar .sc:hover { color:var(--mid); background:var(--line2); }
+.search-hint { text-align:center; font-size:12px; color:var(--muted); margin-top:10px; }
 
-/* 칩 */
-.chip-group {
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 7px; margin-top: 22px; max-width: 560px;
+/* 인기 검색어 */
+.hot-row { display:flex; flex-wrap:wrap; justify-content:center; gap:7px; margin-top:18px; }
+.hot {
+  border:1px solid var(--line); border-radius:100px; padding:5px 14px;
+  font-size:13px; font-weight:500; color:var(--mid); background:var(--white);
+  white-space:nowrap; transition:all .15s; box-shadow:0 1px 3px rgba(0,0,0,.04);
 }
-.chip {
-  display: inline-flex; align-items: center; gap: 4px;
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  padding: 5px 14px;
-  font-size: 13px;
-  font-family: inherit;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--mid);
-  background: var(--white);
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all .15s;
-  box-shadow: 0 1px 3px rgba(0,0,0,.04);
-}
-.chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); box-shadow: none; }
-.chip.primary {
-  border-color: var(--accent-bd);
-  color: var(--accent);
-  background: var(--accent-bg);
-  font-weight: 600;
-}
-.chip.primary:hover { background: #dde9f8; border-color: var(--accent); }
+.hot:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-bg); }
 
-/* ════════════════════
-   TOP BAR
-════════════════════ */
+/* 서식·양식 바로가기 */
+.quick-sec { width:100%; max-width:720px; margin-top:46px; }
+.quick-label {
+  display:flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:800; color:var(--ink2); margin-bottom:12px; letter-spacing:-0.02em;
+}
+.quick-label::before { content:''; width:4px; height:14px; border-radius:2px; background:var(--grad); }
+.quick-label .cnt { color:var(--muted); font-weight:500; }
+.quick-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.qcard {
+  display:flex; flex-direction:column; gap:2px;
+  background:var(--white); border:1px solid var(--line); border-radius:14px;
+  padding:14px 15px; text-decoration:none; transition:all .16s;
+  box-shadow:0 1px 4px rgba(25,31,40,.04);
+}
+.qcard:hover { transform:translateY(-2px); border-color:#cfd6f5; box-shadow:0 8px 22px rgba(67,86,224,.13); }
+.qcard .qi { font-size:21px; line-height:1.3; margin-bottom:3px; }
+.qcard .qn { font-size:13.5px; font-weight:700; color:var(--ink); letter-spacing:-0.02em; }
+.qcard .qd { font-size:11.5px; color:var(--muted); line-height:1.45; }
+.quick-foot { display:flex; justify-content:center; margin-top:12px; }
+.drive-link {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12.5px; font-weight:600; color:var(--mid); text-decoration:none;
+  border:1px dashed var(--pale); border-radius:100px; padding:6px 16px; transition:all .15s;
+}
+.drive-link:hover { color:var(--accent); border-color:var(--accent); background:var(--accent-bg); }
+
+.hero-foot { margin-top:auto; padding-top:40px; font-size:11.5px; color:var(--pale); text-align:center; }
+
+/* ════════════════════ TOP BAR ════════════════════ */
 #topbar {
-  display: none;
-  position: sticky; top: 0; z-index: 200;
-  background: rgba(255,255,255,.88);
-  backdrop-filter: saturate(180%) blur(16px);
-  -webkit-backdrop-filter: saturate(180%) blur(16px);
-  border-bottom: 1px solid var(--line);
+  display:none; position:sticky; top:0; z-index:200;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid var(--line);
 }
-#topbar.visible { display: block; }
-
+#topbar.visible { display:block; }
 .tb-inner {
-  display: flex; align-items: center; gap: 14px;
-  padding: 10px 20px; max-width: 860px;
+  display:flex; align-items:center; gap:14px;
+  padding:10px 20px 8px; max-width:880px; margin:0 auto;
 }
 .tb-logo {
-  font-size: 13px; font-weight: 700; letter-spacing: -0.02em;
-  color: var(--accent); white-space: nowrap; cursor: pointer;
-  flex-shrink: 0; text-decoration: none;
+  display:flex; align-items:center; gap:8px;
+  font-size:13.5px; font-weight:800; letter-spacing:-0.02em;
+  color:var(--ink); white-space:nowrap; cursor:pointer; flex-shrink:0;
 }
-.tb-logo:hover { text-decoration: underline; }
-.tb-inner .sbar {
-  flex: 1; max-width: 500px; height: 38px;
-  padding: 0 14px; border-radius: 10px; box-shadow: none;
+.tb-logo .mark {
+  width:26px; height:26px; border-radius:8px; background:var(--grad);
+  display:flex; align-items:center; justify-content:center; font-size:13px;
 }
-.tb-inner .sbar input { font-size: 14px; }
+.tb-logo:hover { color:var(--accent); }
+.tb-inner .sbar { flex:1; max-width:520px; height:40px; padding:0 14px; border-radius:11px; box-shadow:none; }
+.tb-inner .sbar input { font-size:14px; }
 
 .ftabs {
-  display: flex; overflow-x: auto; scrollbar-width: none;
-  border-top: 1px solid var(--line); padding: 0 20px;
-  max-width: 860px;
+  display:flex; overflow-x:auto; scrollbar-width:none;
+  padding:0 20px; max-width:880px; margin:0 auto;
 }
-.ftabs::-webkit-scrollbar { display: none; }
+.ftabs::-webkit-scrollbar { display:none; }
 .ftab {
-  display: inline-flex; align-items: center;
-  padding: 8px 14px; font-size: 13px; font-weight: 500;
-  letter-spacing: -0.01em; font-family: inherit;
-  color: var(--muted); background: none; border: none;
-  border-bottom: 2px solid transparent;
-  cursor: pointer; white-space: nowrap;
-  transition: color .15s, border-color .15s;
+  display:inline-flex; align-items:center; gap:5px;
+  padding:8px 13px; font-size:13px; font-weight:500; letter-spacing:-0.01em;
+  color:var(--muted); background:none; border:none;
+  border-bottom:2px solid transparent; white-space:nowrap;
+  transition:color .15s, border-color .15s;
 }
-.ftab:hover { color: var(--ink2); }
-.ftab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 700; }
+.ftab .n {
+  font-size:11px; font-weight:700; color:var(--muted);
+  background:var(--line2); border-radius:100px; padding:0 7px; line-height:1.6;
+}
+.ftab:hover { color:var(--ink2); }
+.ftab.active { color:var(--accent); border-bottom-color:var(--accent); font-weight:700; }
+.ftab.active .n { background:var(--accent-bg); color:var(--accent); }
 
-/* ════════════════════
-   RESULTS
-════════════════════ */
-#main {
-  max-width: 720px; margin: 0 auto;
-  padding: 28px 20px 80px;
+/* 바로가기 스트립 (검색 중에도 서식·양식 접근) */
+.qstrip {
+  display:flex; gap:7px; overflow-x:auto; scrollbar-width:none;
+  padding:8px 20px 10px; max-width:880px; margin:0 auto;
+  border-top:1px solid var(--line2);
 }
-#main.hidden { display: none; }
+.qstrip::-webkit-scrollbar { display:none; }
+.qs-label { font-size:11.5px; font-weight:700; color:var(--pale); white-space:nowrap; align-self:center; flex-shrink:0; }
+.qchip {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:12px; font-weight:600; color:var(--mid);
+  background:var(--white); border:1px solid var(--line); border-radius:100px;
+  padding:3.5px 11px; text-decoration:none; white-space:nowrap; transition:all .15s;
+}
+.qchip:hover { color:var(--accent); border-color:var(--accent-bd); background:var(--accent-bg); }
+
+/* ════════════════════ RESULTS ════════════════════ */
+#main { max-width:760px; margin:0 auto; padding:24px 20px 80px; }
+#main.hidden { display:none; }
 
 .res-meta {
-  font-size: 13px; color: var(--muted);
-  margin-bottom: 4px; padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
-  letter-spacing: -0.01em;
+  display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;
+  font-size:13.5px; color:var(--muted); margin-bottom:14px; letter-spacing:-0.01em;
 }
-.res-meta strong { color: var(--ink2); font-weight: 600; }
+.res-meta strong { color:var(--ink); font-weight:800; font-size:15px; }
+.res-meta .q { color:var(--accent); font-weight:700; }
 
-/* 결과 카드 */
 .rcard {
-  padding: 20px 16px;
-  border-bottom: 1px solid var(--line2);
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background .15s;
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 20px; margin-bottom:10px; cursor:pointer;
+  transition:border-color .15s, box-shadow .15s;
 }
-.rcard:hover { background: var(--white); }
-.rcard:last-child { border-bottom: none; }
+.rcard:hover { border-color:#cfd6f5; box-shadow:0 6px 18px rgba(25,31,40,.07); }
 
-.rc-meta { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; flex-wrap: wrap; }
-.ref-link {
-  font-size: 11px; font-weight: 600; color: var(--accent);
-  background: var(--accent-bg); border: 1px solid var(--accent-bd);
-  border-radius: 100px; padding: 2px 9px;
-  text-decoration: none; white-space: nowrap;
-  transition: background .15s;
-}
-.ref-link:hover { background: #dde9f8; }
-.rc-pagelink {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  margin-top: 12px; padding: 11px 16px;
-  background: var(--accent-bg); border: 1.5px solid var(--accent-bd);
-  border-radius: 10px; color: var(--accent);
-  font-size: 13.5px; font-weight: 700; text-decoration: none;
-  transition: background .15s, border-color .15s;
-}
-.rc-pagelink:hover { background: #dde9f8; border-color: var(--accent); }
-
+.rc-meta { display:flex; align-items:center; gap:7px; margin-bottom:7px; flex-wrap:wrap; }
 .rc-badge {
-  display: inline-block; border-radius: 5px;
-  padding: 2px 8px; font-size: 11px; font-weight: 700;
-  color: white; letter-spacing: 0;
+  display:inline-block; border-radius:6px; padding:2px 9px;
+  font-size:11px; font-weight:700; color:white; letter-spacing:0;
 }
-
 .rc-title {
-  font-size: 16.5px; font-weight: 700;
-  letter-spacing: -0.02em; line-height: 1.45;
-  color: var(--accent); margin-bottom: 6px;
-  transition: color .1s;
+  font-size:16.5px; font-weight:700; letter-spacing:-0.02em; line-height:1.45;
+  color:var(--ink); margin-bottom:5px; transition:color .12s;
 }
-.rcard:hover .rc-title { color: #004499; }
-
+.rcard:hover .rc-title { color:var(--accent); }
 .rc-excerpt {
-  font-size: 14px; color: #444; line-height: 1.75;
-  letter-spacing: -0.005em;
-  overflow: hidden; display: -webkit-box;
-  -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  font-size:14px; color:var(--mid); line-height:1.75; letter-spacing:-0.005em;
+  overflow:hidden; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
 }
+.rcard.expanded { border-color:var(--accent-bd); }
 .rcard.expanded .rc-excerpt {
-  display: block; overflow: visible; -webkit-line-clamp: unset;
-  white-space: pre-wrap; word-break: break-word; overflow-wrap: break-word;
-  background: var(--line2); border-radius: 10px;
-  padding: 16px 18px; margin-top: 10px;
-  color: #333; font-size: 14px; line-height: 1.85;
+  display:block; overflow:visible; -webkit-line-clamp:unset;
+  white-space:pre-wrap; word-break:break-word; overflow-wrap:break-word;
+  background:var(--line2); border-radius:12px; padding:16px 18px; margin-top:10px;
+  color:var(--ink2); font-size:14px; line-height:1.85;
 }
-.rc-toggle {
-  display: inline-block; font-size: 12px; font-weight: 600;
-  color: var(--accent); margin-top: 8px; letter-spacing: 0;
+.rc-toggle { display:inline-block; font-size:12px; font-weight:600; color:var(--accent); margin-top:8px; letter-spacing:0; }
+.rcard:not(.expanded) .rc-toggle::before { content:'전체 보기 ↓'; }
+.rcard.expanded .rc-toggle::before { content:'접기 ↑'; }
+
+.rc-pagelink {
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  margin-top:12px; padding:10px 16px;
+  background:var(--accent-bg); border:1.5px solid var(--accent-bd); border-radius:11px;
+  color:var(--accent); font-size:13.5px; font-weight:700; text-decoration:none;
+  transition:background .15s, border-color .15s;
 }
-.rcard:not(.expanded) .rc-toggle::before { content: '전체 보기 ↓'; }
-.rcard.expanded .rc-toggle::before { content: '접기 ↑'; }
+.rc-pagelink:hover { background:#e0e6fc; border-color:var(--accent); }
 
-mark {
-  background: #fef9c3; color: #713f12;
-  padding: 0 2px; border-radius: 3px; font-weight: 700;
-}
+mark { background:#fef3c7; color:#92400e; padding:0 2px; border-radius:3px; font-weight:700; }
 
-.no-results {
-  padding: 80px 0 40px; text-align: center;
-}
-.no-results .nr-icon { font-size: 44px; margin-bottom: 16px; }
-.no-results h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 8px; }
-.no-results p { color: var(--muted); font-size: 14px; }
+.no-results { padding:70px 0 40px; text-align:center; }
+.no-results .nr-icon { font-size:42px; margin-bottom:14px; }
+.no-results h3 { font-size:18px; font-weight:700; letter-spacing:-0.03em; margin-bottom:8px; }
+.no-results p { color:var(--muted); font-size:14px; margin-bottom:20px; }
+.no-results .nr-quick { display:flex; gap:7px; justify-content:center; flex-wrap:wrap; }
 
-.loading {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 14px; padding: 80px 0; color: var(--muted); font-size: 14px;
-}
-.spinner {
-  width: 32px; height: 32px;
-  border: 2.5px solid var(--line);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin .7s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* 모바일 */
-@media (max-width: 600px) {
-  #hero, #main { overflow-x: clip; }
-
-  /* Hero */
-  #hero { padding: 0 16px 80px; }
-  .hero-title { font-size: 26px; letter-spacing: -0.03em; }
-  .hero-sub { font-size: 12px; line-height: 1.6; }
-  .search-wrap { width: 100%; }
-  .sbar { height: 48px; padding: 0 14px; border-radius: 12px; }
-  .sbar input { font-size: 14px; }
-
-  /* 칩 */
-  .chip-group { gap: 6px; margin-top: 16px; }
-  .chip { font-size: 12px; padding: 4px 11px; }
-
-  /* 탑바 */
-  .tb-logo { display: none; }
-  .tb-inner { padding: 8px 12px; }
-  .tb-inner .sbar { height: 36px; border-radius: 8px; }
-  .ftabs { padding: 0 10px; }
-  .ftab { font-size: 12px; padding: 7px 10px; }
-
-  /* 결과 */
-  #main { padding: 14px 14px 60px; }
-  .rc-title { font-size: 15.5px; }
-  .rc-excerpt { font-size: 13.5px; -webkit-line-clamp: 2; }
-  .rcard { padding: 16px 12px; }
-  .rcard.expanded .rc-excerpt {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    padding: 13px 14px;
-    font-size: 13.5px;
-  }
+/* ════════════════════ 모바일 ════════════════════ */
+@media (max-width:680px) {
+  #hero, #main { overflow-x:clip; }
+  #hero { padding:7vh 16px 50px; }
+  .hero-title { font-size:27px; }
+  .hero-sub { font-size:13px; }
+  .sbar { height:52px; padding:0 15px; border-radius:14px; }
+  .sbar input { font-size:15px; }
+  .quick-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .qcard { padding:12px 13px; }
+  .tb-logo .txt { display:none; }
+  .tb-inner { padding:8px 12px 6px; }
+  .tb-inner .sbar { height:38px; border-radius:9px; }
+  .ftabs { padding:0 10px; }
+  .ftab { font-size:12px; padding:7px 9px; }
+  .qstrip { padding:7px 12px 9px; }
+  #main { padding:16px 14px 60px; }
+  .rcard { padding:15px 15px; border-radius:14px; }
+  .rc-title { font-size:15.5px; }
+  .rc-excerpt { font-size:13.5px; -webkit-line-clamp:2; }
+  .rcard.expanded .rc-excerpt { padding:13px 14px; font-size:13.5px; }
 }
 </style>
 </head>
@@ -349,37 +273,53 @@ mark {
 
 <!-- HERO -->
 <div id="hero">
-  <div class="hero-kicker">26년도 기준 · KIAPI · reasonjung</div>
-  <h1 class="hero-title">국가연구개발혁신법<br><span class="grad">매뉴얼 통합 검색</span></h1>
-  <p class="hero-sub">본권 · 학생인건비 · 기술료 · 제재처분 · 연구장비 · 신구대비표</p>
+  <div class="hero-logo"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>
+  <div class="hero-kicker">2026 국가연구개발혁신법 기준</div>
+  <h1 class="hero-title">국가R&D 매뉴얼<br><span class="grad">통합 검색</span></h1>
+  <p class="hero-sub">매뉴얼 <b>9권 · 453개 조항</b>을 한 번에 검색하세요<br>본권 · 학생인건비 · 기술료 · 제재처분 · 연구장비 · 신구대비표</p>
 
   <div class="search-wrap">
     <div class="sbar">
       <span class="si">🔍</span>
-      <input id="searchInput" type="text" placeholder="검색어 입력 (예: 승인, 예산 변경…)" autocomplete="off">
+      <input id="searchInput" type="text" placeholder="검색어 입력 — 입력하는 즉시 검색됩니다" autocomplete="off">
       <button class="sc" id="clearBtn">✕</button>
+    </div>
+    <div class="search-hint">예: 승인, 예산 변경, 연구수당, 이월, 참여율 제한</div>
+  </div>
+
+  <div class="hot-row">
+    <button class="hot" data-query="장비심의위원회">장비심의위원회</button>
+    <button class="hot" data-query="예산 변경">예산 변경</button>
+    <button class="hot" data-query="제재처분">제재처분</button>
+    <button class="hot" data-query="연구수당">연구수당</button>
+    <button class="hot" data-query="이월">이월</button>
+    <button class="hot" data-query="학생인건비 적립">학생인건비 적립</button>
+  </div>
+
+  <div class="quick-sec">
+    <div class="quick-label">서식 · 양식 · 참고자료 <span class="cnt">— 클릭하면 바로 열립니다</span></div>
+    <div class="quick-grid">
+      <a class="qcard" href="승인통보표.html"><span class="qi">📋</span><span class="qn">승인·통보 구분표</span><span class="qd">협약변경 절차 한눈에</span></a>
+      <a class="qcard" href="예산편성참고.html"><span class="qi">💰</span><span class="qn">예산편성 참고표</span><span class="qd">비목별 계상 기준</span></a>
+      <a class="qcard" href="신구대조표.html"><span class="qi">📝</span><span class="qn">신구대조표</span><span class="qd">25→26년 개정사항</span></a>
+      <a class="qcard" href="3책5공.html"><span class="qi">🔢</span><span class="qn">3책 5공 정리</span><span class="qd">동시수행 과제수 제한</span></a>
+      <a class="qcard" href="학생인건비.html"><span class="qi">🎓</span><span class="qn">학생인건비</span><span class="qd">통합관리 제도 정리</span></a>
+      <a class="qcard" href="기술료.html"><span class="qi">💡</span><span class="qn">기술료</span><span class="qd">징수·납부·사용 정리</span></a>
+      <a class="qcard" href="연구장비.html"><span class="qi">🖥️</span><span class="qn">연구장비</span><span class="qd">시설·장비비 통합관리</span></a>
+      <a class="qcard" href="대시보드.html"><span class="qi">📊</span><span class="qn">실무 대시보드</span><span class="qd">실무참고 통합 보드</span></a>
+    </div>
+    <div class="quick-foot">
+      <a class="drive-link" href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank">📁 원문 매뉴얼 PDF 전체 보기 (Google Drive)</a>
     </div>
   </div>
 
-  <div class="chip-group">
-    <a class="chip primary" href="승인통보표.html">📋 승인·통보 구분표</a>
-    <a class="chip primary" href="3책5공.html">🔢 3책5공 정리</a>
-    <a class="chip primary" href="예산편성참고.html">💰 예산편성 참고표</a>
-    <a class="chip primary" href="신구대조표.html">📝 신구대조표</a>
-    <a class="chip primary" href="학생인건비.html">👨‍🎓 학생인건비</a>
-    <a class="chip primary" href="기술료.html">💡 기술료</a>
-    <a class="chip primary" href="연구장비.html">🖥️ 연구장비</a>
-    <button class="chip" data-query="장비심의위원회">🖥️ 장비심의위원회</button>
-    <button class="chip" data-query="예산 변경">💰 예산변경</button>
-    <button class="chip" data-query="제재처분">🚫 제재처분</button>
-    <a class="chip" href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank">📁 원문 매뉴얼 전체</a>
-  </div>
+  <div class="hero-foot">KIAPI 전략기획본부 · designed &amp; built by 유정</div>
 </div>
 
 <!-- TOP BAR -->
 <div id="topbar">
   <div class="tb-inner">
-    <span class="tb-logo" id="homeBtn">📋 국가R&D 매뉴얼</span>
+    <span class="tb-logo" id="homeBtn"><span class="mark">🔍</span><span class="txt">국가R&D 매뉴얼</span></span>
     <div class="sbar">
       <span class="si">🔍</span>
       <input id="searchInput2" type="text" autocomplete="off">
@@ -387,25 +327,30 @@ mark {
     </div>
   </div>
   <div class="ftabs">
-    <button class="ftab active" data-tag="all">전체</button>
-    <button class="ftab" data-tag="본권">본권</button>
-    <button class="ftab" data-tag="별권1-학생인건비">별권1·학생인건비</button>
-    <button class="ftab" data-tag="별권2-기술료">별권2·기술료</button>
-    <button class="ftab" data-tag="별권3-제재처분">별권3·제재처분</button>
-    <button class="ftab" data-tag="별권4-연구장비">별권4·연구장비</button>
-    <button class="ftab" data-tag="신구대비표-본권">신구·본권</button>
-    <button class="ftab" data-tag="신구대비표-학생인건비">신구·학생인건비</button>
-    <button class="ftab" data-tag="신구대비표-제재처분">신구·제재처분</button>
+    <button class="ftab active" data-tag="all" data-label="전체">전체</button>
+    <button class="ftab" data-tag="본권" data-label="본권">본권</button>
+    <button class="ftab" data-tag="별권1-학생인건비" data-label="학생인건비">학생인건비</button>
+    <button class="ftab" data-tag="별권2-기술료" data-label="기술료">기술료</button>
+    <button class="ftab" data-tag="별권3-제재처분" data-label="제재처분">제재처분</button>
+    <button class="ftab" data-tag="별권4-연구장비" data-label="연구장비">연구장비</button>
+    <button class="ftab" data-tag="신구대비표" data-label="신구대비표">신구대비표</button>
+  </div>
+  <div class="qstrip">
+    <span class="qs-label">바로가기</span>
+    <a class="qchip" href="승인통보표.html">📋 승인·통보</a>
+    <a class="qchip" href="예산편성참고.html">💰 예산편성</a>
+    <a class="qchip" href="신구대조표.html">📝 신구대조표</a>
+    <a class="qchip" href="3책5공.html">🔢 3책5공</a>
+    <a class="qchip" href="학생인건비.html">🎓 학생인건비</a>
+    <a class="qchip" href="기술료.html">💡 기술료</a>
+    <a class="qchip" href="연구장비.html">🖥️ 연구장비</a>
+    <a class="qchip" href="대시보드.html">📊 대시보드</a>
+    <a class="qchip" href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank">📁 원문 PDF</a>
   </div>
 </div>
 
 <!-- RESULTS -->
-<div id="main" class="hidden">
-  <div class="loading" id="loading">
-    <div class="spinner"></div>
-    <span>데이터 로딩 중…</span>
-  </div>
-</div>
+<div id="main" class="hidden"></div>
 
 <script>const MANUAL_DATA = [
   {
@@ -2288,17 +2233,10 @@ mark {
 let allData = [], flatIndex = [];
 let currentFilter = 'all', currentQuery = '', debounceTimer = null;
 
-async function init() {
-  try {
-    const res = await fetch('manual_data.json');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    allData = await res.json();
-    buildFlatIndex();
-    document.getElementById('loading').style.display = 'none';
-  } catch(e) {
-    document.getElementById('loading').innerHTML =
-      `<div style="color:#b91c1c;text-align:center;font-size:14px;">데이터 로드 실패<br><small style="color:var(--muted)">${e.message}</small></div>`;
-  }
+/* 독립실행: 내장 MANUAL_DATA를 바로 사용 (네트워크 불필요, file://에서도 동작) */
+function init() {
+  allData = MANUAL_DATA;
+  buildFlatIndex();
 }
 
 function buildFlatIndex() {
@@ -2327,39 +2265,64 @@ function calcScore(item, terms) {
   return s;
 }
 
+const TAG_BG = {
+  '본권': '#1d4ed8',
+  '별권1-학생인건비': '#15803d',
+  '별권2-기술료': '#7c3aed',
+  '별권3-제재처분': '#b91c1c',
+  '별권4-연구장비': '#c2410c',
+};
+const TAG_LINKS = {
+  '신구대비표-본권':        { url: '신구대조표.html',   label: '📝 신구대조표 (본권) 바로 보기 →' },
+  '신구대비표-학생인건비':  { url: '신구대조표.html',   label: '📝 신구대조표 (학생인건비) 바로 보기 →' },
+  '신구대비표-제재처분':    { url: '신구대조표.html',   label: '📝 신구대조표 (제재처분) 바로 보기 →' },
+  '신구대비표-연구장비':    { url: '신구대조표.html',   label: '📝 신구대조표 (연구장비) 바로 보기 →' },
+  '별권1-학생인건비':       { url: '학생인건비.html',   label: '🎓 학생인건비 참고 페이지 바로 보기 →' },
+  '별권2-기술료':           { url: '기술료.html',       label: '💡 기술료 참고 페이지 바로 보기 →' },
+  '별권3-제재처분':         { url: '승인통보표.html',   label: '📋 승인·통보 구분표 바로 보기 →' },
+  '별권4-연구장비':         { url: '연구장비.html',     label: '🖥️ 연구장비 참고 페이지 바로 보기 →' },
+};
+
 function doSearch(query) {
   currentQuery = query;
   if (!query.trim()) { showHero(); return; }
   showResults();
   const terms = query.trim().split(/\s+/).filter(Boolean);
-  const pool = currentFilter === 'all' ? flatIndex : flatIndex.filter(i => i.tag === currentFilter || i.tag.startsWith(currentFilter));
-  const hits = pool.map(i => ({ i, s: calcScore(i, terms) })).filter(x => x.s > 0).sort((a,b) => b.s - a.s);
+
+  /* 전체 인덱스에 대해 점수 계산 → 탭별 건수 + 현재 필터 결과 동시 산출 */
+  const scored = [];
+  for (const i of flatIndex) {
+    const s = calcScore(i, terms);
+    if (s > 0) scored.push({ i, s });
+  }
+  document.querySelectorAll('.ftab').forEach(t => {
+    const tag = t.dataset.tag;
+    const n = tag === 'all' ? scored.length
+      : scored.filter(x => x.i.tag === tag || x.i.tag.startsWith(tag)).length;
+    t.innerHTML = escH(t.dataset.label) + (n ? ` <span class="n">${n}</span>` : '');
+  });
+
+  const hits = (currentFilter === 'all' ? scored
+    : scored.filter(x => x.i.tag === currentFilter || x.i.tag.startsWith(currentFilter)))
+    .sort((a,b) => b.s - a.s);
   const MAX = 100, shown = hits.slice(0, MAX);
   const main = document.getElementById('main');
   if (!hits.length) {
-    main.innerHTML = `<div class="no-results"><div class="nr-icon">🔎</div><h3>"${escH(query)}" 결과가 없습니다</h3><p>다른 키워드나 필터를 바꿔보세요.</p></div>`;
+    main.innerHTML = `<div class="no-results"><div class="nr-icon">🔎</div>
+      <h3>"${escH(query)}" 결과가 없습니다</h3>
+      <p>다른 키워드를 쓰거나 위 필터 탭을 '전체'로 바꿔보세요.</p>
+      <div class="nr-quick">
+        <button class="hot" data-query="예산 변경">예산 변경</button>
+        <button class="hot" data-query="제재처분">제재처분</button>
+        <button class="hot" data-query="연구수당">연구수당</button>
+      </div></div>`;
+    wireHotButtons(main);
     return;
   }
-  let html = `<div class="res-meta">약 <strong>${hits.length}건</strong>${hits.length > MAX ? ` (상위 ${MAX}건)` : ''}</div>`;
-  const TAG_BG = {
-    '본권': '#1d4ed8',
-    '별권1-학생인건비': '#15803d',
-    '별권2-기술료': '#7c3aed',
-    '별권3-제재처분': '#b91c1c',
-    '별권4-연구장비': '#c2410c',
-  };
-  const TAG_LINKS = {
-    '신구대비표-본권':        { url: '신구대조표.html',   label: '📝 신구대조표 (본권) 바로 보기 →' },
-    '신구대비표-학생인건비':  { url: '신구대조표.html',   label: '📝 신구대조표 (학생인건비) 바로 보기 →' },
-    '신구대비표-제재처분':    { url: '신구대조표.html',   label: '📝 신구대조표 (제재처분) 바로 보기 →' },
-    '신구대비표-연구장비':    { url: '신구대조표.html',   label: '📝 신구대조표 (연구장비) 바로 보기 →' },
-    '별권1-학생인건비':       { url: '학생인건비.html',   label: '👨‍🎓 학생인건비 참고 페이지 바로 보기 →' },
-    '별권2-기술료':           { url: '기술료.html',       label: '💡 기술료 참고 페이지 바로 보기 →' },
-    '별권3-제재처분':         { url: '승인통보표.html',   label: '📋 승인·통보 구분표 바로 보기 →' },
-    '별권4-연구장비':         { url: '연구장비.html',     label: '🖥️ 연구장비 참고 페이지 바로 보기 →' },
-  };
+  let html = `<div class="res-meta"><strong>${hits.length}건</strong>
+    <span><span class="q">"${escH(query)}"</span> 검색 결과${hits.length > MAX ? ` · 상위 ${MAX}건 표시` : ''}</span></div>`;
   for (const { i } of shown) {
-    const bg = TAG_BG[i.tag] || '#374151';
+    const bg = TAG_BG[i.tag] || '#475569';
     const bl = i.tag.replace(/-/g,' ');
     const link = TAG_LINKS[i.tag];
     const title = i.heading ? hl(i.heading.replace(/\s*\(계속\)/g,'').trim(), terms) : '일반 내용';
@@ -2390,6 +2353,7 @@ function showHero() {
   document.getElementById('searchInput').value = '';
   document.getElementById('searchInput2').value = '';
   [document.getElementById('clearBtn'), document.getElementById('clearBtn2')].forEach(b => b.style.display = 'none');
+  document.querySelectorAll('.ftab').forEach(t => { t.innerHTML = escH(t.dataset.label); });
   currentQuery = '';
 }
 function showResults() {
@@ -2398,14 +2362,21 @@ function showResults() {
   document.getElementById('main').classList.remove('hidden');
 }
 
+/* 실시간 검색: 입력 후 180ms 디바운스 (Enter는 즉시) */
 function wireInput(inp, clr) {
   inp.addEventListener('input', function() {
     clr.style.display = this.value ? 'block' : 'none';
     document.getElementById('searchInput').value = this.value;
     document.getElementById('searchInput2').value = this.value;
+    clearTimeout(debounceTimer);
+    const v = this.value;
+    debounceTimer = setTimeout(() => {
+      if (v.trim()) doSearch(v);
+      else if (currentQuery) showHero();
+    }, 180);
   });
   inp.addEventListener('keydown', e => {
-    if (e.key === 'Enter') { doSearch(inp.value); }
+    if (e.key === 'Enter') { clearTimeout(debounceTimer); doSearch(inp.value); }
     if (e.key === 'Escape') showHero();
   });
   clr.addEventListener('click', showHero);
@@ -2414,14 +2385,18 @@ wireInput(document.getElementById('searchInput'),  document.getElementById('clea
 wireInput(document.getElementById('searchInput2'), document.getElementById('clearBtn2'));
 document.getElementById('homeBtn').addEventListener('click', showHero);
 
-document.querySelectorAll('.chip[data-query]').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const q = this.dataset.query;
-    ['searchInput','searchInput2'].forEach(id => document.getElementById(id).value = q);
-    ['clearBtn','clearBtn2'].forEach(id => document.getElementById(id).style.display = 'block');
-    doSearch(q);
+function wireHotButtons(root) {
+  root.querySelectorAll('[data-query]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const q = this.dataset.query;
+      ['searchInput','searchInput2'].forEach(id => document.getElementById(id).value = q);
+      ['clearBtn','clearBtn2'].forEach(id => document.getElementById(id).style.display = 'block');
+      doSearch(q);
+    });
   });
-});
+}
+wireHotButtons(document);
+
 document.querySelectorAll('.ftab').forEach(tab => {
   tab.addEventListener('click', function() {
     document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
