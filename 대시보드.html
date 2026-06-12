@@ -588,6 +588,7 @@ function filterTable(){
 
 // ── Q&A ──
 function toggleQA(el){
+  if(window.getSelection && window.getSelection().toString()) return;
   const item=el.closest('.qa-item');
   item.classList.toggle('open');
 }
@@ -622,7 +623,7 @@ function closeDrawer(){document.getElementById('drawer').classList.remove('open'
 
 // Attach row click events
 document.querySelectorAll('tr.click').forEach(tr=>{
-  tr.addEventListener('click',()=>showDrawer(tr.dataset.d));
+  tr.addEventListener('click',()=>{if(window.getSelection && window.getSelection().toString())return;showDrawer(tr.dataset.d);});
 });
 
 // ── Global Search ──
