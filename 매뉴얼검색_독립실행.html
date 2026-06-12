@@ -4,22 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>국가R&D 매뉴얼 검색 · 2026 혁신법</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:#191f28; --ink2:#333d4b; --mid:#4e5968; --muted:#8b95a1; --pale:#b0b8c1;
   --line:#e5e8eb; --line2:#f2f4f6; --bg:#f6f7fb; --white:#fff;
-  --accent:#1d4ed8; --accent-bg:#eef2f7; --accent-bd:#c7d4e8;
-  --grad:linear-gradient(135deg,#0f172a,#2563eb);
-  --tag-본:#1e40af; --tag-별1:#0e7490; --tag-별2:#334155; --tag-별3:#0f172a; --tag-별4:#475569; --tag-신구:#64748b;
+  --accent:#ea580c; --accent-bg:#fff4ed; --accent-bd:#fcd9bd;
+  --grad:linear-gradient(135deg,#0f172a,#ea580c);
+  --tag-본:#ea580c; --tag-별1:#334155; --tag-별2:#475569; --tag-별3:#0f172a; --tag-별4:#64748b; --tag-신구:#94a3b8;
   --radius:16px;
 }
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
 body {
-  font-family:'Pretendard Variable','Pretendard',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  font-family:'Pretendard Variable','Pretendard','Nanum Gothic',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
   font-size:16px; line-height:1.8; letter-spacing:-0.01em;
   color:var(--ink); background:var(--bg);
   word-break:keep-all; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
@@ -33,7 +36,7 @@ button { font-family:inherit; cursor:pointer; }
   padding:9vh 20px 70px; min-height:100dvh;
   background:
     radial-gradient(620px 300px at 18% 4%, rgba(15,23,42,.06), transparent 70%),
-    radial-gradient(620px 300px at 84% 10%, rgba(37,99,235,.06), transparent 70%);
+    radial-gradient(620px 300px at 84% 10%, rgba(234,88,12,.05), transparent 70%);
 }
 #hero.hidden { display:none; }
 
@@ -69,8 +72,8 @@ button { font-family:inherit; cursor:pointer; }
   transition:border-color .2s, box-shadow .2s;
 }
 .sbar:focus-within {
-  border-color:#2563eb;
-  box-shadow:0 0 0 4px rgba(37,99,235,.10), 0 4px 20px rgba(25,31,40,.07);
+  border-color:#ea580c;
+  box-shadow:0 0 0 4px rgba(234,88,12,.12), 0 4px 20px rgba(25,31,40,.07);
 }
 .sbar .si { display:flex; color:var(--muted); flex-shrink:0; }
 .sbar .si svg { width:18px; height:18px; stroke:currentColor; stroke-width:2.1; fill:none; stroke-linecap:round; }
@@ -243,9 +246,9 @@ button { font-family:inherit; cursor:pointer; }
   color:var(--accent); font-size:13.5px; font-weight:700; text-decoration:none;
   transition:background .15s, border-color .15s;
 }
-.rc-pagelink:hover { background:#dbe5f1; border-color:var(--accent); }
+.rc-pagelink:hover { background:#ffe8d4; border-color:var(--accent); }
 
-mark { background:#dbeafe; color:#1e3a8a; padding:0 2px; border-radius:3px; font-weight:700; }
+mark { background:#ffedd5; color:#9a3412; padding:0 2px; border-radius:3px; font-weight:700; }
 
 .no-results { padding:70px 0 40px; text-align:center; }
 .no-results .nr-icon { display:flex; justify-content:center; margin-bottom:16px; color:var(--pale); }
@@ -2274,11 +2277,11 @@ function calcScore(item, terms) {
 }
 
 const TAG_BG = {
-  '본권': '#1e40af',
-  '별권1-학생인건비': '#0e7490',
-  '별권2-기술료': '#334155',
+  '본권': '#ea580c',
+  '별권1-학생인건비': '#334155',
+  '별권2-기술료': '#475569',
   '별권3-제재처분': '#0f172a',
-  '별권4-연구장비': '#475569',
+  '별권4-연구장비': '#64748b',
 };
 const TAG_LINKS = {
   '신구대비표-본권':        { url: '신구대조표.html',   label: '신구대조표 (본권) 바로 보기 →' },

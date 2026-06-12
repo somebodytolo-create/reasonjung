@@ -4,21 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>협약변경 승인·통보 구분표 (26년도)</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe;
+  --blue: #ea580c; --blue-dark: #475569; --blue-light: #f1f5f9; --blue-mid: #e2e8f0;
   --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
   --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
-  --승인-c: #1d4ed8; --승인-bg: #eff6ff; --승인-b: #bfdbfe;
-  --상호-c: #475569; --상호-bg: #f8fafc; --상호-b: #e2e8f0;
-  --통보-c: #0e7490; --통보-bg: #f8fafc; --통보-b: #cbd5e1;
+  --승인-c: #fff; --승인-bg: #ea580c; --승인-b: #ea580c;
+  --상호-c: #c2410c; --상호-bg: #fff7ed; --상호-b: #fdba74;
+  --통보-c: #475569; --통보-bg: #f8fafc; --통보-b: #e2e8f0;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
+  font-family: 'Pretendard Variable',Pretendard,'Nanum Gothic','Malgun Gothic',-apple-system,sans-serif;
   color: var(--text); background: var(--bg); font-size: 13px;
   line-height: 1.6; -webkit-font-smoothing: antialiased;
 }
@@ -72,7 +75,7 @@ body {
   outline: none; width: 240px; background: var(--bg);
   transition: border-color .2s, box-shadow .2s;
 }
-#filterInput:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); background: var(--white); }
+#filterInput:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(234,88,12,.1); background: var(--white); }
 
 /* ── 컨테이너 ── */
 .container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 60px; }
@@ -80,7 +83,7 @@ body {
 /* ── 알림박스 ── */
 .notice-box {
   background: var(--white); border: 1px solid var(--border);
-  border-left: 4px solid #64748b;
+  border-left: 4px solid #ea580c;
   border-radius: 0 8px 8px 0; padding: 14px 16px;
   margin-bottom: 20px; font-size: 13px; line-height: 1.8;
 }
@@ -101,9 +104,9 @@ body {
 .table-wrap { background: var(--white); border: 1px solid var(--border); border-top: none; border-radius: 0 0 10px 10px; overflow: hidden; }
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 thead th {
-  background: #eef3fb; color: #1c1c1e; padding: 10px 12px;
+  background: #f8fafc; color: #1c1c1e; padding: 10px 12px;
   text-align: center; font-size: 12px; font-weight: 700;
-  border-bottom: 2px solid #bfdbfe; letter-spacing: .02em;
+  border-bottom: 2px solid #e2e8f0; letter-spacing: .02em;
 }
 thead th:first-child { border-radius: 0; }
 thead th:last-child  { border-radius: 0; }
@@ -116,7 +119,7 @@ tbody tr:hover { background: var(--bg); }
 tbody tr.row-hidden { display: none; }
 
 .col-cat1 {
-  background: #f0f6ff; font-weight: 700; font-size: 11.5px;
+  background: #f8fafc; font-weight: 700; font-size: 11.5px;
   color: var(--blue-dark); text-align: center; width: 80px;
   white-space: nowrap;
 }
@@ -147,24 +150,24 @@ footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--m
 <style>
 /* ══ 통합 아이덴티티 (메인 검색 페이지와 동일) ══ */
 body { background:#f6f7fb; }
-body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#2563eb); }
+body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#ea580c); }
 .page-nav { display:flex; align-items:center; gap:12px; padding:9px 20px;
   background:rgba(255,255,255,.92); border-bottom:1px solid #e5e8eb;
   backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); }
 .rj-logo { display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:800;
   letter-spacing:-.02em; color:#191f28; text-decoration:none; white-space:nowrap; flex-shrink:0; }
 .rj-logo .mark { width:26px; height:26px; border-radius:8px;
-  background:linear-gradient(135deg,#0f172a,#2563eb);
+  background:linear-gradient(135deg,#0f172a,#ea580c);
   display:flex; align-items:center; justify-content:center; }
 .rj-logo .mark svg { width:13px; height:13px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; }
-.rj-logo:hover { color:#1d4ed8; }
+.rj-logo:hover { color:#ea580c; }
 .rj-links { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-left:auto; }
 .rj-links::-webkit-scrollbar { display:none; }
 .rj-chip { font-size:12px; font-weight:600; color:#4e5968; background:#fff;
   border:1px solid #e5e8eb; border-radius:100px; padding:3px 11px;
   text-decoration:none; white-space:nowrap; transition:all .15s; }
-.rj-chip:hover { color:#1d4ed8; border-color:#c7d4e8; background:#eef2f7; }
-.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#2563eb); border-color:transparent; }
+.rj-chip:hover { color:#ea580c; border-color:#fcd9bd; background:#fff4ed; }
+.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#ea580c); border-color:transparent; }
 .page-hero { display:flex; align-items:center; gap:14px; }
 .rj-picon { flex-shrink:0; width:46px; height:46px; border-radius:13px;
   background:#0f172a; color:#fff; display:flex; align-items:center; justify-content:center; }
@@ -172,6 +175,26 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
   stroke-linecap:round; stroke-linejoin:round; }
 .page-title { color:#191f28; letter-spacing:-.03em; }
 @media (max-width:600px) { .rj-logo .txt { display:none; } .page-hero { gap:11px; } .rj-picon { width:38px; height:38px; border-radius:11px; } .rj-picon svg { width:18px; height:18px; } }
+</style>
+<style>
+/* ══ 가독성 리워크 (2026.06.12): 주황 포인트 + 타이포 ══ */
+body { font-size:13.5px; }
+table { font-size:13px; font-variant-numeric:tabular-nums; }
+tbody td { padding:11px 12px; line-height:1.7; }
+thead th { background:#f8fafc; color:#334155; border-bottom:2px solid #e2e8f0; }
+.sec-head { display:flex; align-items:center; flex-wrap:wrap; gap:8px; background:#f1f5f9; border-left-color:#ea580c; }
+.sec-head .sec-law { margin-left:auto; font-size:11px; font-weight:600; color:#94a3b8; white-space:nowrap; padding-left:12px; }
+a.law-ref { color:#475569; font-weight:600; text-decoration:none; border-bottom:1px dotted #cbd5e1; }
+a.law-ref:hover { color:#c2410c; border-bottom-color:#fdba74; }
+.toc-btn:hover { border-color:#fdba74; color:#c2410c; background:#fff7ed; }
+.info-box { border-left-color:#ea580c; }
+.ok-box { border-left-color:#334155; }
+.rate { color:#c2410c; }
+.law-chip { display:inline-block; font-size:11px; font-weight:600; color:#475569; background:#f1f5f9; border:1px solid #e2e8f0; border-radius:6px; padding:1px 8px; line-height:1.7; white-space:nowrap; margin:1px 0; text-decoration:none; }
+a.law-chip:hover { color:#c2410c; border-color:#fdba74; background:#fff7ed; }
+.law-chip.plain { background:transparent; border-style:dashed; color:#94a3b8; }
+a.law-ref.law-chip { border:1px solid #e2e8f0; }
+a.law-ref.law-chip:hover { border-color:#fdba74; }
 </style>
 </head>
 <body>
@@ -521,10 +544,10 @@ function linkifyLaw(html) {
     const t = part.trim();
     for (const [prefix, url] of Object.entries(LAW_BASE)) {
       if (t.startsWith(prefix + ' §')) {
-        return `<a href="${url}" target="_blank" rel="noopener" style="color:var(--blue-dark);font-weight:700;text-decoration:none;">${t}</a>`;
+        return `<a href="${url}" target="_blank" rel="noopener" class="law-ref law-chip">${t}</a>`;
       }
     }
-    return part;
+    return t ? '<span class="law-chip plain">' + t + '</span>' : part;
   }).join('<br>');
 }
 
