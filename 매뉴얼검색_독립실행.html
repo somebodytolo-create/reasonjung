@@ -92,8 +92,8 @@ button { font-family:inherit; cursor:pointer; }
 /* 인기 검색어 */
 .hot-row { display:flex; flex-wrap:wrap; justify-content:center; gap:7px; margin-top:18px; }
 .hot {
-  border:1px solid var(--line); border-radius:100px; padding:5px 14px;
-  font-size:13px; font-weight:500; color:var(--mid); background:var(--white);
+  border:1px solid transparent; border-radius:100px; padding:5px 14px;
+  font-size:13px; font-weight:500; color:var(--mid); background:#f2f4f6;
   white-space:nowrap; transition:all .15s; box-shadow:0 1px 3px rgba(0,0,0,.04);
 }
 .hot:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-bg); }
@@ -109,9 +109,9 @@ button { font-family:inherit; cursor:pointer; }
 .quick-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
 .qcard {
   display:flex; flex-direction:column; gap:2px;
-  background:var(--white); border:1px solid var(--line); border-radius:14px;
+  background:var(--white); border:1px solid transparent; border-radius:14px;
   padding:14px 15px; text-decoration:none; transition:all .16s;
-  box-shadow:0 1px 4px rgba(25,31,40,.04);
+  box-shadow:0 1px 5px rgba(25,31,40,.07);
 }
 .qcard:hover { transform:translateY(-2px); border-color:#cbd5e1; box-shadow:0 8px 22px rgba(15,23,42,.10); }
 .qcard .qi {
@@ -191,7 +191,7 @@ button { font-family:inherit; cursor:pointer; }
 .qchip {
   display:inline-flex; align-items:center; gap:4px;
   font-size:12px; font-weight:600; color:var(--mid);
-  background:var(--white); border:1px solid var(--line); border-radius:100px;
+  background:#f2f4f6; border:1px solid transparent; border-radius:100px;
   padding:3.5px 11px; text-decoration:none; white-space:nowrap; transition:all .15s;
 }
 .qchip:hover { color:var(--accent); border-color:var(--accent-bd); background:var(--accent-bg); }
@@ -208,7 +208,7 @@ button { font-family:inherit; cursor:pointer; }
 .res-meta .q { color:var(--accent); font-weight:700; }
 
 .rcard {
-  background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--white); border:1px solid transparent; border-radius:var(--radius); box-shadow:0 1px 4px rgba(25,31,40,.05);
   padding:18px 20px; margin-bottom:10px; cursor:pointer;
   transition:border-color .15s, box-shadow .15s;
 }
