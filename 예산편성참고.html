@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>연구개발비 예산편성 참고표 (26년도)</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233182f6'/%3E%3Cstop offset='1' stop-color='%237c5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
 :root {
   --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe;
-  --green: #166534; --green-light: #f0fdf4; --green-mid: #bbf7d0;
-  --red: #dc2626; --red-light: #fef2f2; --red-mid: #fecaca;
-  --amber: #92400e; --amber-light: #fffbeb; --amber-mid: #fde68a;
+  --green: #0e7490; --green-light: #f8fafc; --green-mid: #cbd5e1;
+  --red: #0f172a; --red-light: #f1f5f9; --red-mid: #cbd5e1;
+  --amber: #475569; --amber-light: #f8fafc; --amber-mid: #e2e8f0;
   --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
   --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
 }
@@ -77,17 +77,17 @@ tbody tr:hover { background: var(--bg); }
 /* Badges */
 .b { display: inline-flex; align-items: center; border-radius: 100px; padding: 2px 10px; font-size: 11.5px; font-weight: 600; border: 1.5px solid; white-space: nowrap; }
 .b-직접 { color: var(--blue-dark); background: var(--blue-light); border-color: var(--blue-mid); }
-.b-간접비 { color: #6d28d9; background: #f5f3ff; border-color: #ddd6fe; }
+.b-간접비 { color: #334155; background: #f1f5f9; border-color: #cbd5e1; }
 .b-별도 { color: var(--green); background: var(--green-light); border-color: var(--green-mid); }
 .b-현금 { color: var(--green); background: var(--green-light); border-color: var(--green-mid); }
 .b-현물 { color: var(--amber); background: var(--amber-light); border-color: var(--amber-mid); }
 .b-승인 { color: var(--blue-dark); background: var(--blue-light); border-color: var(--blue-mid); }
-.b-한도 { color: #c2410c; background: #fff7ed; border-color: #fed7aa; }
+.b-한도 { color: #475569; background: #f8fafc; border-color: #cbd5e1; }
 .b-불가 { color: var(--red); background: var(--red-light); border-color: var(--red-mid); }
 
 /* Info boxes */
 .info-box {
-  background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #f59e0b;
+  background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #64748b;
   border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px;
   font-size: 13px; line-height: 1.8;
 }
@@ -120,27 +120,27 @@ footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--m
 <style>
 /* ══ 통합 아이덴티티 (메인 검색 페이지와 동일) ══ */
 body { background:#f6f7fb; }
-body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#3182f6,#7c5cf6); }
+body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#2563eb); }
 .page-nav { display:flex; align-items:center; gap:12px; padding:9px 20px;
   background:rgba(255,255,255,.92); border-bottom:1px solid #e5e8eb;
   backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); }
 .rj-logo { display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:800;
   letter-spacing:-.02em; color:#191f28; text-decoration:none; white-space:nowrap; flex-shrink:0; }
 .rj-logo .mark { width:26px; height:26px; border-radius:8px;
-  background:linear-gradient(135deg,#3182f6,#7c5cf6);
+  background:linear-gradient(135deg,#0f172a,#2563eb);
   display:flex; align-items:center; justify-content:center; }
 .rj-logo .mark svg { width:13px; height:13px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; }
-.rj-logo:hover { color:#4356e0; }
+.rj-logo:hover { color:#1d4ed8; }
 .rj-links { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-left:auto; }
 .rj-links::-webkit-scrollbar { display:none; }
 .rj-chip { font-size:12px; font-weight:600; color:#4e5968; background:#fff;
   border:1px solid #e5e8eb; border-radius:100px; padding:3px 11px;
   text-decoration:none; white-space:nowrap; transition:all .15s; }
-.rj-chip:hover { color:#4356e0; border-color:#d5dbfa; background:#eef1fe; }
-.rj-chip.on { color:#fff; background:linear-gradient(135deg,#3182f6,#7c5cf6); border-color:transparent; }
+.rj-chip:hover { color:#1d4ed8; border-color:#c7d4e8; background:#eef2f7; }
+.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#2563eb); border-color:transparent; }
 .page-hero { display:flex; align-items:center; gap:14px; }
 .rj-picon { flex-shrink:0; width:46px; height:46px; border-radius:13px;
-  background:#eef1fe; color:#4356e0; display:flex; align-items:center; justify-content:center; }
+  background:#0f172a; color:#fff; display:flex; align-items:center; justify-content:center; }
 .rj-picon svg { width:22px; height:22px; stroke:currentColor; stroke-width:1.8; fill:none;
   stroke-linecap:round; stroke-linejoin:round; }
 .page-title { color:#191f28; letter-spacing:-.03em; }
@@ -152,10 +152,6 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 <nav class="page-nav"><a class="rj-logo" href="매뉴얼검색_독립실행.html"><span class="mark"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span><span class="txt">국가R&D 매뉴얼</span></a><div class="rj-links"><a class="rj-chip" href="승인통보표.html">승인·통보</a><a class="rj-chip on" href="예산편성참고.html">예산편성</a><a class="rj-chip" href="신구대조표.html">신구대조표</a><a class="rj-chip" href="3책5공.html">3책5공</a><a class="rj-chip" href="학생인건비.html">학생인건비</a><a class="rj-chip" href="기술료.html">기술료</a><a class="rj-chip" href="연구장비.html">연구장비</a><a class="rj-chip" href="대시보드.html">대시보드</a></div></nav>
 
 <div class="page-hero"><div class="rj-picon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></svg></div><div><h1 class="page-title">연구개발비 예산편성 참고표</h1><p class="page-sub">비목 구성 · 기관유형별 부담기준 · 계상한도 · 사전승인 대상 · 26년도 국가연구개발혁신법 매뉴얼 기준</p></div></div>
-<div style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:10px 24px;display:flex;align-items:center;gap:8px;font-size:13px;">
-  <span style="color:#6b7280;">원문</span>
-  <a href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank" style="color:#1d4ed8;font-weight:600;text-decoration:none;">[본권] 국가연구개발혁신법 매뉴얼 PDF 보기/다운로드 →</a>
-</div>
 
 <div class="toolbar">
   <span class="nav-label">바로가기</span>
@@ -170,7 +166,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 1. 비목 구성 -->
   <div id="bimok" class="section">
-    <div class="sec-head">📊 연구개발비 비목 구성 (직접비/간접비)</div>
+    <div class="sec-head">연구개발비 비목 구성 (직접비/간접비)</div>
     <div class="section-body">
       <table>
         <thead>
@@ -279,7 +275,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 2. 기관유형별 정부지원 비율 -->
   <div id="burden" class="section">
-    <div class="sec-head">🏛️ 기관유형별 정부지원 연구개발비 상한 (표 3-2)</div>
+    <div class="sec-head">기관유형별 정부지원 연구개발비 상한 (표 3-2)</div>
     <div class="section-body">
       <div class="grid-2">
         <div>
@@ -296,7 +292,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
           <span class="note" style="margin-top:6px;">※ 정부지원 상한은 "최대 지원 가능" 비율이며, 실제 지원 비율은 사업별로 다름</span>
         </div>
         <div class="info-card">
-          <div class="ic-title">💡 기관부담 연구개발비</div>
+          <div class="ic-title">기관부담 연구개발비</div>
           <div class="ic-body">
             연구개발기관이 직접 부담하는 금액으로, 현금 또는 현물로 계상 가능합니다.<br><br>
             <strong>현물 계상 가능 항목 (비영리·영리기관 공통):</strong>
@@ -314,10 +310,10 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 3. 항목별 주요 제한기준 -->
   <div id="limit" class="section">
-    <div class="sec-head">📏 비목별 주요 계상 제한 기준</div>
+    <div class="sec-head">비목별 주요 계상 제한 기준</div>
     <div class="section-body">
       <div class="info-box" style="margin-bottom:14px;">
-        <div class="box-title">📌 공통 원칙</div>
+        <div class="box-title">공통 원칙</div>
         연구개발비는 <strong>연구비카드 또는 계좌이체</strong>로 사용이 원칙. 관세 납부, 연구비카드 미발급 등 불가피한 경우에만 현금(지폐·주화) 사용 가능.
       </div>
       <table>
@@ -436,10 +432,10 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 4. 사전승인 핵심 정리 -->
   <div id="presanction" class="section">
-    <div class="sec-head" style="background:var(--red-light);border-left-color:var(--red);">🔴 사전승인 대상 핵심 정리 (연구개발비 사용기준 §73)</div>
+    <div class="sec-head" style="background:var(--red-light);border-left-color:var(--red);">사전승인 대상 핵심 정리 (연구개발비 사용기준 §73)</div>
     <div class="section-body">
       <div class="warn-box">
-        <div class="box-title">⚠️ 사전 승인 = 사용 전에 반드시 승인 받아야 함</div>
+        <div class="box-title">※ 사전 승인 = 사용 전에 반드시 승인 받아야 함</div>
         아래 항목은 변경 전 중앙행정기관의 장(또는 전문기관)으로부터 <strong>사전 서면 승인</strong>을 받아야 합니다.<br>
         사후 승인은 인정되지 않으며, 승인 없이 집행 시 부적정 집행으로 처리될 수 있습니다.
       </div>
@@ -463,7 +459,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
         </tbody>
       </table>
       <div class="info-box" style="margin-top:14px;">
-        <div class="box-title">💡 사전 승인 예외 (§73②)</div>
+        <div class="box-title">사전 승인 예외 (§73②)</div>
         ① <strong>정부출연기관의 기본사업</strong>인 경우<br>
         ② <strong>국가안보 또는 사회·경제적 긴급한 상황</strong> 등으로 중앙행정기관장이 인정하는 경우
       </div>
@@ -472,19 +468,19 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 5. 예산편성 주요 유의사항 -->
   <div id="caution" class="section">
-    <div class="sec-head">⚡ 예산편성 시 주요 유의사항</div>
+    <div class="sec-head">예산편성 시 주요 유의사항</div>
     <div class="section-body">
       <div class="grid-2">
         <div class="info-card">
-          <div class="ic-title">📌 비목별 자율 변경 가능 범위</div>
+          <div class="ic-title">비목별 자율 변경 가능 범위</div>
           <div class="ic-body">협약서에 명시되지 않은 <strong>항목별 세부내역의 변경</strong>은 통보 없이 <strong>자율 변경</strong> 가능.<br>단, 사전승인 대상(①~⑫)은 반드시 승인 후 변경.</div>
         </div>
         <div class="info-card">
-          <div class="ic-title">📌 현금 vs 현물 계상</div>
+          <div class="ic-title">현금 vs 현물 계상</div>
           <div class="ic-body"><strong>비영리기관</strong>: 원칙적으로 현금 계상 (연구시설·장비 구축, 인력양성 등 특례 제외)<br><strong>영리기관</strong>: 직접비를 현금 또는 현물로 계상 가능 (항목별 기준 적용)</div>
         </div>
         <div class="info-card" style="grid-column: 1 / -1;">
-          <div class="ic-title">📌 기관 유형별 간접비 고시비율 (매뉴얼 표 3-28, 사용기준 별표 6)</div>
+          <div class="ic-title">기관 유형별 간접비 고시비율 (매뉴얼 표 3-28, 사용기준 별표 6)</div>
           <div class="ic-body">
             <table style="margin-top:6px;">
               <thead>
@@ -505,15 +501,15 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
           </div>
         </div>
         <div class="info-card">
-          <div class="ic-title">📌 연구개발비 지급 방법</div>
+          <div class="ic-title">연구개발비 지급 방법</div>
           <div class="ic-body"><strong>일괄지급</strong>: 중앙행정기관장이 연도별 연구개발비를 한꺼번에 지급<br><strong>분할지급</strong>: 연차별·분기별 등 나누어 지급<br>지급 시기 변경은 통보 사항 (상호협의 후 부처→기관 통보)</div>
         </div>
         <div class="info-card">
-          <div class="ic-title">📌 위탁연구개발비 주의</div>
+          <div class="ic-title">위탁연구개발비 주의</div>
           <div class="ic-body">위탁연구개발비는 직접비 산정에서 <strong>제외</strong> (간접비 계산 기준 직접비에 포함 안 됨).<br>원래계획의 20% 이상 증액 시 사전 승인 필수.<span class="note">※ 위탁연구개발기관은 3책5공 산정에서도 제외</span></div>
         </div>
         <div class="info-card">
-          <div class="ic-title">📌 이자 사용 처리</div>
+          <div class="ic-title">이자 사용 처리</div>
           <div class="ic-body">정부지원 연구개발비에서 발생한 이자는 <strong>국고납입</strong>이 원칙.<br>연구비 산입 또는 R&D 재투자 등 다른 용도 사용 시 <strong>사전 승인</strong> 필요.<br>학생인건비 통합관리계정 이자는 별도 규정 적용.</div>
         </div>
       </div>

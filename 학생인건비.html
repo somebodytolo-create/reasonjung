@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>학생인건비 통합관리 정리 (26년도)</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233182f6'/%3E%3Cstop offset='1' stop-color='%237c5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
 :root {
-  --green: #166534; --green-dark: #14532d; --green-light: #f0fdf4; --green-mid: #bbf7d0; --green-bd: #86efac;
+  --green: #1e40af; --green-dark: #1e3a8a; --green-light: #f1f5f9; --green-mid: #cbd5e1; --green-bd: #cbd5e1;
   --blue: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe; --blue-bd: #93c5fd;
-  --red: #dc2626; --red-light: #fef2f2; --red-mid: #fecaca;
-  --amber: #92400e; --amber-light: #fffbeb; --amber-mid: #fde68a;
+  --red: #0f172a; --red-light: #f1f5f9; --red-mid: #cbd5e1;
+  --amber: #475569; --amber-light: #f8fafc; --amber-mid: #e2e8f0;
   --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
   --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
 }
@@ -32,7 +32,7 @@ body { font-family: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif; co
 .toc-btn:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
 .container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 60px; }
 .section { margin-bottom: 24px; }
-.sec-head { font-size: 14px; font-weight: 700; color: var(--text); padding: 10px 14px; background: var(--green-light); border-left: 4px solid #16a34a; border-radius: 0 8px 8px 0; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.sec-head { font-size: 14px; font-weight: 700; color: var(--text); padding: 10px 14px; background: var(--green-light); border-left: 4px solid #1d4ed8; border-radius: 0 8px 8px 0; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 .section-body { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 thead th { background: #eef3fb; color: #1c1c1e; padding: 10px 12px; font-size: 12px; font-weight: 700; border-bottom: 2px solid var(--blue-bd); letter-spacing: .02em; text-align: center; }
@@ -40,15 +40,15 @@ tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: var(--bg); }
 .cat { background: var(--green-light); font-weight: 700; color: var(--green-dark); text-align: center; white-space: nowrap; width: 90px; }
-.amt { font-size: 15px; font-weight: 900; color: #166534; }
+.amt { font-size: 15px; font-weight: 900; color: #1e40af; }
 .b { display: inline-flex; align-items: center; border-radius: 100px; padding: 2px 10px; font-size: 11.5px; font-weight: 600; border: 1.5px solid; white-space: nowrap; }
 .b-ok { color: var(--green); background: var(--green-light); border-color: var(--green-mid); }
 .b-no { color: var(--red); background: var(--red-light); border-color: var(--red-mid); }
 .b-warn { color: var(--amber); background: var(--amber-light); border-color: var(--amber-mid); }
 .b-blue { color: var(--blue); background: var(--blue-light); border-color: var(--blue-mid); }
-.info-box { background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.info-box { background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #64748b; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
 .warn-box { background: var(--red-light); border: 1px solid var(--red-mid); border-left: 4px solid var(--red); border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
-.ok-box { background: var(--green-light); border: 1px solid var(--green-mid); border-left: 4px solid #16a34a; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.ok-box { background: var(--green-light); border: 1px solid var(--green-mid); border-left: 4px solid #1d4ed8; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
 .box-title { font-weight: 700; margin-bottom: 5px; font-size: 13.5px; }
 .info-box .box-title { color: var(--amber); }
 .warn-box .box-title { color: var(--red); }
@@ -56,7 +56,7 @@ tbody tr:hover { background: var(--bg); }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 650px) { .grid-2 { grid-template-columns: 1fr; } }
 .info-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
-.ic-title { font-weight: 700; font-size: 13px; color: #166534; margin-bottom: 6px; }
+.ic-title { font-weight: 700; font-size: 13px; color: #1e40af; margin-bottom: 6px; }
 .ic-body { font-size: 12.5px; line-height: 1.75; }
 .note { font-size: 11.5px; color: var(--muted); margin-top: 4px; display: block; line-height: 1.6; }
 footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
@@ -65,27 +65,27 @@ footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--m
 <style>
 /* ══ 통합 아이덴티티 (메인 검색 페이지와 동일) ══ */
 body { background:#f6f7fb; }
-body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#3182f6,#7c5cf6); }
+body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#2563eb); }
 .page-nav { display:flex; align-items:center; gap:12px; padding:9px 20px;
   background:rgba(255,255,255,.92); border-bottom:1px solid #e5e8eb;
   backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); }
 .rj-logo { display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:800;
   letter-spacing:-.02em; color:#191f28; text-decoration:none; white-space:nowrap; flex-shrink:0; }
 .rj-logo .mark { width:26px; height:26px; border-radius:8px;
-  background:linear-gradient(135deg,#3182f6,#7c5cf6);
+  background:linear-gradient(135deg,#0f172a,#2563eb);
   display:flex; align-items:center; justify-content:center; }
 .rj-logo .mark svg { width:13px; height:13px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; }
-.rj-logo:hover { color:#4356e0; }
+.rj-logo:hover { color:#1d4ed8; }
 .rj-links { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-left:auto; }
 .rj-links::-webkit-scrollbar { display:none; }
 .rj-chip { font-size:12px; font-weight:600; color:#4e5968; background:#fff;
   border:1px solid #e5e8eb; border-radius:100px; padding:3px 11px;
   text-decoration:none; white-space:nowrap; transition:all .15s; }
-.rj-chip:hover { color:#4356e0; border-color:#d5dbfa; background:#eef1fe; }
-.rj-chip.on { color:#fff; background:linear-gradient(135deg,#3182f6,#7c5cf6); border-color:transparent; }
+.rj-chip:hover { color:#1d4ed8; border-color:#c7d4e8; background:#eef2f7; }
+.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#2563eb); border-color:transparent; }
 .page-hero { display:flex; align-items:center; gap:14px; }
 .rj-picon { flex-shrink:0; width:46px; height:46px; border-radius:13px;
-  background:#eef1fe; color:#4356e0; display:flex; align-items:center; justify-content:center; }
+  background:#0f172a; color:#fff; display:flex; align-items:center; justify-content:center; }
 .rj-picon svg { width:22px; height:22px; stroke:currentColor; stroke-width:1.8; fill:none;
   stroke-linecap:round; stroke-linejoin:round; }
 .page-title { color:#191f28; letter-spacing:-.03em; }
@@ -95,10 +95,6 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 <body>
 <nav class="page-nav"><a class="rj-logo" href="매뉴얼검색_독립실행.html"><span class="mark"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span><span class="txt">국가R&D 매뉴얼</span></a><div class="rj-links"><a class="rj-chip" href="승인통보표.html">승인·통보</a><a class="rj-chip" href="예산편성참고.html">예산편성</a><a class="rj-chip" href="신구대조표.html">신구대조표</a><a class="rj-chip" href="3책5공.html">3책5공</a><a class="rj-chip on" href="학생인건비.html">학생인건비</a><a class="rj-chip" href="기술료.html">기술료</a><a class="rj-chip" href="연구장비.html">연구장비</a><a class="rj-chip" href="대시보드.html">대시보드</a></div></nav>
 <div class="page-hero"><div class="rj-picon"><svg viewBox="0 0 24 24"><path d="M22 9.5 12 4.5 2 9.5l10 5 10-5Z"/><path d="M6 11.8V17c0 1.66 2.69 3 6 3s6-1.34 6-3v-5.2"/></svg></div><div><h1 class="page-title">학생인건비 통합관리 정리</h1><p class="page-sub">학위과정별 계상기준 · 통합관리제 운영 · 부당회수 금지 · 26년도 국가연구개발혁신법 매뉴얼 기준</p></div></div>
-<div style="background:#f0fdf4;border-bottom:1px solid #bbf7d0;padding:10px 24px;display:flex;align-items:center;gap:8px;font-size:13px;">
-  <span style="color:#6b7280;">원문</span>
-  <a href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank" style="color:#166534;font-weight:600;text-decoration:none;">[별권1] 학생인건비통합관리 제도 매뉴얼 PDF 보기/다운로드 →</a>
-</div>
 <div class="toolbar">
   <span class="nav-label">바로가기</span>
   <a class="toc-btn" href="#standard">계상기준</a>
@@ -111,10 +107,10 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 1. 학위과정별 계상기준 -->
   <div id="standard" class="section">
-    <div class="sec-head">📐 학위과정별 학생인건비 계상기준 (사용기준 §40④)</div>
+    <div class="sec-head">학위과정별 학생인건비 계상기준 (사용기준 §40④)</div>
     <div class="section-body">
       <div class="info-box" style="margin-bottom:16px;">
-        <div class="box-title">📌 핵심 원칙</div>
+        <div class="box-title">핵심 원칙</div>
         아래 금액은 <strong>최소 기준</strong>이며, 통합관리기관이 <strong>이상으로 자율 설정</strong>합니다.<br>
         동일 학위과정 학생연구자에게는 <strong>동일 기준</strong> 적용 (학과·연구책임자별 차등 불가).
       </div>
@@ -155,7 +151,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 2. 통합관리제 -->
   <div id="mgmt" class="section">
-    <div class="sec-head">🏛️ 학생인건비 통합관리제 개요</div>
+    <div class="sec-head">학생인건비 통합관리제 개요</div>
     <div class="section-body">
       <div class="grid-2" style="margin-bottom:14px;">
         <div class="info-card">
@@ -200,7 +196,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 3. 지급 절차 -->
   <div id="flow" class="section">
-    <div class="sec-head">🔄 학생인건비 지급 절차 및 기준</div>
+    <div class="sec-head">학생인건비 지급 절차 및 기준</div>
     <div class="section-body">
       <table>
         <thead>
@@ -238,10 +234,10 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 4. 부당회수 금지 -->
   <div id="prohibition" class="section">
-    <div class="sec-head" style="background:var(--red-light);border-left-color:var(--red);">🚫 학생인건비 부당회수 금지 (혁신법 §31, 사용기준 §91·§92)</div>
+    <div class="sec-head" style="background:var(--red-light);border-left-color:var(--red);">학생인건비 부당회수 금지 (혁신법 §31, 사용기준 §91·§92)</div>
     <div class="section-body">
       <div class="warn-box">
-        <div class="box-title">⚠️ 부당회수 = 제재처분 대상</div>
+        <div class="box-title">※ 부당회수 = 제재처분 대상</div>
         연구개발기관·연구책임자·연구자·연구지원인력 누구든 <strong>동참 시 처벌</strong> 대상입니다.
       </div>
       <table>
@@ -268,7 +264,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
         </tbody>
       </table>
       <div class="ok-box" style="margin-top:14px;">
-        <div class="box-title">✅ 부당회수 방지 관리 사항 (기관 의무)</div>
+        <div class="box-title">부당회수 방지 관리 사항 (기관 의무)</div>
         학생연구자 본인 명의 1계좌 등록 관리 · 학생인건비 수령액 상시 조회 전산시스템 구축 ·
         연구책임자 연구윤리준수 서약서 징구 · 신고시스템 운영 · 자체감사 실시
       </div>
@@ -277,7 +273,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 5. FAQ -->
   <div id="faq" class="section">
-    <div class="sec-head">💬 주요 FAQ</div>
+    <div class="sec-head">주요 FAQ</div>
     <div class="section-body">
       <table>
         <thead>

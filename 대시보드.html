@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>국가R&D 실무참고 대시보드 (26년도)</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233182f6'/%3E%3Cstop offset='1' stop-color='%237c5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -13,12 +13,12 @@
   --bg:#f4f6f9;--surface:#fff;--border:#e2e8f0;--border-light:#f1f5f9;
   --text:#0f172a;--text2:#334155;--text3:#64748b;
   --primary:#2563eb;--primary-light:#eff6ff;
-  --c상호:#92400e;--bg상호:#fffbeb;--bd상호:#fde68a;
+  --c상호:#475569;--bg상호:#f8fafc;--bd상호:#e2e8f0;
   --c승인:#1e40af;--bg승인:#eff6ff;--bd승인:#bfdbfe;
-  --c통보:#166534;--bg통보:#f0fdf4;--bd통보:#bbf7d0;
-  --c책:#991b1b;--bg책:#fef2f2;
+  --c통보:#0e7490;--bg통보:#f8fafc;--bd통보:#cbd5e1;
+  --c책:#0f172a;--bg책:#f1f5f9;
   --c공:#1e40af;--bg공:#eff6ff;
-  --c제외:#166534;--bg제외:#f0fdf4;
+  --c제외:#0e7490;--bg제외:#f8fafc;
 }
 body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
@@ -97,18 +97,18 @@ tr.hidden{display:none}
 
 /* Info/alert boxes */
 .ibox{border-radius:10px;padding:13px 16px;margin:0 16px 16px;font-size:13px;line-height:1.7}
-.ibox.amber{background:#fffbeb;border:1px solid var(--bd상호);color:var(--c상호)}
-.ibox.red{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
+.ibox.amber{background:#f8fafc;border:1px solid var(--bd상호);color:var(--c상호)}
+.ibox.red{background:#f1f5f9;border:1px solid #cbd5e1;color:#0f172a}
 .ibox.blue{background:var(--bg승인);border:1px solid var(--bd승인)}
 .ibox-t{font-weight:700;margin-bottom:4px}
-.strip{background:#fffbeb;border-left:3px solid #f59e0b;padding:12px 16px;margin:0 16px 14px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7}
+.strip{background:#f8fafc;border-left:3px solid #64748b;padding:12px 16px;margin:0 16px 14px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7}
 .strip-t{font-weight:700;color:var(--c상호);margin-bottom:3px}
 
 /* 3책5공 */
 .concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
 @media(max-width:580px){.concept-grid{grid-template-columns:1fr}}
 .cc{border-radius:10px;padding:20px;text-align:center}
-.cc-책{background:var(--bg책);border:1.5px solid #fecaca}
+.cc-책{background:var(--bg책);border:1.5px solid #cbd5e1}
 .cc-공{background:var(--bg공);border:1.5px solid #bfdbfe}
 .cn{font-size:56px;font-weight:800;line-height:1;margin-bottom:6px;letter-spacing:-2px}
 .cc-책 .cn{color:var(--c책)}.cc-공 .cn{color:var(--c공)}
@@ -117,9 +117,9 @@ tr.hidden{display:none}
 .cd{font-size:13px;color:var(--text3);line-height:1.6}
 .cr{display:inline-block;background:#fff;border-radius:6px;padding:4px 10px;margin-top:10px;font-size:11.5px;color:var(--text3);border:1px solid var(--border)}
 .tag{display:inline-block;border-radius:4px;padding:2px 8px;font-size:11.5px;font-weight:600;border:1px solid transparent}
-.t책{color:var(--c책);background:var(--bg책);border-color:#fecaca}
+.t책{color:var(--c책);background:var(--bg책);border-color:#cbd5e1}
 .t공{color:var(--c공);background:var(--bg공);border-color:#bfdbfe}
-.t제외{color:var(--c제외);background:var(--bg제외);border-color:#bbf7d0}
+.t제외{color:var(--c제외);background:var(--bg제외);border-color:#cbd5e1}
 
 /* Q&A */
 .qa-item{border-bottom:1px solid var(--border-light)}
@@ -164,7 +164,7 @@ tr.hidden{display:none}
 .d-tips{list-style:none;padding:0;display:flex;flex-direction:column;gap:5px}
 .d-tips li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text2);line-height:1.6}
 .tdot{flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--primary);margin-top:9px}
-.d-warn{background:#fffbeb;border:1px solid var(--bd상호);border-radius:8px;padding:10px 14px;font-size:12.5px;line-height:1.7;color:var(--c상호);margin-top:12px}
+.d-warn{background:#f8fafc;border:1px solid var(--bd상호);border-radius:8px;padding:10px 14px;font-size:12.5px;line-height:1.7;color:var(--c상호);margin-top:12px}
 
 footer{text-align:center;padding:18px;font-size:12px;color:var(--text3);border-top:1px solid var(--border);background:#fff}
 
@@ -181,27 +181,27 @@ footer{text-align:center;padding:18px;font-size:12px;color:var(--text3);border-t
 <style>
 /* ══ 통합 아이덴티티 (메인 검색 페이지와 동일) ══ */
 body { background:#f6f7fb; }
-body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#3182f6,#7c5cf6); }
+body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#2563eb); }
 .page-nav { display:flex; align-items:center; gap:12px; padding:9px 20px;
   background:rgba(255,255,255,.92); border-bottom:1px solid #e5e8eb;
   backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); }
 .rj-logo { display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:800;
   letter-spacing:-.02em; color:#191f28; text-decoration:none; white-space:nowrap; flex-shrink:0; }
 .rj-logo .mark { width:26px; height:26px; border-radius:8px;
-  background:linear-gradient(135deg,#3182f6,#7c5cf6);
+  background:linear-gradient(135deg,#0f172a,#2563eb);
   display:flex; align-items:center; justify-content:center; }
 .rj-logo .mark svg { width:13px; height:13px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; }
-.rj-logo:hover { color:#4356e0; }
+.rj-logo:hover { color:#1d4ed8; }
 .rj-links { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-left:auto; }
 .rj-links::-webkit-scrollbar { display:none; }
 .rj-chip { font-size:12px; font-weight:600; color:#4e5968; background:#fff;
   border:1px solid #e5e8eb; border-radius:100px; padding:3px 11px;
   text-decoration:none; white-space:nowrap; transition:all .15s; }
-.rj-chip:hover { color:#4356e0; border-color:#d5dbfa; background:#eef1fe; }
-.rj-chip.on { color:#fff; background:linear-gradient(135deg,#3182f6,#7c5cf6); border-color:transparent; }
+.rj-chip:hover { color:#1d4ed8; border-color:#c7d4e8; background:#eef2f7; }
+.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#2563eb); border-color:transparent; }
 .page-hero { display:flex; align-items:center; gap:14px; }
 .rj-picon { flex-shrink:0; width:46px; height:46px; border-radius:13px;
-  background:#eef1fe; color:#4356e0; display:flex; align-items:center; justify-content:center; }
+  background:#0f172a; color:#fff; display:flex; align-items:center; justify-content:center; }
 .rj-picon svg { width:22px; height:22px; stroke:currentColor; stroke-width:1.8; fill:none;
   stroke-linecap:round; stroke-linejoin:round; }
 .page-title { color:#191f28; letter-spacing:-.03em; }
@@ -219,16 +219,16 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
       <div class="logo-sub">26년도 혁신법 매뉴얼 기반 · 참고용 자료</div>
     </div>
     <div class="search-wrap">
-      <span class="si">🔍</span>
+      <span class="si"><svg viewBox="0 0 24 24" width="15" height="15" style="stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;display:block"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span>
       <input type="text" class="search-input" id="gSearch" placeholder="검색 (연구책임자, 간접비, 3천만원, 위탁…)" autocomplete="off">
       <button class="sc" id="sClear">✕</button>
       <div class="sr-panel" id="srPanel"></div>
     </div>
   </div>
   <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('t1')">📋 승인·통보 구분표</button>
-    <button class="tab-btn" onclick="switchTab('t2')">🔢 3책5공</button>
-    <button class="tab-btn" onclick="switchTab('t3')">💰 예산편성 참고</button>
+    <button class="tab-btn active" onclick="switchTab('t1')">승인·통보 구분표</button>
+    <button class="tab-btn" onclick="switchTab('t2')">3책5공</button>
+    <button class="tab-btn" onclick="switchTab('t3')">예산편성 참고</button>
   </div>
 </header>
 <div class="search-back" id="sBack"></div>
@@ -240,7 +240,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 <div class="page-body">
 
   <div class="card">
-    <div class="card-head">📋 협약변경 승인·통보 구분표 〈표 2-5〉 — 본권 73~74p</div>
+    <div class="card-head">협약변경 승인·통보 구분표 〈표 2-5〉 — 본권 73~74p</div>
     <div class="legend">
       <span class="li"><span class="badge b상호">상호협의(승인)</span> 혁신법 §11② — 당사자 간 사전 협의 필요</span>
       <span class="li"><span class="badge b승인">승인</span> 사용기준 §73 — 부처·전문기관장 사전 승인 필요</span>
@@ -248,12 +248,12 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
     </div>
     <div class="tfilter"><input type="text" id="tFilter" placeholder="표 내 필터 (예: 간접비, 장비, 위탁…)" onkeydown="if(event.key==='Enter') filterTable()"></div>
     <div class="ibox amber" style="margin-top:14px">
-      <div class="ibox-t">✅ 실무 요점</div>
+      <div class="ibox-t">실무 요점</div>
       · <b>상호협의</b>: IRIS에서 '승인' 방식으로 처리 · <b>승인</b>: 사용기준 §73, 사후 승인 불가 · <b>통보</b>: IRIS 등록으로 공문 갈음 가능 (영 §14③)
     </div>
 
     <!-- 기관 변경 -->
-    <div class="card-head" style="border-radius:0;border-top:1px solid var(--border-light)">🏢 기관 변경</div>
+    <div class="card-head" style="border-radius:0;border-top:1px solid var(--border-light)">기관 변경</div>
     <table id="mainTable">
       <thead><tr><th class="tc">구분</th><th class="ts">소분류</th><th>세부 항목</th><th class="tb">승인/통보</th><th class="tl">관련 법령</th></tr></thead>
       <tbody>
@@ -265,7 +265,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
         <!-- 인력 변경 -->
         <tr><td colspan="5" style="padding:0;border-bottom:none"></td></tr>
-        <tr><td colspan="5" style="padding:8px 14px 0;font-size:12px;font-weight:700;color:var(--text3)">👥 인력 변경</td></tr>
+        <tr><td colspan="5" style="padding:8px 14px 0;font-size:12px;font-weight:700;color:var(--text3)">인력 변경</td></tr>
         <tr class="click" data-d="인력-주관책임"><td class="tc" rowspan="3">연구<br>책임자</td><td class="ts" rowspan="3">주관·공동·위탁 책임자</td><td>① 주관연구개발기관 연구책임자</td><td class="tb"><span class="badge b상호">상호협의(승인)</span></td><td class="tl">법 §11②</td></tr>
         <tr class="click" data-d="인력-공동책임"><td>② 공동연구개발기관 연구책임자</td><td class="tb"><span class="badge b상호">상호협의(승인)</span></td><td class="tl">법 §11②</td></tr>
         <tr class="click" data-d="인력-위탁책임"><td>③ 위탁연구개발기관 연구책임자</td><td class="tb"><span class="badge b상호">상호협의(승인)</span></td><td class="tl">법 §11②</td></tr>
@@ -274,18 +274,18 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
         <tr class="click" data-d="인력-기관외"><td class="tc">기관 외<br>인력</td><td class="ts">관계기관 인력</td><td>⑥ 연구개발기관이 아닌 관계기관 인력변경</td><td class="tb"><span class="badge b통보">통보</span></td><td class="tl">영 §14②4호</td></tr>
 
         <!-- 기간 -->
-        <tr><td colspan="5" style="padding:8px 14px 0;font-size:12px;font-weight:700;color:var(--text3)">📅 연구개발기간 변경</td></tr>
+        <tr><td colspan="5" style="padding:8px 14px 0;font-size:12px;font-weight:700;color:var(--text3)">연구개발기간 변경</td></tr>
         <tr class="click" data-d="기간-변경"><td class="tc">기간 변경</td><td class="ts">연구개발기간</td><td>① 연구개발과제 연구개발기간 변경 (전체 해당)</td><td class="tb"><span class="badge b상호">상호협의(승인)</span></td><td class="tl">법 §11②</td></tr>
 
         <!-- 목표·내용 -->
-        <tr><td colspan="5" style="padding:8px 14px 0;font-size:12px;font-weight:700;color:var(--text3)">🎯 연구개발 목표·내용 변경</td></tr>
+        <tr><td colspan="5" style="padding:8px 14px 0;font-size:12px;font-weight:700;color:var(--text3)">연구개발 목표·내용 변경</td></tr>
         <tr class="click" data-d="목표-최종"><td class="tc" rowspan="2">연구개발<br>목표</td><td class="ts" rowspan="2">목표 변경</td><td>① 최종/단계 목표변경</td><td class="tb"><span class="badge b상호">상호협의(승인)</span></td><td class="tl">법 §11②</td></tr>
         <tr class="click" data-d="목표-성능"><td>② 성과 및 성능 목표</td><td class="tb"><span class="badge b상호">상호협의(승인)</span></td><td class="tl">법 §11②</td></tr>
         <tr class="click" data-d="내용-추진"><td class="tc" rowspan="2">연구개발<br>내용</td><td class="ts" rowspan="2">추진방법·기여도</td><td>① 추진전략, 방법 등</td><td class="tb"><span class="badge b통보">통보</span></td><td class="tl">영 §14②1호</td></tr>
         <tr class="click" data-d="내용-기여도"><td>② 기술기여도</td><td class="tb"><span class="badge b상호">상호협의(승인)</span></td><td class="tl">영 §39②</td></tr>
 
         <!-- 연구개발비 -->
-        <tr><td colspan="5" style="padding:8px 14px 0;font-size:12px;font-weight:700;color:var(--text3)">💰 연구개발비 변경</td></tr>
+        <tr><td colspan="5" style="padding:8px 14px 0;font-size:12px;font-weight:700;color:var(--text3)">연구개발비 변경</td></tr>
         <tr class="click" data-d="예산-총액1"><td class="tc" rowspan="2">연구개발비<br>총액</td><td class="ts" rowspan="2">총액·부담금</td><td>① 연구개발비 총액 변경</td><td class="tb"><span class="badge b승인">승인</span></td><td class="tl">사용기준 §73</td></tr>
         <tr class="click" data-d="예산-총액2"><td>② 연구개발기관 부담금 변경 (현금/현물 간 변경 포함)</td><td class="tb"><span class="badge b승인">승인</span></td><td class="tl">사용기준 §73</td></tr>
         <tr class="click" data-d="예산-인건비"><td class="tc">인건비</td><td class="ts">영리기관 인건비</td><td>① 영리기관이 현금으로 계상하려는 인건비 변경<span class="nt">※ 인건비 총액 변경, 신규인력 현금 계상 인건비 감액</span></td><td class="tb"><span class="badge b승인">승인</span></td><td class="tl">사용기준 §73</td></tr>
@@ -322,7 +322,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 기본 개념 -->
   <div class="card">
-    <div class="card-head">🎯 핵심 개념 — 3책5공이란?</div>
+    <div class="card-head">핵심 개념 — 3책5공이란?</div>
     <div class="concept-grid">
       <div class="cc cc-책">
         <div class="cn">3</div>
@@ -336,7 +336,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
       </div>
     </div>
     <div class="strip" style="margin-top:4px">
-      <div class="strip-t">🌐 국제공동연구 특례 (+1개)</div>
+      <div class="strip-t">국제공동연구 특례 (+1개)</div>
       외국법인과 공동수행하는 국제공동연구과제 수행 시 참여연구자로 <b>6개</b> 이내, 연구책임자로 <b>4개</b> 이내 동시 수행 가능<br>
       <span style="font-size:11px;color:var(--text3)">※ 과제 수 제한 최종 결정 주체: 소관 부처</span>
     </div>
@@ -344,7 +344,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 기관유형별 구분 -->
   <div class="card">
-    <div class="card-head">📋 〈표 2-16〉 기관유형별 연구책임자/참여연구자 구분</div>
+    <div class="card-head">〈표 2-16〉 기관유형별 연구책임자/참여연구자 구분</div>
     <table>
       <thead><tr><th style="width:180px">기관 구분</th><th>책임자 (3책 산정)</th><th>책임자 외 연구자 (5공 산정)</th></tr></thead>
       <tbody>
@@ -359,9 +359,9 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 적용제외 -->
   <div class="card">
-    <div class="card-head">✅ 〈표 2-17〉 3책5공 적용제외 가능 요건 (시행령 §64②③)</div>
+    <div class="card-head">〈표 2-17〉 3책5공 적용제외 가능 요건 (시행령 §64②③)</div>
     <div class="ibox red" style="margin-top:14px">
-      <div class="ibox-t">⚠️ 중요</div>
+      <div class="ibox-t">※ 중요</div>
       적용제외 <b>가능</b> 과제라도, 소관 <b>부처가 적용제외하지 않으면 여전히 3책5공 적용</b>. 최종 결정은 <b>소관 부처</b>.
     </div>
     <table>
@@ -370,7 +370,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
         <tr><td style="text-align:center;font-weight:700">①</td><td><b>6개월 이내 종료 예정</b>인 과제<br><span class="nt">신규: 연구개발계획서 제출 마감일 기준 / 계속과제 참여연구자 추가: 해당 연구자 과제 참여일 기준</span></td><td>영 §64③1호</td></tr>
         <tr><td style="text-align:center;font-weight:700">②</td><td><b>연평균 연구비 6천만원 이하 소규모 과제</b> (26년 신규 기준)<br><span class="nt">부처에서 적용제외가 필요하다고 인정하는 경우 / 26년 신규과제에 한해 적용</span></td><td>영 §64③1호</td></tr>
         <tr><td style="text-align:center;font-weight:700">③</td><td><b>하나의 기관이 동일 과제를 다수의 부처(전문기관)와 각각 협약</b>하는 경우</td><td>영 §64③</td></tr>
-        <tr><td style="text-align:center;font-weight:700">④</td><td><b>기술사업화 과제</b><br><span class="nt">① 사업목적에 기술사업화·창업·제품화 명시 ② 성과지표에 기술이전·매출·창업율 포함 ③ TRL 제고·실용화·상용화 포함<br>⚠️ 부처별 면제 과제 수가 해당 부처 26년 신규과제의 <b>15% 미만</b>으로 제한</span></td><td>영 §64③</td></tr>
+        <tr><td style="text-align:center;font-weight:700">④</td><td><b>기술사업화 과제</b><br><span class="nt">① 사업목적에 기술사업화·창업·제품화 명시 ② 성과지표에 기술이전·매출·창업율 포함 ③ TRL 제고·실용화·상용화 포함<br>※ 부처별 면제 과제 수가 해당 부처 26년 신규과제의 <b>15% 미만</b>으로 제한</span></td><td>영 §64③</td></tr>
         <tr><td style="text-align:center;font-weight:700">⑤</td><td><b>정책적 필요성이 높은 과제</b>로 부처가 인정하는 경우<br><span class="nt">예: 일부 부처는 2책3공 적용(더 강한 제한도 가능)</span></td><td>영 §64③</td></tr>
       </tbody>
     </table>
@@ -379,7 +379,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- Q&A -->
   <div class="card">
-    <div class="card-head">❓ 자주 나오는 Q&A</div>
+    <div class="card-head">자주 나오는 Q&A</div>
     <div class="qa-list">
       <div class="qa-item"><div class="qa-q" onclick="toggleQA(this)">Q1. 공동연구개발기관의 연구책임자도 3책에 산정되나요?<span class="qa-arr">▼</span></div><div class="qa-a"><b>공동연구개발기관의 책임자는 3책이 아닌 5공에 산정됩니다.</b><br>주관연구개발기관의 연구책임자만 "연구책임자"로서 3개 이내 제한 대상. 공동기관 책임자는 참여연구자 5개 이내 제한만 적용됩니다. (표 2-16)</div></div>
       <div class="qa-item"><div class="qa-q" onclick="toggleQA(this)">Q2. 위탁연구개발기관 소속 연구자는 3책5공 적용을 받나요?<span class="qa-arr">▼</span></div><div class="qa-a"><b>위탁연구개발기관 소속 연구자는 3책5공 산정에서 제외됩니다.</b><br>연구근접지원인력, 연구지원인력도 동일하게 산정 제외입니다.</div></div>
@@ -403,7 +403,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 비목 구성 -->
   <div class="card">
-    <div class="card-head">📊 연구개발비 비목 구성</div>
+    <div class="card-head">연구개발비 비목 구성</div>
     <table>
       <thead><tr><th style="width:75px">구분</th><th style="width:120px">비목</th><th>세목 및 포함 내용</th><th style="width:65px;text-align:center">현금</th><th style="width:65px;text-align:center">현물</th><th style="width:130px">비고</th></tr></thead>
       <tbody>
@@ -425,7 +425,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 기관유형별 부담 -->
   <div class="card">
-    <div class="card-head">🏛️ 기관유형별 정부지원 상한 (표 3-2)</div>
+    <div class="card-head">기관유형별 정부지원 상한 (표 3-2)</div>
     <table>
       <thead><tr><th>기관 유형</th><th style="text-align:center;width:180px">정부지원 상한</th><th>비고</th></tr></thead>
       <tbody>
@@ -441,9 +441,9 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 사전승인 핵심 정리 -->
   <div class="card">
-    <div class="card-head">🔴 사전승인 대상 핵심 정리 (연구개발비 사용기준 §73)</div>
+    <div class="card-head">사전승인 대상 핵심 정리 (연구개발비 사용기준 §73)</div>
     <div class="ibox red" style="margin-top:14px">
-      <div class="ibox-t">⚠️ 사전 승인 = 사용 전 반드시 승인</div>
+      <div class="ibox-t">※ 사전 승인 = 사용 전 반드시 승인</div>
       승인 없이 집행 시 <b>부적정 집행</b> 처리될 수 있습니다. 사후 승인은 인정되지 않습니다.
     </div>
     <div class="nlist">
@@ -461,21 +461,21 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
       <div class="ni"><div class="nc">⑫</div><div class="nt2">전체 기간(또는 단계) <b>해외연구자 유치 지원비 총액 증액</b> (환율 변동 제외)</div><div class="nl">§73①12호</div></div>
     </div>
     <div class="ibox blue" style="margin-top:4px">
-      <div class="ibox-t">💡 사전 승인 예외 (§73②)</div>
+      <div class="ibox-t">사전 승인 예외 (§73②)</div>
       ① 정부출연기관의 기본사업인 경우 ② 국가안보 또는 사회·경제적 긴급 상황 등으로 중앙행정기관장이 인정하는 경우
     </div>
   </div>
 
   <!-- 유의사항 -->
   <div class="card">
-    <div class="card-head">⚡ 예산편성 주요 유의사항</div>
+    <div class="card-head">예산편성 주요 유의사항</div>
     <div class="ic-grid">
-      <div class="ic"><div class="ic-t">📌 비목별 자율 변경</div><div class="ic-b">협약서에 명시되지 않은 <b>항목별 세부내역 변경</b>은 통보 없이 <b>자율 변경</b> 가능. 단, 사전승인 대상(①~⑫)은 반드시 승인 후 변경.</div></div>
-      <div class="ic"><div class="ic-t">📌 현금 vs 현물</div><div class="ic-b"><b>비영리기관</b>: 원칙적으로 현금 계상<br><b>영리기관</b>: 직접비를 현금 또는 현물로 계상 가능 (항목별 기준 적용)</div></div>
-      <div class="ic"><div class="ic-t">📌 간접비 계상</div><div class="ic-b">기관별 간접비 비율은 <b>과기정통부 고시</b>로 정해진 비율 이내. 증액은 사전 승인, 감액은 통보 가능.<br><span style="font-size:11.5px;color:var(--text3)">※ 수행 중 고시 비율 상향 조정 시에도 상향 전 비율 적용 원칙</span></div></div>
-      <div class="ic"><div class="ic-t">📌 위탁연구개발비</div><div class="ic-b">위탁비는 직접비 산정에서 <b>제외</b> (간접비 계산 기준이 되는 직접비에 포함 안 됨).<br>20% 이상 증액 시 사전 승인 필수.</div></div>
-      <div class="ic"><div class="ic-t">📌 연구개발비 지급 방법</div><div class="ic-b"><b>일괄지급</b>: 연도별 연구개발비 한꺼번에 지급<br><b>분할지급</b>: 연차별·분기별 나누어 지급<br>지급 시기 변경은 통보 사항</div></div>
-      <div class="ic"><div class="ic-t">📌 이자 사용</div><div class="ic-b">정부지원 연구개발비에서 발생한 이자는 <b>국고납입</b>이 원칙.<br>연구비 산입 또는 R&D 재투자 사용 시 <b>사전 승인</b> 필요.</div></div>
+      <div class="ic"><div class="ic-t">비목별 자율 변경</div><div class="ic-b">협약서에 명시되지 않은 <b>항목별 세부내역 변경</b>은 통보 없이 <b>자율 변경</b> 가능. 단, 사전승인 대상(①~⑫)은 반드시 승인 후 변경.</div></div>
+      <div class="ic"><div class="ic-t">현금 vs 현물</div><div class="ic-b"><b>비영리기관</b>: 원칙적으로 현금 계상<br><b>영리기관</b>: 직접비를 현금 또는 현물로 계상 가능 (항목별 기준 적용)</div></div>
+      <div class="ic"><div class="ic-t">간접비 계상</div><div class="ic-b">기관별 간접비 비율은 <b>과기정통부 고시</b>로 정해진 비율 이내. 증액은 사전 승인, 감액은 통보 가능.<br><span style="font-size:11.5px;color:var(--text3)">※ 수행 중 고시 비율 상향 조정 시에도 상향 전 비율 적용 원칙</span></div></div>
+      <div class="ic"><div class="ic-t">위탁연구개발비</div><div class="ic-b">위탁비는 직접비 산정에서 <b>제외</b> (간접비 계산 기준이 되는 직접비에 포함 안 됨).<br>20% 이상 증액 시 사전 승인 필수.</div></div>
+      <div class="ic"><div class="ic-t">연구개발비 지급 방법</div><div class="ic-b"><b>일괄지급</b>: 연도별 연구개발비 한꺼번에 지급<br><b>분할지급</b>: 연차별·분기별 나누어 지급<br>지급 시기 변경은 통보 사항</div></div>
+      <div class="ic"><div class="ic-t">이자 사용</div><div class="ic-b">정부지원 연구개발비에서 발생한 이자는 <b>국고납입</b>이 원칙.<br>연구비 산입 또는 R&D 재투자 사용 시 <b>사전 승인</b> 필요.</div></div>
     </div>
   </div>
 
@@ -587,7 +587,7 @@ function showDrawer(id){
   if(!data)return;
   document.getElementById('dBadge').innerHTML=`<span class="badge ${data.bc}">${data.badge}</span>`;
   document.getElementById('dTitle').textContent=data.title;
-  let html=`<div class="d-law">📌 ${data.law}</div>`;
+  let html=`<div class="d-law">${data.law}</div>`;
   html+=`<div class="d-desc">${data.desc}</div>`;
   if(data.steps&&data.steps.length){
     html+=`<div class="d-sec">실무 절차</div><ul class="d-steps">`;
@@ -599,7 +599,7 @@ function showDrawer(id){
     data.tips.forEach(t=>html+=`<li><span class="tdot"></span><span>${t}</span></li>`);
     html+=`</ul>`;
   }
-  if(data.warn)html+=`<div class="d-warn">⚠️ ${data.warn}</div>`;
+  if(data.warn)html+=`<div class="d-warn">※ ${data.warn}</div>`;
   document.getElementById('dBody').innerHTML=html;
   document.getElementById('drawer').classList.add('open');
   // highlight row

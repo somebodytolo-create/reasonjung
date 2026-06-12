@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>협약변경 승인·통보 구분표 (26년도)</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233182f6'/%3E%3Cstop offset='1' stop-color='%237c5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
@@ -13,8 +13,8 @@
   --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
   --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
   --승인-c: #1d4ed8; --승인-bg: #eff6ff; --승인-b: #bfdbfe;
-  --상호-c: #92400e; --상호-bg: #fffbeb; --상호-b: #fde68a;
-  --통보-c: #166534; --통보-bg: #f0fdf4; --통보-b: #bbf7d0;
+  --상호-c: #475569; --상호-bg: #f8fafc; --상호-b: #e2e8f0;
+  --통보-c: #0e7490; --통보-bg: #f8fafc; --통보-b: #cbd5e1;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -80,11 +80,11 @@ body {
 /* ── 알림박스 ── */
 .notice-box {
   background: var(--white); border: 1px solid var(--border);
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid #64748b;
   border-radius: 0 8px 8px 0; padding: 14px 16px;
   margin-bottom: 20px; font-size: 13px; line-height: 1.8;
 }
-.notice-box strong { color: #92400e; }
+.notice-box strong { color: #475569; }
 
 /* ── 섹션 블록 ── */
 .section-block { margin-bottom: 24px; }
@@ -147,27 +147,27 @@ footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--m
 <style>
 /* ══ 통합 아이덴티티 (메인 검색 페이지와 동일) ══ */
 body { background:#f6f7fb; }
-body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#3182f6,#7c5cf6); }
+body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#2563eb); }
 .page-nav { display:flex; align-items:center; gap:12px; padding:9px 20px;
   background:rgba(255,255,255,.92); border-bottom:1px solid #e5e8eb;
   backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); }
 .rj-logo { display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:800;
   letter-spacing:-.02em; color:#191f28; text-decoration:none; white-space:nowrap; flex-shrink:0; }
 .rj-logo .mark { width:26px; height:26px; border-radius:8px;
-  background:linear-gradient(135deg,#3182f6,#7c5cf6);
+  background:linear-gradient(135deg,#0f172a,#2563eb);
   display:flex; align-items:center; justify-content:center; }
 .rj-logo .mark svg { width:13px; height:13px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; }
-.rj-logo:hover { color:#4356e0; }
+.rj-logo:hover { color:#1d4ed8; }
 .rj-links { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-left:auto; }
 .rj-links::-webkit-scrollbar { display:none; }
 .rj-chip { font-size:12px; font-weight:600; color:#4e5968; background:#fff;
   border:1px solid #e5e8eb; border-radius:100px; padding:3px 11px;
   text-decoration:none; white-space:nowrap; transition:all .15s; }
-.rj-chip:hover { color:#4356e0; border-color:#d5dbfa; background:#eef1fe; }
-.rj-chip.on { color:#fff; background:linear-gradient(135deg,#3182f6,#7c5cf6); border-color:transparent; }
+.rj-chip:hover { color:#1d4ed8; border-color:#c7d4e8; background:#eef2f7; }
+.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#2563eb); border-color:transparent; }
 .page-hero { display:flex; align-items:center; gap:14px; }
 .rj-picon { flex-shrink:0; width:46px; height:46px; border-radius:13px;
-  background:#eef1fe; color:#4356e0; display:flex; align-items:center; justify-content:center; }
+  background:#0f172a; color:#fff; display:flex; align-items:center; justify-content:center; }
 .rj-picon svg { width:22px; height:22px; stroke:currentColor; stroke-width:1.8; fill:none;
   stroke-linecap:round; stroke-linejoin:round; }
 .page-title { color:#191f28; letter-spacing:-.03em; }
@@ -179,10 +179,6 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 <nav class="page-nav"><a class="rj-logo" href="매뉴얼검색_독립실행.html"><span class="mark"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span><span class="txt">국가R&D 매뉴얼</span></a><div class="rj-links"><a class="rj-chip on" href="승인통보표.html">승인·통보</a><a class="rj-chip" href="예산편성참고.html">예산편성</a><a class="rj-chip" href="신구대조표.html">신구대조표</a><a class="rj-chip" href="3책5공.html">3책5공</a><a class="rj-chip" href="학생인건비.html">학생인건비</a><a class="rj-chip" href="기술료.html">기술료</a><a class="rj-chip" href="연구장비.html">연구장비</a><a class="rj-chip" href="대시보드.html">대시보드</a></div></nav>
 
 <div class="page-hero"><div class="rj-picon"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 13.5 2 2 4-4.5"/></svg></div><div><h1 class="page-title">협약변경 승인·통보 구분표</h1><p class="page-sub">〈표 2-5〉 통합정보시스템상 협약변경의 상호협의/승인/통보사항 세부기준 · 26년도 국가연구개발혁신법 매뉴얼 본권 73~74p</p></div></div>
-<div style="background:#eff6ff;border-bottom:1px solid #bfdbfe;padding:10px 24px;display:flex;align-items:center;gap:8px;font-size:13px;">
-  <span style="color:#6b7280;">원문</span>
-  <a href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank" style="color:#1d4ed8;font-weight:600;text-decoration:none;">[본권] 국가연구개발혁신법 매뉴얼 PDF 보기/다운로드 →</a>
-</div>
 
 <div class="toolbar">
   <div class="legend-wrap">
@@ -199,7 +195,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 <div class="container">
 
   <div class="notice-box">
-    <strong>✅ 실무 요점</strong><br>
+    <strong>실무 요점</strong><br>
     • <strong>상호협의(승인)</strong>: 혁신법상 표현은 "상호협의"지만 실무에서는 IRIS 시스템에서 '승인' 방식으로 처리.<br>
     • <strong>승인(연구개발비)</strong>: 연구개발비 사용기준 제73조에 따라 중앙행정기관장의 <em>사전</em> 승인 필요. 사후 승인 불가.<br>
     • <strong>통보</strong>: IRIS(통합정보시스템)에 변경사항 등록하는 것으로 통보 갈음 가능 — 별도 공문 발송 생략 가능(영 §14③).
@@ -207,7 +203,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- ① 기관 변경 -->
   <div class="section-block">
-    <div class="sec-head"><span class="icon">🏢</span> 기관 변경</div>
+    <div class="sec-head">기관 변경</div>
     <div class="table-wrap">
     <table>
       <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
@@ -250,7 +246,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- ② 인력 변경 -->
   <div class="section-block">
-    <div class="sec-head"><span class="icon">👥</span> 인력 변경</div>
+    <div class="sec-head">인력 변경</div>
     <div class="table-wrap">
     <table>
       <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
@@ -300,7 +296,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- ③ 연구개발기간 -->
   <div class="section-block">
-    <div class="sec-head"><span class="icon">📅</span> 연구개발기간 변경</div>
+    <div class="sec-head">연구개발기간 변경</div>
     <div class="table-wrap">
     <table>
       <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
@@ -319,7 +315,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- ④ 목표·내용 -->
   <div class="section-block">
-    <div class="sec-head"><span class="icon">🎯</span> 연구개발 목표·내용 변경</div>
+    <div class="sec-head">연구개발 목표·내용 변경</div>
     <div class="table-wrap">
     <table>
       <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
@@ -355,7 +351,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- ⑤ 연구개발비 -->
   <div class="section-block">
-    <div class="sec-head"><span class="icon">💰</span> 연구개발비 변경</div>
+    <div class="sec-head">연구개발비 변경</div>
     <div class="table-wrap">
     <table>
       <thead><tr><th>구분</th><th>소분류</th><th>세부 항목</th><th>승인/통보</th><th>관련 법령</th></tr></thead>
@@ -499,8 +495,8 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
   </div>
 
   <div class="notice-box" style="border-left-color:#6b7280;">
-    <strong>📌 출처</strong>: 26년도 국가연구개발혁신법 매뉴얼 (본권) 〈표 2-5〉 73~74p · 26년도 국가연구개발사업 연구개발비 사용기준 §73~74<br>
-    <strong>📌 유의사항</strong>: 이 표는 참고용이며, 실제 처리 시 소관 전문기관 및 부처와 확인 바랍니다.
+    <strong>출처</strong>: 26년도 국가연구개발혁신법 매뉴얼 (본권) 〈표 2-5〉 73~74p · 26년도 국가연구개발사업 연구개발비 사용기준 §73~74<br>
+    <strong>유의사항</strong>: 이 표는 참고용이며, 실제 처리 시 소관 전문기관 및 부처와 확인 바랍니다.
   </div>
 </div>
 

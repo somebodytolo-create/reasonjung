@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>연구시설·장비비 통합관리제 정리 (26년도)</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233182f6'/%3E%3Cstop offset='1' stop-color='%237c5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
 :root {
-  --orange: #c2410c; --orange-dark: #9a3412; --orange-light: #fff7ed; --orange-mid: #fed7aa; --orange-bd: #fb923c;
+  --orange: #1e40af; --orange-dark: #1e3a8a; --orange-light: #f1f5f9; --orange-mid: #cbd5e1; --orange-bd: #94a3b8;
   --blue: #1d4ed8; --blue-light: #eff6ff; --blue-mid: #dbeafe; --blue-bd: #93c5fd;
-  --red: #dc2626; --red-light: #fef2f2; --red-mid: #fecaca;
-  --amber: #92400e; --amber-light: #fffbeb; --amber-mid: #fde68a;
-  --green: #166534; --green-light: #f0fdf4; --green-mid: #bbf7d0;
+  --red: #0f172a; --red-light: #f1f5f9; --red-mid: #cbd5e1;
+  --amber: #475569; --amber-light: #f8fafc; --amber-mid: #e2e8f0;
+  --green: #0e7490; --green-light: #f8fafc; --green-mid: #cbd5e1;
   --gray: #374151; --gray-light: #f3f4f6;
   --text: #111827; --text2: #374151; --muted: #6b7280; --muted2: #9ca3af;
   --border: #e5e7eb; --border2: #d1d5db; --bg: #f9fafb; --white: #fff;
@@ -49,8 +49,8 @@ tbody tr:hover { background: var(--bg); }
 .b-no { color: var(--red); background: var(--red-light); border-color: var(--red-mid); }
 .b-warn { color: var(--orange); background: var(--orange-light); border-color: var(--orange-mid); }
 .b-blue { color: var(--blue); background: var(--blue-light); border-color: var(--blue-mid); }
-.info-box { background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
-.ok-box { background: var(--green-light); border: 1px solid var(--green-mid); border-left: 4px solid #16a34a; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.info-box { background: var(--amber-light); border: 1px solid var(--amber-mid); border-left: 4px solid #64748b; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
+.ok-box { background: var(--green-light); border: 1px solid var(--green-mid); border-left: 4px solid #1d4ed8; border-radius: 0 8px 8px 0; padding: 13px 16px; margin-bottom: 14px; font-size: 13px; line-height: 1.8; }
 .box-title { font-weight: 700; margin-bottom: 5px; font-size: 13.5px; }
 .info-box .box-title { color: var(--amber); }
 .ok-box .box-title { color: var(--green); }
@@ -67,27 +67,27 @@ footer { text-align: center; padding: 24px 20px; font-size: 12px; color: var(--m
 <style>
 /* ══ 통합 아이덴티티 (메인 검색 페이지와 동일) ══ */
 body { background:#f6f7fb; }
-body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#3182f6,#7c5cf6); }
+body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#2563eb); }
 .page-nav { display:flex; align-items:center; gap:12px; padding:9px 20px;
   background:rgba(255,255,255,.92); border-bottom:1px solid #e5e8eb;
   backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); }
 .rj-logo { display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:800;
   letter-spacing:-.02em; color:#191f28; text-decoration:none; white-space:nowrap; flex-shrink:0; }
 .rj-logo .mark { width:26px; height:26px; border-radius:8px;
-  background:linear-gradient(135deg,#3182f6,#7c5cf6);
+  background:linear-gradient(135deg,#0f172a,#2563eb);
   display:flex; align-items:center; justify-content:center; }
 .rj-logo .mark svg { width:13px; height:13px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; }
-.rj-logo:hover { color:#4356e0; }
+.rj-logo:hover { color:#1d4ed8; }
 .rj-links { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-left:auto; }
 .rj-links::-webkit-scrollbar { display:none; }
 .rj-chip { font-size:12px; font-weight:600; color:#4e5968; background:#fff;
   border:1px solid #e5e8eb; border-radius:100px; padding:3px 11px;
   text-decoration:none; white-space:nowrap; transition:all .15s; }
-.rj-chip:hover { color:#4356e0; border-color:#d5dbfa; background:#eef1fe; }
-.rj-chip.on { color:#fff; background:linear-gradient(135deg,#3182f6,#7c5cf6); border-color:transparent; }
+.rj-chip:hover { color:#1d4ed8; border-color:#c7d4e8; background:#eef2f7; }
+.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#2563eb); border-color:transparent; }
 .page-hero { display:flex; align-items:center; gap:14px; }
 .rj-picon { flex-shrink:0; width:46px; height:46px; border-radius:13px;
-  background:#eef1fe; color:#4356e0; display:flex; align-items:center; justify-content:center; }
+  background:#0f172a; color:#fff; display:flex; align-items:center; justify-content:center; }
 .rj-picon svg { width:22px; height:22px; stroke:currentColor; stroke-width:1.8; fill:none;
   stroke-linecap:round; stroke-linejoin:round; }
 .page-title { color:#191f28; letter-spacing:-.03em; }
@@ -97,10 +97,6 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 <body>
 <nav class="page-nav"><a class="rj-logo" href="매뉴얼검색_독립실행.html"><span class="mark"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></span><span class="txt">국가R&D 매뉴얼</span></a><div class="rj-links"><a class="rj-chip" href="승인통보표.html">승인·통보</a><a class="rj-chip" href="예산편성참고.html">예산편성</a><a class="rj-chip" href="신구대조표.html">신구대조표</a><a class="rj-chip" href="3책5공.html">3책5공</a><a class="rj-chip" href="학생인건비.html">학생인건비</a><a class="rj-chip" href="기술료.html">기술료</a><a class="rj-chip on" href="연구장비.html">연구장비</a><a class="rj-chip" href="대시보드.html">대시보드</a></div></nav>
 <div class="page-hero"><div class="rj-picon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><h1 class="page-title">연구시설·장비비 통합관리제 정리</h1><p class="page-sub">통합관리 적용 범위 · 적립 한도 · 장비심의위원회 · 사용 기준 · 26년도 국가연구개발혁신법 매뉴얼 기준</p></div></div>
-<div style="background:#fff7ed;border-bottom:1px solid #fed7aa;padding:10px 24px;display:flex;align-items:center;gap:8px;font-size:13px;">
-  <span style="color:#6b7280;">원문</span>
-  <a href="https://drive.google.com/drive/folders/1sLnCZhfGyqJ8sPPbFNa1MH20bgzM6w7m?usp=sharing" target="_blank" style="color:#c2410c;font-weight:600;text-decoration:none;">[별권4] 연구시설·장비비 통합관리제 매뉴얼 PDF 보기/다운로드 →</a>
-</div>
 <div class="toolbar">
   <span class="nav-label">바로가기</span>
   <a class="toc-btn" href="#overview">제도 개요</a>
@@ -114,10 +110,10 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 1. 제도 개요 -->
   <div id="overview" class="section">
-    <div class="sec-head">📖 연구시설·장비비 통합관리제 개요</div>
+    <div class="sec-head">연구시설·장비비 통합관리제 개요</div>
     <div class="section-body">
       <div class="info-box">
-        <div class="box-title">📌 제도 목적</div>
+        <div class="box-title">제도 목적</div>
         국가연구개발과제 재원으로 도입·활용된 연구장비를 <strong>연구개발기간 종료 후에도</strong> 유지·보수하며 안정적으로 운영하기 위한 제도.<br>
         연구시설·장비비(유지·보수비)를 별도 <strong>통합관리계정</strong>에 적립하고, 기간 종료 후에도 활용 가능.
       </div>
@@ -200,7 +196,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 3. 통합관리 단위별 적립 한도 -->
   <div id="limit" class="section">
-    <div class="sec-head">💰 통합관리 단위별 적립 한도 (표 3)</div>
+    <div class="sec-head">통합관리 단위별 적립 한도 (표 3)</div>
     <div class="section-body">
       <table>
         <thead>
@@ -229,7 +225,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
         </tbody>
       </table>
       <div class="info-box" style="margin-top:14px;">
-        <div class="box-title">📌 한도 증액 시</div>
+        <div class="box-title">한도 증액 시</div>
         적립한도 증액 신청서 + 해당 계정의 통합 연구시설·장비비 적립·사용 내역 제출 → <strong>과학기술정보통신부 장관 승인</strong> 필요<br>
         <span class="note" style="color:var(--amber);">※ 연구책임자 계정의 한도 증액은 특별한 사유가 없는 한 제한적 허용 예정</span>
       </div>
@@ -238,10 +234,10 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 4. 장비심의위원회 -->
   <div id="committee" class="section">
-    <div class="sec-head">⚖️ 장비심의위원회 (사전승인 요건)</div>
+    <div class="sec-head">장비심의위원회 (사전승인 요건)</div>
     <div class="section-body">
       <div class="info-box">
-        <div class="box-title">📌 장비심의위원회 구성·운영 = 통합관리기관 지정 필수 요건</div>
+        <div class="box-title">장비심의위원회 구성·운영 = 통합관리기관 지정 필수 요건</div>
         통합관리기관으로 지정받으려는 기관은 반드시 <strong>자체 장비심의위원회</strong>를 구성·운영하여야 합니다.
       </div>
       <table>
@@ -273,7 +269,7 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 5. 사용 기준 -->
   <div id="usage" class="section">
-    <div class="sec-head">✅ 통합 연구시설·장비비 사용 기준 (표 6)</div>
+    <div class="sec-head">통합 연구시설·장비비 사용 기준 (표 6)</div>
     <div class="section-body">
       <table>
         <thead>
@@ -287,26 +283,26 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
         <tbody>
           <tr>
             <td>국가연구개발사업 재원 장비</td>
-            <td class="ok">✅ 사용 가능</td>
-            <td class="no">✗ 불가</td>
+            <td class="ok">○ 사용 가능</td>
+            <td class="no">× 불가</td>
             <td>제도 시행 전 구축된 시설·장비도 사용 가능</td>
           </tr>
           <tr>
             <td>기관 기본사업 재원 장비</td>
-            <td class="ok">✅ 사용 가능</td>
-            <td class="no">✗ 불가</td>
+            <td class="ok">○ 사용 가능</td>
+            <td class="no">× 불가</td>
             <td></td>
           </tr>
           <tr>
             <td>정부지원 非R&D 구축 장비</td>
-            <td class="ok">✅ 사용 가능</td>
-            <td class="no">✗ 불가</td>
+            <td class="ok">○ 사용 가능</td>
+            <td class="no">× 불가</td>
             <td>과제에 활용되었음이 확인되는 경우에만</td>
           </tr>
           <tr>
             <td>기관 자체 구축 장비 (교비 등)</td>
-            <td class="ok">✅ 사용 가능</td>
-            <td class="no">✗ 불가</td>
+            <td class="ok">○ 사용 가능</td>
+            <td class="no">× 불가</td>
             <td>과제에 활용되었음이 확인되는 경우에만</td>
           </tr>
         </tbody>
@@ -317,10 +313,10 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 
   <!-- 6. 정산 -->
   <div id="settlement" class="section">
-    <div class="sec-head">📋 통합 연구시설·장비비 정산 (사용기준 §104②)</div>
+    <div class="sec-head">통합 연구시설·장비비 정산 (사용기준 §104②)</div>
     <div class="section-body">
       <div class="ok-box">
-        <div class="box-title">✅ 정산 방식 (간소화)</div>
+        <div class="box-title">정산 방식 (간소화)</div>
         연구개발기간 종료 후 개별 과제의 연구개발비 사용실적 제출 시 → 해당 과제의 통합 연구시설·장비비를 <strong>전액 사용한 것으로 보고</strong>.<br><br>
         중앙행정기관·전문기관은 <strong>사용 적정성을 정산하지 않음</strong>.<br>
         다만, 통합관리계정으로 <strong>적립기한 내 이체 여부</strong> 확인 증빙 요구 가능.
