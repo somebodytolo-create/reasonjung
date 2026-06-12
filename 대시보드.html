@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>국가R&D 실무참고 대시보드 (26년도)</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f172a'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='28' cy='28' r='12' fill='none' stroke='%23fff' stroke-width='5.5'/%3E%3Cline x1='37.5' y1='37.5' x2='48' y2='48' stroke='%23fff' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M48 10l1.5 3.5L53 15l-3.5 1.5L48 20l-1.5-3.5L43 15l3.5-1.5Z' fill='%23fff' opacity='.95'/%3E%3C/svg%3E">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,13 +15,13 @@
   --font:'Pretendard Variable',Pretendard,'Nanum Gothic','Malgun Gothic',sans-serif;
   --bg:#f4f6f9;--surface:#fff;--border:#e2e8f0;--border-light:#f1f5f9;
   --text:#0f172a;--text2:#334155;--text3:#64748b;
-  --primary:#ea580c;--primary-light:#fff7ed;
+  --primary:#2563eb;--primary-light:#eff6ff;
   --c상호:#475569;--bg상호:#f8fafc;--bd상호:#e2e8f0;
   --c승인:#c2410c;--bg승인:#fff7ed;--bd승인:#fdba74;
-  --c통보:#475569;--bg통보:#f8fafc;--bd통보:#cbd5e1;
+  --c통보:#0e7490;--bg통보:#f8fafc;--bd통보:#cbd5e1;
   --c책:#0f172a;--bg책:#f1f5f9;
-  --c공:#334155;--bg공:#f1f5f9;
-  --c제외:#475569;--bg제외:#f8fafc;
+  --c공:#1e40af;--bg공:#eff6ff;
+  --c제외:#0e7490;--bg제외:#f8fafc;
 }
 body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
@@ -34,7 +34,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:14
 /* Search */
 .search-wrap{flex:1;max-width:480px;position:relative}
 .search-input{width:100%;padding:9px 38px 9px 40px;border:1.5px solid var(--border);border-radius:100px;font-family:var(--font);font-size:13.5px;color:var(--text);background:var(--bg);outline:none;transition:.15s}
-.search-input:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(234,88,12,.1)}
+.search-input:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
 .search-input::placeholder{color:var(--text3)}
 .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none;font-size:15px}
 .sc{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text3);font-size:16px;display:none}
@@ -184,24 +184,24 @@ footer{text-align:center;padding:18px;font-size:12px;color:var(--text3);border-t
 <style>
 /* ══ 통합 아이덴티티 (메인 검색 페이지와 동일) ══ */
 body { background:#f6f7fb; }
-body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#ea580c); }
+body::before { content:''; display:block; height:4px; background:linear-gradient(135deg,#0f172a,#2563eb); }
 .page-nav { display:flex; align-items:center; gap:12px; padding:9px 20px;
   background:rgba(255,255,255,.92); border-bottom:1px solid #e5e8eb;
   backdrop-filter:saturate(180%) blur(16px); -webkit-backdrop-filter:saturate(180%) blur(16px); }
 .rj-logo { display:flex; align-items:center; gap:8px; font-size:13.5px; font-weight:800;
   letter-spacing:-.02em; color:#191f28; text-decoration:none; white-space:nowrap; flex-shrink:0; }
 .rj-logo .mark { width:26px; height:26px; border-radius:8px;
-  background:linear-gradient(135deg,#0f172a,#ea580c);
+  background:linear-gradient(135deg,#0f172a,#2563eb);
   display:flex; align-items:center; justify-content:center; }
 .rj-logo .mark svg { width:13px; height:13px; stroke:#fff; stroke-width:2.6; fill:none; stroke-linecap:round; }
-.rj-logo:hover { color:#ea580c; }
+.rj-logo:hover { color:#1d4ed8; }
 .rj-links { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; margin-left:auto; }
 .rj-links::-webkit-scrollbar { display:none; }
 .rj-chip { font-size:12px; font-weight:600; color:#4e5968; background:#fff;
   border:1px solid #e5e8eb; border-radius:100px; padding:3px 11px;
   text-decoration:none; white-space:nowrap; transition:all .15s; }
-.rj-chip:hover { color:#ea580c; border-color:#fcd9bd; background:#fff4ed; }
-.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#ea580c); border-color:transparent; }
+.rj-chip:hover { color:#1d4ed8; border-color:#c7d4e8; background:#eef2f7; }
+.rj-chip.on { color:#fff; background:linear-gradient(135deg,#0f172a,#2563eb); border-color:transparent; }
 .page-hero { display:flex; align-items:center; gap:14px; }
 .rj-picon { flex-shrink:0; width:46px; height:46px; border-radius:13px;
   background:#0f172a; color:#fff; display:flex; align-items:center; justify-content:center; }
@@ -212,8 +212,9 @@ body::before { content:''; display:block; height:4px; background:linear-gradient
 </style>
 <style>
 /* ══ 가독성 리워크 (2026.06.12) ══ */
-.card-head { flex-wrap:wrap; }
-.card-head .sec-law { margin-left:auto; font-size:11px; font-weight:600; color:#94a3b8; white-space:nowrap; padding-left:12px; }
+.card-head { flex-wrap:wrap; background:#1e293b; color:#fff; }
+.card-head .sec-law a, .card-head a.law-ref { color:#cbd5e1; }
+.card-head .sec-law { color:#94a3b8 !important; margin-left:auto; font-size:11px; font-weight:600; color:#94a3b8; white-space:nowrap; padding-left:12px; }
 a.law-ref { color:#475569; font-weight:600; text-decoration:none; border-bottom:1px dotted #cbd5e1; }
 a.law-ref:hover { color:#c2410c; border-bottom-color:#fdba74; }
 </style>
