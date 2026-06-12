@@ -661,6 +661,9 @@ const D = {
 function showDrawer(id){
   const data=D[id];
   if(!data)return;
+  const _dw=document.getElementById('drawer');
+  if(_dw.classList.contains('open')&&window.__curD===id){closeDrawer();return;}
+  window.__curD=id;
   document.getElementById('dBadge').innerHTML=`<span class="badge ${data.bc}">${data.badge}</span>`;
   document.getElementById('dTitle').textContent=data.title;
   let html=`<div class="d-law">${data.law}</div>`;
